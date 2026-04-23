@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Splash Screen drawable personalizado.
+     Referencia @color/maui_splash_color que MAUI genera como base,
+     pero values-night/colors.xml lo sobrescribe con el color oscuro. -->
+<layer-list
+    android:opacity="opaque"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@color/maui_splash_color" />
+    <item
+        android:drawable="@drawable/maui_splash_image"
+        android:gravity="center" />
+</layer-list>

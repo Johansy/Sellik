@@ -1,0 +1,618 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CajaApp.Views.VoucherScannerPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converters="clr-namespace:CajaApp.Converters"
+    xmlns:viewmodels="clr-namespace:CajaApp.ViewModels"
+    xmlns:loc="clr-namespace:CajaApp.Helpers;assembly=Sellik"
+    Title="{loc:Translate Voucher_Titulo}"
+    x:DataType="viewmodels:VoucherViewModel"
+    BackgroundColor="{DynamicResource BackgroundColor}">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Text="{loc:Translate Voucher_BtnEliminarTodos}"
+            Clicked="OnEliminarTodosClicked"
+            Order="Primary"
+            Priority="0" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:StringToBoolConverter x:Key="StringToBoolConverter" />
+            <converters:ObjectToBoolConverter x:Key="ObjectToBoolConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <!--  header totales  -->
+            <RowDefinition Height="Auto" />
+            <!--  botones escanear  -->
+            <RowDefinition Height="Auto" />
+            <!--  barra de filtros  -->
+            <RowDefinition Height="Auto" />
+            <!--  panel verde previsualización  -->
+            <RowDefinition Height="*" />
+            <!--  lista vouchers  -->
+            <RowDefinition Height="Auto" />
+            <!--  barra de acciones  -->
+        </Grid.RowDefinitions>
+
+        <!--  ══ Header con totales ══════════════════════════════════════════════  -->
+        <Border
+            Grid.Row="0"
+            Margin="10,10,10,5"
+            Background="#673AB7"
+            StrokeShape="RoundRectangle 10"
+            StrokeThickness="0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <StackLayout Grid.Column="0" HorizontalOptions="Center">
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="11"
+                        HorizontalOptions="Center"
+                        Text="{loc:Translate Voucher_Credito}"
+                        TextColor="White" />
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="15"
+                        HorizontalOptions="Center"
+                        Text="{Binding TotalCredito, StringFormat='${0:F2}'}"
+                        TextColor="#FFCDD2" />
+                </StackLayout>
+
+                <StackLayout Grid.Column="1" HorizontalOptions="Center">
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="11"
+                        HorizontalOptions="Center"
+                        Text="{loc:Translate Voucher_Debito}"
+                        TextColor="White" />
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="15"
+                        HorizontalOptions="Center"
+                        Text="{Binding TotalDebito, StringFormat='${0:F2}'}"
+                        TextColor="#BBDEFB" />
+                </StackLayout>
+
+                <StackLayout Grid.Column="2" HorizontalOptions="Center">
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="11"
+                        HorizontalOptions="Center"
+                        Text="{loc:Translate Voucher_Total}"
+                        TextColor="White" />
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="17"
+                        HorizontalOptions="Center"
+                        Text="{Binding TotalVouchers, StringFormat='${0:F2}'}"
+                        TextColor="White" />
+                </StackLayout>
+            </Grid>
+        </Border>
+
+        <!--  ══ Botones de escaneo ═════════════════════════════════════════════════════  -->
+        <Border
+            Grid.Row="1"
+            Margin="10,5"
+            Background="{DynamicResource SurfaceColor}"
+            StrokeShape="RoundRectangle 10"
+            StrokeThickness="0">
+            <StackLayout HorizontalOptions="Fill" Orientation="Horizontal">
+                <Button
+                    x:Name="EscanearCamaraButton"
+                    BackgroundColor="#4CAF50"
+                    Clicked="OnEscanearCamaraClicked"
+                    CornerRadius="10"
+                    FontAttributes="Bold"
+                    FontSize="15"
+                    HorizontalOptions="Fill"
+                    Text="{loc:Translate Voucher_BtnEscanear}"
+                    TextColor="White" />
+
+                <Button
+                    x:Name="SeleccionarImagenButton"
+                    Margin="10,0,0,0"
+                    BackgroundColor="#2196F3"
+                    Clicked="OnSeleccionarImagenClicked"
+                    CornerRadius="10"
+                    FontAttributes="Bold"
+                    FontSize="15"
+                    HorizontalOptions="Fill"
+                    Text="{loc:Translate Voucher_BtnGaleria}"
+                    TextColor="White" />
+            </StackLayout>
+        </Border>
+
+        <!--  ══ Barra de filtros de fecha ════════════════════════════════════  -->
+        <Border
+            Grid.Row="2"
+            Margin="10,0,10,5"
+            Padding="8,6"
+            Background="{DynamicResource SurfaceColor}"
+            StrokeShape="RoundRectangle 10"
+            StrokeThickness="0">
+            <StackLayout Spacing="6">
+                <!--  Chips de período  -->
+                <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+                    <HorizontalStackLayout Spacing="6">
+                        <Button
+                            x:Name="FiltroTodosBtn"
+                            BackgroundColor="#673AB7"
+                            Clicked="OnFiltroTodosClicked"
+                            CornerRadius="16"
+                            FontSize="12"
+                            Padding="12,4"
+                            Text="{loc:Translate Voucher_FiltroTodos}"
+                            TextColor="White" />
+                        <Button
+                            x:Name="FiltroHoyBtn"
+                            BackgroundColor="#607D8B"
+                            Clicked="OnFiltroHoyClicked"
+                            CornerRadius="16"
+                            FontSize="12"
+                            Padding="12,4"
+                            Text="{loc:Translate Voucher_FiltroHoy}"
+                            TextColor="White" />
+                        <Button
+                            x:Name="FiltroSemanaBtn"
+                            BackgroundColor="#607D8B"
+                            Clicked="OnFiltroSemanaClicked"
+                            CornerRadius="16"
+                            FontSize="12"
+                            Padding="12,4"
+                            Text="{loc:Translate Voucher_FiltroSemana}"
+                            TextColor="White" />
+                        <Button
+                            x:Name="FiltroMesBtn"
+                            BackgroundColor="#607D8B"
+                            Clicked="OnFiltroMesClicked"
+                            CornerRadius="16"
+                            FontSize="12"
+                            Padding="12,4"
+                            Text="{loc:Translate Voucher_FiltroMes}"
+                            TextColor="White" />
+                        <Button
+                            x:Name="FiltroAnioBtn"
+                            BackgroundColor="#607D8B"
+                            Clicked="OnFiltroAnioClicked"
+                            CornerRadius="16"
+                            FontSize="12"
+                            Padding="12,4"
+                            Text="{loc:Translate Voucher_FiltroAnio}"
+                            TextColor="White" />
+                        <Button
+                            x:Name="FiltroFechaBtn"
+                            BackgroundColor="#607D8B"
+                            Clicked="OnFiltroFechaClicked"
+                            CornerRadius="16"
+                            FontSize="12"
+                            Padding="12,4"
+                            Text="{loc:Translate Voucher_FiltroFecha}"
+                            TextColor="White" />
+                    </HorizontalStackLayout>
+                </ScrollView>
+                <!--  Chips de orden  -->
+                <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+                    <HorizontalStackLayout Spacing="6">
+                        <Button
+                            x:Name="OrdenFechaVoucherBtn"
+                            BackgroundColor="#673AB7"
+                            Clicked="OnOrdenFechaVoucherClicked"
+                            CornerRadius="16"
+                            FontSize="12"
+                            Padding="12,4"
+                            Text="📄 Fecha voucher"
+                            TextColor="White" />
+                        <Button
+                            x:Name="OrdenFechaEscaneoBtn"
+                            BackgroundColor="#607D8B"
+                            Clicked="OnOrdenFechaEscaneoClicked"
+                            CornerRadius="16"
+                            FontSize="12"
+                            Padding="12,4"
+                            Text="📷 Fecha escaneo"
+                            TextColor="White" />
+                    </HorizontalStackLayout>
+                </ScrollView>
+                <!--  DatePicker (visible solo con filtro Fecha personalizada)  -->
+                <DatePicker
+                    x:Name="FechaPersonalizadaPicker"
+                    IsVisible="False"
+                    DateSelected="OnFechaPersonalizadaChanged"
+                    Format="dd/MM/yyyy"
+                    HorizontalOptions="Start" />
+            </StackLayout>
+        </Border>
+
+        <!--  ══ Panel verde de previsualización ══════════════════════════════  -->
+        <Border
+            Grid.Row="3"
+            Margin="10,5"
+            Background="{DynamicResource SurfaceColor}"
+            IsVisible="{Binding VoucherPrevisualizacion, Converter={StaticResource ObjectToBoolConverter}}"
+            StrokeShape="RoundRectangle 10"
+            StrokeThickness="0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Label
+                    Grid.Row="0"
+                    FontAttributes="Bold"
+                    FontSize="13"
+                    HorizontalOptions="Center"
+                    Text="{loc:Translate Voucher_Detectado}"
+                    TextColor="#2E7D32" />
+
+                <Grid Grid.Row="1" Margin="0,8">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Margin="0,0,8,0"
+                        FontAttributes="Bold"
+                        FontSize="12"
+                        Text="Comercio:"
+                        VerticalOptions="Center" />
+                    <Entry
+                        x:Name="ComercioEntry"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        FontSize="12"
+                        Text="{Binding VoucherPrevisualizacion.Comercio}" />
+
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Margin="0,0,8,0"
+                        FontAttributes="Bold"
+                        FontSize="12"
+                        Text="Tipo:"
+                        VerticalOptions="Center" />
+                    <Picker
+                        x:Name="TipoPagoPicker"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        FontSize="12">
+                        <Picker.Items>
+                            <x:String>Credito</x:String>
+                            <x:String>Debito</x:String>
+                            <x:String>Efectivo</x:String>
+                            <x:String>Transferencia</x:String>
+                            <x:String>Otro</x:String>
+                        </Picker.Items>
+                    </Picker>
+
+                    <Label
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Margin="0,0,8,0"
+                        FontAttributes="Bold"
+                        FontSize="12"
+                        Text="Subtotal:"
+                        VerticalOptions="Center" />
+                    <Entry
+                        x:Name="SubtotalEntry"
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        FontSize="12"
+                        Keyboard="Numeric"
+                        Text="{Binding VoucherPrevisualizacion.Subtotal, StringFormat='{0:F2}'}" />
+
+                    <Label
+                        Grid.Row="3"
+                        Grid.Column="0"
+                        Margin="0,0,8,0"
+                        FontAttributes="Bold"
+                        FontSize="12"
+                        Text="Descuento:"
+                        TextColor="#E53935"
+                        VerticalOptions="Center" />
+                    <Entry
+                        x:Name="DescuentoEntry"
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        FontSize="12"
+                        Keyboard="Numeric"
+                        Text="{Binding VoucherPrevisualizacion.Descuentos, StringFormat='{0:F2}'}"
+                        TextColor="#E53935" />
+
+                    <Label
+                        Grid.Row="4"
+                        Grid.Column="0"
+                        Margin="0,0,8,0"
+                        FontAttributes="Bold"
+                        FontSize="12"
+                        Text="Total:"
+                        VerticalOptions="Center" />
+                    <Entry
+                        x:Name="TotalEntry"
+                        Grid.Row="4"
+                        Grid.Column="1"
+                        FontSize="12"
+                        Keyboard="Numeric"
+                        Text="{Binding VoucherPrevisualizacion.Total, StringFormat='{0:F2}'}" />
+                </Grid>
+
+                <StackLayout
+                    Grid.Row="2"
+                    HorizontalOptions="Center"
+                    Orientation="Horizontal">
+                    <Button
+                        x:Name="GuardarVoucherButton"
+                        Padding="20,5"
+                        BackgroundColor="#4CAF50"
+                        Clicked="OnGuardarVoucherClicked"
+                        CornerRadius="8"
+                        FontAttributes="Bold"
+                        FontSize="13"
+                        Text="{loc:Translate Btn_Guardar}"
+                        TextColor="White" />
+
+                    <Button
+                        x:Name="CancelarVoucherButton"
+                        Margin="10,0,0,0"
+                        Padding="20,5"
+                        BackgroundColor="#F44336"
+                        Clicked="OnCancelarVoucherClicked"
+                        CornerRadius="8"
+                        FontAttributes="Bold"
+                        FontSize="13"
+                        Text="{loc:Translate Btn_Cancelar}"
+                        TextColor="White" />
+                </StackLayout>
+            </Grid>
+        </Border>
+
+        <!--  ══ Lista de vouchers con checkbox de selección ═══════════════════  -->
+        <Border
+            Grid.Row="4"
+            Margin="10,5"
+            Background="{DynamicResource SurfaceColor}"
+            StrokeShape="RoundRectangle 10"
+            StrokeThickness="0">
+            <CollectionView
+                x:Name="VouchersCollectionView"
+                ItemsSource="{Binding VouchersConCheck}"
+                SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="viewmodels:VoucherSeleccion">
+                        <Grid Padding="10,6">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30" />
+                                <!--  checkbox  -->
+                                <ColumnDefinition Width="55" />
+                                <!--  tipo badge  -->
+                                <ColumnDefinition Width="*" />
+                                <!--  info  -->
+                                <ColumnDefinition Width="80" />
+                                <!--  total  -->
+                                <ColumnDefinition Width="50" />
+                                <!--  acciones  -->
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <!--  Checkbox de selección  -->
+                            <CheckBox
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="0"
+                                IsChecked="{Binding Seleccionado, Mode=TwoWay}"
+                                VerticalOptions="Center"
+                                Color="#673AB7" />
+
+                            <!--  Badge tipo pago  -->
+                            <Border
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="1"
+                                Padding="4,2"
+                                Background="{Binding ColorTipo}"
+                                StrokeShape="RoundRectangle 6"
+                                StrokeThickness="0">
+                                <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                                    <Label
+                                        FontSize="16"
+                                        HorizontalOptions="Center"
+                                        Text="💳" />
+                                    <Label
+                                        FontAttributes="Bold"
+                                        FontSize="8"
+                                        HorizontalOptions="Center"
+                                        Text="{Binding TipoPagoTexto}"
+                                        TextColor="White" />
+                                </StackLayout>
+                            </Border>
+
+                            <!--  Comercio y fecha  -->
+                            <StackLayout
+                                Grid.Row="0"
+                                Grid.Column="2"
+                                Margin="8,0"
+                                VerticalOptions="Start">
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="13"
+                                    Text="{Binding Comercio}" />
+                                <Label
+                                    FontSize="10"
+                                    Text="{Binding FechaTexto}"
+                                    TextColor="Gray" />
+                            </StackLayout>
+
+                            <!--  Total  -->
+                            <Label
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="3"
+                                FontAttributes="Bold"
+                                FontSize="15"
+                                HorizontalOptions="End"
+                                Text="{Binding TotalTexto}"
+                                TextColor="{Binding ColorTipo}"
+                                VerticalOptions="Center" />
+
+                            <!--  Acciones  -->
+                            <StackLayout
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                Grid.Column="4"
+                                VerticalOptions="Center">
+                                <Button
+                                    BackgroundColor="Transparent"
+                                    Clicked="OnVerDetalleClicked"
+                                    CommandParameter="{Binding Voucher}"
+                                    FontSize="14"
+                                    Text="👁️"
+                                    TextColor="#2196F3" />
+                                <Button
+                                    BackgroundColor="Transparent"
+                                    Clicked="OnEliminarVoucherClicked"
+                                    CommandParameter="{Binding Voucher}"
+                                    FontSize="14"
+                                    Text="🗑️"
+                                    TextColor="#F44336" />
+                            </StackLayout>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+                <CollectionView.EmptyView>
+                    <StackLayout
+                        Padding="50"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center">
+                        <Label
+                            FontSize="48"
+                            HorizontalOptions="Center"
+                            Text="📄" />
+                        <Label
+                            FontAttributes="Bold"
+                            FontSize="15"
+                            HorizontalOptions="Center"
+                            Text="{loc:Translate Voucher_ListaVacia}"
+                            TextColor="Gray" />
+                        <Label
+                            Margin="10,5"
+                            FontSize="13"
+                            HorizontalOptions="Center"
+                            Text="{loc:Translate Voucher_ListaVaciaDesc}"
+                            TextColor="Gray" />
+                    </StackLayout>
+                </CollectionView.EmptyView>
+            </CollectionView>
+        </Border>
+
+        <!--  ══ Barra de acciones ═══════════════════════════════════════════════  -->
+        <Grid
+            Grid.Row="5"
+            Margin="10,4,10,16"
+            ColumnSpacing="6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!--  Ver OCR (solo visible si hay texto)  -->
+            <Button
+                x:Name="VerTextoOCRButton"
+                Grid.Column="0"
+                BackgroundColor="#FF9800"
+                Clicked="OnVerTextoOCRClicked"
+                CornerRadius="10"
+                FontSize="13"
+                IsVisible="{Binding TextoOCR, Converter={StaticResource StringToBoolConverter}}"
+                Text="{loc:Translate Voucher_BtnOCR}"
+                TextColor="White" />
+
+            <!--  Exportar (siempre visible si hay vouchers)  -->
+            <Button
+                x:Name="ExportarButton"
+                Grid.Column="1"
+                BackgroundColor="#673AB7"
+                Clicked="OnExportarClicked"
+                CornerRadius="10"
+                FontSize="13"
+                Text="{loc:Translate Voucher_BtnExportar}"
+                TextColor="White" />
+
+            <!--  Reporte texto  -->
+            <Button
+                x:Name="ReporteVouchersButton"
+                Grid.Column="2"
+                BackgroundColor="#2196F3"
+                Clicked="OnGenerarReporteVouchersClicked"
+                CornerRadius="10"
+                FontSize="13"
+                Text="{loc:Translate Voucher_BtnReporte}"
+                TextColor="White" />
+
+            <!--  Seleccionar todos / ninguno  -->
+            <Button
+                x:Name="SeleccionarTodosButton"
+                Grid.Column="3"
+                BackgroundColor="#607D8B"
+                Clicked="OnSeleccionarTodosClicked"
+                CornerRadius="10"
+                FontSize="13"
+                Text="{loc:Translate Voucher_BtnTodos}"
+                TextColor="White" />
+        </Grid>
+
+        <!--  ══ Loading overlay ════════════════════════════════════════════════  -->
+        <Border
+            Grid.RowSpan="6"
+            Background="#80000000"
+            IsVisible="{Binding IsProcessing}"
+            StrokeThickness="0">
+            <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                <ActivityIndicator
+                    IsRunning="{Binding IsProcessing}"
+                    Scale="1.5"
+                    Color="White" />
+                <Label
+                    Margin="10"
+                    FontSize="15"
+                    HorizontalOptions="Center"
+                    Text="{loc:Translate Voucher_Procesando}"
+                    TextColor="White" />
+                <Label
+                    FontSize="13"
+                    HorizontalOptions="Center"
+                    Text="{loc:Translate Voucher_ProcesandoDesc}"
+                    TextColor="LightGray" />
+            </StackLayout>
+        </Border>
+    </Grid>
+</ContentPage>

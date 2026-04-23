@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Popup del flyout: DayNight respeta AppCompatDelegate.DefaultNightMode dinámico -->
+    <style name="Maui.MainTheme" parent="Maui.MainTheme.Base">
+        <item name="popupTheme">@style/ThemeOverlay.AppCompat.DayNight</item>
+    </style>
+
+    <!-- Splash claro: fondo blanco + logo normal -->
+    <style name="Maui.SplashTheme.Light" parent="Maui.SplashTheme">
+        <item name="android:windowBackground">@drawable/maui_splash_light</item>
+        <item name="android:windowSplashScreenBackground">#FFFFFF</item>
+        <item name="android:statusBarColor">#FFFFFF</item>
+        <item name="android:navigationBarColor">#FFFFFF</item>
+    </style>
+
+    <!-- Splash oscuro: fondo oscuro + logo blanco -->
+    <style name="Maui.SplashTheme.Dark" parent="Maui.SplashTheme">
+        <item name="android:windowBackground">@drawable/maui_splash_dark</item>
+        <item name="android:windowSplashScreenBackground">#1C1C1E</item>
+        <item name="android:statusBarColor">#1C1C1E</item>
+        <item name="android:navigationBarColor">#1C1C1E</item>
+    </style>
+</resources>

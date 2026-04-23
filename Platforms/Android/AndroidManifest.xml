@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.companyname.cajaapp">
+  <!-- Cámara -->
+  <uses-permission android:name="android.permission.CAMERA" />
+  <!-- Para seleccionar/leer imágenes en Android 13+ -->
+  <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+  <!-- Compatibilidad anterior (opcional para APIs < 33) -->
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="28" />
+  <uses-feature android:name="android.hardware.camera" android:required="false" />
+  ...
+</manifest>

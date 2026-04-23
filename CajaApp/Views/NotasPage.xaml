@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CajaApp.Views.NotasPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:CajaApp.ViewModels"
+    xmlns:models="clr-namespace:CajaApp.Models"
+    xmlns:loc="clr-namespace:CajaApp.Helpers;assembly=Sellik"
+    xmlns:sys="clr-namespace:System;assembly=netstandard"
+    x:DataType="vm:NotasViewModel"
+    Title="{loc:Translate Notas_Titulo}"
+    BackgroundColor="{DynamicResource BackgroundColor}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!--  Header con estadísticas  -->
+        <Border
+            Grid.Row="0"
+            Margin="10,10,10,5"
+            Background="#9C27B0"
+            StrokeThickness="0"
+            StrokeShape="RoundRectangle 10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <StackLayout Grid.Column="0" HorizontalOptions="Center">
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="12"
+                        HorizontalOptions="Center"
+                        Text="{loc:Translate Notas_Total}"
+                        TextColor="White" />
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="18"
+                        HorizontalOptions="Center"
+                        Text="{Binding TotalNotas}"
+                        TextColor="White" />
+                </StackLayout>
+
+                <StackLayout Grid.Column="1" HorizontalOptions="Center">
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="12"
+                        HorizontalOptions="Center"
+                        Text="{loc:Translate Notas_ConImagen}"
+                        TextColor="White" />
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="18"
+                        HorizontalOptions="Center"
+                        Text="{Binding NotasConImagen}"
+                        TextColor="#C8E6C9" />
+                </StackLayout>
+
+                <StackLayout Grid.Column="2" HorizontalOptions="Center">
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="12"
+                        HorizontalOptions="Center"
+                        Text="{loc:Translate Notas_Favoritas}"
+                        TextColor="White" />
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="18"
+                        HorizontalOptions="Center"
+                        Text="{Binding NotasFavoritas}"
+                        TextColor="#FFE082" />
+                </StackLayout>
+            </Grid>
+        </Border>
+
+        <!--  Botones de nueva nota  -->
+        <Border
+            Grid.Row="1"
+            Margin="10,5"
+            Background="{DynamicResource SurfaceColor}"
+            StrokeThickness="0"
+            StrokeShape="RoundRectangle 10">
+            <StackLayout HorizontalOptions="Fill" Orientation="Horizontal">
+                <Button
+                    x:Name="NuevaNotaTextoButton"
+                    BackgroundColor="#2196F3"
+                    Clicked="OnNuevaNotaTextoClicked"
+                    CornerRadius="10"
+                    FontSize="14"
+                    HorizontalOptions="Fill"
+                    Text="{loc:Translate Notas_BtnTexto}"
+                    TextColor="White" />
+
+                <Button
+                    x:Name="NuevaNotaImagenButton"
+                    Margin="5,0"
+                    BackgroundColor="#4CAF50"
+                    Clicked="OnNuevaNotaImagenClicked"
+                    CornerRadius="10"
+                    FontSize="14"
+                    HorizontalOptions="Fill"
+                    Text="{loc:Translate Notas_BtnFoto}"
+                    TextColor="White" />
+
+                <Button
+                    x:Name="NuevaNotaMixtaButton"
+                    BackgroundColor="#FF9800"
+                    Clicked="OnNuevaNotaMixtaClicked"
+                    CornerRadius="10"
+                    FontSize="14"
+                    HorizontalOptions="Fill"
+                    Text="{loc:Translate Notas_BtnMixta}"
+                    TextColor="White" />
+            </StackLayout>
+        </Border>
+
+        <!--  Filtros  -->
+        <Border
+            Grid.Row="2"
+            Margin="10,5"
+            Background="{DynamicResource SurfaceColor}"
+            StrokeThickness="0"
+            StrokeShape="RoundRectangle 10">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <SearchBar
+                    x:Name="BuscarEntry"
+                    Grid.Row="0"
+                    Placeholder="{loc:Translate Notas_BuscarPlaceholder}"
+                    SearchButtonPressed="OnBuscarPressed"
+                    Text="{Binding FiltroTexto}"
+                    TextChanged="OnBuscarTextChanged" />
+
+                <StackLayout
+                    Grid.Row="1"
+                    Margin="0,5,0,0"
+                    Orientation="Horizontal">
+                    <Picker
+                        x:Name="FiltroTipoPicker"
+                        Title="{loc:Translate Notas_FiltroTipo}"
+                        FontSize="12"
+                        HorizontalOptions="Fill"
+                        SelectedIndexChanged="OnFiltroTipoChanged" />
+
+                    <CheckBox
+                        x:Name="FavoritasCheckBox"
+                        IsChecked="{Binding SoloFavoritas}"
+                        Color="#FF9800" />
+                    <Label
+                        FontSize="12"
+                        Text="{loc:Translate Notas_FiltroFavoritas}"
+                        VerticalOptions="Center" />
+
+                    <Button
+                        x:Name="LimpiarFiltrosButton"
+                        BackgroundColor="Transparent"
+                        Clicked="OnLimpiarFiltrosClicked"
+                        FontSize="12"
+                        Text="✖" />
+                </StackLayout>
+            </Grid>
+        </Border>
+
+        <!--  Filtros de fecha  -->
+        <Border
+            Grid.Row="3"
+            Margin="10,0,10,5"
+            Background="{DynamicResource SurfaceColor}"
+            StrokeThickness="0"
+            StrokeShape="RoundRectangle 10">
+            <Grid RowSpacing="4">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <ScrollView Grid.Row="0" Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+                    <HorizontalStackLayout Spacing="6" Padding="6,6,6,2">
+                        <Button x:Name="BtnFechaTodas"
+                                Text="{loc:Translate Notas_FiltroFechaTodas}"
+                                FontSize="12"
+                                Padding="10,6"
+                                CornerRadius="16"
+                                BackgroundColor="#9C27B0"
+                                TextColor="White"
+                                Clicked="OnFiltroFechaClicked"
+                                CommandParameter="0" />
+                        <Button x:Name="BtnFechaHoy"
+                                Text="{loc:Translate Notas_FiltroFechaHoy}"
+                                FontSize="12"
+                                Padding="10,6"
+                                CornerRadius="16"
+                                BackgroundColor="{DynamicResource CardColor}"
+                                TextColor="{DynamicResource TextColor}"
+                                Clicked="OnFiltroFechaClicked"
+                                CommandParameter="1" />
+                        <Button x:Name="BtnFechaSemana"
+                                Text="{loc:Translate Notas_FiltroFechaSemana}"
+                                FontSize="12"
+                                Padding="10,6"
+                                CornerRadius="16"
+                                BackgroundColor="{DynamicResource CardColor}"
+                                TextColor="{DynamicResource TextColor}"
+                                Clicked="OnFiltroFechaClicked"
+                                CommandParameter="2" />
+                        <Button x:Name="BtnFechaMes"
+                                Text="{loc:Translate Notas_FiltroFechaMes}"
+                                FontSize="12"
+                                Padding="10,6"
+                                CornerRadius="16"
+                                BackgroundColor="{DynamicResource CardColor}"
+                                TextColor="{DynamicResource TextColor}"
+                                Clicked="OnFiltroFechaClicked"
+                                CommandParameter="3" />
+                        <Button x:Name="BtnFechaAnio"
+                                Text="{loc:Translate Notas_FiltroFechaAnio}"
+                                FontSize="12"
+                                Padding="10,6"
+                                CornerRadius="16"
+                                BackgroundColor="{DynamicResource CardColor}"
+                                TextColor="{DynamicResource TextColor}"
+                                Clicked="OnFiltroFechaClicked"
+                                CommandParameter="4" />
+                    </HorizontalStackLayout>
+                </ScrollView>
+                <Grid Grid.Row="1" Padding="6,2,6,6" ColumnSpacing="8">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0"
+                           Text="{loc:Translate Notas_IrAFecha}"
+                           FontSize="12"
+                           VerticalOptions="Center"
+                           TextColor="{DynamicResource TextColor}" />
+                    <DatePicker x:Name="FechaEspecificaPicker"
+                                Grid.Column="1"
+                                Format="dd/MM/yyyy"
+                                DateSelected="OnFechaEspecificaSelected"
+                                FontSize="12" />
+                </Grid>
+            </Grid>
+        </Border>
+
+        <!--  Lista de notas  -->
+        <CollectionView
+            x:Name="NotasCollectionView"
+            Grid.Row="4"
+            Margin="10,5"
+            ItemsSource="{Binding NotasFiltradas}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:Nota">
+                    <Border
+                        Margin="5"
+                        Padding="10"
+                        BackgroundColor="{DynamicResource CardColor}"
+                        StrokeShape="RoundRectangle 10"
+                        Stroke="Transparent">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <Grid Grid.Row="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <Label
+                                    Grid.Column="0"
+                                    FontAttributes="Bold"
+                                    FontSize="16"
+                                    Text="{Binding Titulo}" />
+
+                                <Label
+                                    Grid.Column="1"
+                                    FontSize="11"
+                                    Text="{Binding FechaTexto}"
+                                    TextColor="Gray" />
+                            </Grid>
+
+                            <Label
+                                Grid.Row="1"
+                                Margin="0,5"
+                                FontSize="13"
+                                Text="{Binding ResumenContenido}"
+                                TextColor="Gray" />
+
+                            <StackLayout
+                                Grid.Row="2"
+                                HorizontalOptions="End"
+                                Orientation="Horizontal">
+                                <Button
+                                    BackgroundColor="Transparent"
+                                    Clicked="OnVerNotaClicked"
+                                    CommandParameter="{Binding .}"
+                                    FontSize="14"
+                                    Text="👁️" />
+                                <Button
+                                    BackgroundColor="Transparent"
+                                    Clicked="OnEditarNotaClicked"
+                                    CommandParameter="{Binding .}"
+                                    FontSize="14"
+                                    Text="✏️" />
+                                <Button
+                                    BackgroundColor="Transparent"
+                                    Clicked="OnToggleFavoritaClicked"
+                                    CommandParameter="{Binding .}"
+                                    FontSize="14"
+                                    Text="{Binding IconoFavorita}" />
+                                <Button
+                                    BackgroundColor="Transparent"
+                                    Clicked="OnEliminarNotaClicked"
+                                    CommandParameter="{Binding .}"
+                                    FontSize="14"
+                                    Text="🗑️" />
+                            </StackLayout>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+            <CollectionView.EmptyView>
+                <StackLayout
+                    Padding="50"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+                    <Label
+                        FontSize="48"
+                        HorizontalOptions="Center"
+                        Text="📝" />
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="18"
+                        HorizontalOptions="Center"
+                        Text="{loc:Translate Notas_EmptyTitle}"
+                        TextColor="Gray" />
+                </StackLayout>
+            </CollectionView.EmptyView>
+        </CollectionView>
+
+        <!--  Botones de acción  -->
+        <StackLayout
+            Grid.Row="5"
+            Margin="10,5,10,20"
+            HorizontalOptions="Fill"
+            Orientation="Horizontal">
+            <Button
+                x:Name="ExportarButton"
+                BackgroundColor="#607D8B"
+                Clicked="OnExportarClicked"
+                CornerRadius="10"
+                HorizontalOptions="Fill"
+                Text="📤"
+                TextColor="White" />
+
+            <Button
+                x:Name="ReporteButton"
+                Margin="10,0"
+                BackgroundColor="#2196F3"
+                Clicked="OnGenerarReporteClicked"
+                CornerRadius="10"
+                HorizontalOptions="Fill"
+                Text="📊"
+                TextColor="White" />
+
+            <Button
+                x:Name="CompartirButton"
+                BackgroundColor="#4CAF50"
+                Clicked="OnCompartirClicked"
+                CornerRadius="10"
+                HorizontalOptions="Fill"
+                Text="📱"
+                TextColor="White" />
+        </StackLayout>
+
+    </Grid>
+</ContentPage>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plist version="1.0">
+  <dict>
+    ...
+    <!-- Mensaje que verá el usuario cuando se solicite acceso a cámara -->
+    <key>NSCameraUsageDescription</key>
+    <string>La app necesita acceder a la cámara para escanear vouchers.</string>
+    ...
+  </dict>
+</plist>

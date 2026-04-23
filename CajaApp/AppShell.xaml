@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="CajaApp.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:CajaApp.Views"
+    xmlns:loc="clr-namespace:CajaApp.Helpers;assembly=Sellik"
+    xmlns:shell="clr-namespace:CajaApp"
+    Title="{loc:Translate Shell_Titulo}"
+    BackgroundColor="{DynamicResource CardColor}"
+    FlyoutBackgroundColor="{DynamicResource CardColor}"
+    FlyoutBehavior="Flyout"
+    Shell.ForegroundColor="{DynamicResource TextColor}"
+    Shell.TitleColor="{DynamicResource TextColor}"
+    Shell.TabBarBackgroundColor="{DynamicResource CardColor}"
+    Shell.TabBarForegroundColor="{DynamicResource PrimaryColor}"
+    Shell.TabBarTitleColor="{DynamicResource PrimaryColor}"
+    Shell.TabBarUnselectedColor="Gray">
+
+    <!-- Cabecera del menú lateral con la sesión activa -->
+    <Shell.FlyoutHeader>
+        <Grid
+            x:DataType="shell:AppShell"
+            Padding="16,40,16,16"
+            BackgroundColor="{DynamicResource PrimaryColor}"
+            RowDefinitions="Auto,Auto,Auto"
+            RowSpacing="4">
+            <Label
+                Grid.Row="0"
+                FontSize="12"
+                Opacity="0.85"
+                Text="{loc:Translate Sesiones_SesionActiva}"
+                TextColor="White" />
+            <Label
+                x:Name="LblNombreSesion"
+                Grid.Row="1"
+                FontAttributes="Bold"
+                FontSize="18"
+                Text=""
+                TextColor="White" />
+            <Button
+                Grid.Row="2"
+                Margin="0,8,0,0"
+                Padding="10,6"
+                BackgroundColor="#00000033"
+                BorderColor="White"
+                BorderWidth="1"
+                Command="{Binding CerrarSesionCommand}"
+                CornerRadius="20"
+                FontSize="12"
+                Text="{loc:Translate Sesiones_CerrarSesion}"
+                TextColor="White" />
+        </Grid>
+    </Shell.FlyoutHeader>
+
+    <!-- Pestañas principales (máx. 4 para evitar el botón "More" nativo de iOS) -->
+    <TabBar>
+        <ShellContent
+            Title="{loc:Translate Nav_Caja}"
+            ContentTemplate="{DataTemplate local:CajaPage}"
+            Icon="cash.png"
+            Route="CajaPage" />
+
+        <ShellContent
+            Title="{loc:Translate Nav_Movimientos}"
+            ContentTemplate="{DataTemplate local:MovimientosPage}"
+            Icon="movements.png"
+            Route="MovimientosPage" />
+
+        <ShellContent
+            Title="{loc:Translate Nav_Vouchers}"
+            ContentTemplate="{DataTemplate local:VoucherScannerPage}"
+            Icon="scanner.png"
+            Route="VoucherScannerPage" />
+
+        <ShellContent
+            Title="{loc:Translate Nav_Notas}"
+            ContentTemplate="{DataTemplate local:NotasPage}"
+            Icon="notes.png"
+            Route="NotasPage" />
+    </TabBar>
+
+    <!-- Entradas del menú lateral que navegan SOBRE las tabs (GoToAsync) -->
+    <MenuItem
+        x:DataType="shell:AppShell"
+        Command="{Binding IrAHistorialCommand}"
+        Text="{loc:Translate Nav_Historial}" />
+
+    <MenuItem
+        x:DataType="shell:AppShell"
+        Command="{Binding IrAEstadisticasCommand}"
+        Text="{loc:Translate Nav_Estadisticas}" />
+
+    <MenuItem
+        x:DataType="shell:AppShell"
+        Command="{Binding IrAConfiguracionCommand}"
+        Text="{loc:Translate Nav_Configuracion}" />
+
+</Shell>

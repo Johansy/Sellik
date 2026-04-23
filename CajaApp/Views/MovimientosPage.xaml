@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CajaApp.Views.MovimientosPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:CajaApp.ViewModels"
+    xmlns:models="clr-namespace:CajaApp.Models"
+    xmlns:converters="clr-namespace:CajaApp.Converters"
+    xmlns:loc="clr-namespace:CajaApp.Helpers;assembly=Sellik"
+    x:DataType="vm:MovimientosViewModel"
+    Title="{loc:Translate Mov_PageTitulo}"
+    BackgroundColor="{DynamicResource BackgroundColor}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:StringToBoolConverter x:Key="StringToBoolConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!--  Header con totales  -->
+        <Border
+            Grid.Row="0"
+            Margin="10,10,10,5"
+            Background="#2E7D32"
+            StrokeThickness="0"
+            StrokeShape="RoundRectangle 10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <StackLayout Grid.Column="0" HorizontalOptions="Center">
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="12"
+                        HorizontalOptions="Center"
+                        Text="{loc:Translate Mov_Entradas}"
+                        TextColor="White" />
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="16"
+                        HorizontalOptions="Center"
+                        Text="{Binding TotalEntradas, StringFormat='+${0:F2}'}"
+                        TextColor="#A5D6A7" />
+                </StackLayout>
+
+                <StackLayout Grid.Column="1" HorizontalOptions="Center">
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="12"
+                        HorizontalOptions="Center"
+                        Text="{loc:Translate Mov_Salidas}"
+                        TextColor="White" />
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="16"
+                        HorizontalOptions="Center"
+                        Text="{Binding TotalSalidas, StringFormat='-${0:F2}'}"
+                        TextColor="#FFCDD2" />
+                </StackLayout>
+
+                <StackLayout Grid.Column="2" HorizontalOptions="Center">
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="12"
+                        HorizontalOptions="Center"
+                        Text="{loc:Translate Mov_Saldo}"
+                        TextColor="White" />
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="18"
+                        HorizontalOptions="Center"
+                        Text="{Binding SaldoTexto}"
+                        TextColor="White" />
+                </StackLayout>
+            </Grid>
+        </Border>
+
+        <!--  Barra de filtros  -->
+        <Border
+            Grid.Row="1"
+            Margin="10,5"
+            Background="{DynamicResource SurfaceColor}"
+            StrokeThickness="0"
+            StrokeShape="RoundRectangle 10">
+            <StackLayout Padding="8,6" Spacing="6">
+
+                <!--  Botones de filtro rápido  -->
+                <Grid ColumnSpacing="4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Button Grid.Column="0"
+                            x:Name="BtnTodo"
+                            Text="{loc:Translate Mov_PeriodoTodo}"
+                            FontSize="11"
+                            Padding="2"
+                            CornerRadius="8"
+                            BackgroundColor="#2E7D32"
+                            TextColor="White"
+                            Clicked="OnFiltroRapidoClicked"
+                            CommandParameter="Todo" />
+
+                    <Button Grid.Column="1"
+                            x:Name="BtnHoy"
+                            Text="{loc:Translate Mov_PeriodoHoy}"
+                            FontSize="11"
+                            Padding="2"
+                            CornerRadius="8"
+                            BackgroundColor="{DynamicResource SurfaceVariantColor}"
+                            TextColor="{DynamicResource OnSurfaceColor}"
+                            Clicked="OnFiltroRapidoClicked"
+                            CommandParameter="Hoy" />
+
+                    <Button Grid.Column="2"
+                            x:Name="BtnSemana"
+                            Text="{loc:Translate Mov_PeriodoSemana}"
+                            FontSize="11"
+                            Padding="2"
+                            CornerRadius="8"
+                            BackgroundColor="{DynamicResource SurfaceVariantColor}"
+                            TextColor="{DynamicResource OnSurfaceColor}"
+                            Clicked="OnFiltroRapidoClicked"
+                            CommandParameter="Semana" />
+
+                    <Button Grid.Column="3"
+                            x:Name="BtnMes"
+                            Text="{loc:Translate Mov_PeriodoMes}"
+                            FontSize="11"
+                            Padding="2"
+                            CornerRadius="8"
+                            BackgroundColor="{DynamicResource SurfaceVariantColor}"
+                            TextColor="{DynamicResource OnSurfaceColor}"
+                            Clicked="OnFiltroRapidoClicked"
+                            CommandParameter="Mes" />
+
+                    <Button Grid.Column="4"
+                            x:Name="BtnAnio"
+                            Text="{loc:Translate Mov_PeriodoAnio}"
+                            FontSize="11"
+                            Padding="2"
+                            CornerRadius="8"
+                            BackgroundColor="{DynamicResource SurfaceVariantColor}"
+                            TextColor="{DynamicResource OnSurfaceColor}"
+                            Clicked="OnFiltroRapidoClicked"
+                            CommandParameter="Anio" />
+                </Grid>
+
+                <!--  DatePicker para fecha específica  -->
+                <Grid ColumnSpacing="6">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0"
+                           Text="{loc:Translate Mov_FiltroFecha}"
+                           VerticalOptions="Center"
+                           FontSize="13" />
+                    <DatePicker Grid.Column="1"
+                                x:Name="FiltroFechaPicker"
+                                Date="{Binding FechaFiltro}"
+                                FontSize="13"
+                                DateSelected="OnFiltroFechaSeleccionada" />
+                </Grid>
+            </StackLayout>
+        </Border>
+
+        <!--  Formulario de nuevo movimiento  -->
+        <Border
+            Grid.Row="2"
+            Margin="10,5"
+            Background="{DynamicResource SurfaceColor}"
+            StrokeThickness="0"
+            StrokeShape="RoundRectangle 10">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!--  Tipo de movimiento  -->
+                    <StackLayout Grid.Column="0" Margin="5">
+                        <Label
+                            FontAttributes="Bold"
+                            FontSize="12"
+                            Text="{loc:Translate Mov_LblTipo}" />
+                        <Picker
+                            x:Name="TipoPicker"
+                            Title="{loc:Translate Mov_PlaceholderTipo}"
+                            FontSize="14" />
+                    </StackLayout>
+
+                    <!--  Fecha  -->
+                    <StackLayout Grid.Column="1" Margin="5">
+                        <Label
+                            FontAttributes="Bold"
+                            FontSize="12"
+                            Text="{loc:Translate Mov_LblFecha}" />
+                        <DatePicker
+                            x:Name="FechaPicker"
+                            FontSize="14" />
+                    </StackLayout>
+                </Grid>
+
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="100" />
+                    </Grid.ColumnDefinitions>
+
+                    <!--  Concepto  -->
+                    <StackLayout Grid.Column="0" Margin="5">
+                        <Label
+                            FontAttributes="Bold"
+                            FontSize="12"
+                            Text="{loc:Translate Mov_LblConcepto}" />
+                        <Picker
+                            x:Name="ConceptoPicker"
+                            Title="{loc:Translate Mov_PlaceholderConcepto}"
+                            FontSize="14" />
+                    </StackLayout>
+
+                    <!--  Monto  -->
+                    <StackLayout Grid.Column="1" Margin="5">
+                        <Label
+                            FontAttributes="Bold"
+                            FontSize="12"
+                            Text="{loc:Translate Mov_LblMonto}" />
+                        <Entry
+                            x:Name="MontoEntry"
+                            FontSize="14"
+                            Keyboard="Numeric"
+                            Placeholder="0.00" />
+                    </StackLayout>
+                </Grid>
+
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="80" />
+                    </Grid.ColumnDefinitions>
+
+                    <!--  Descripción  -->
+                    <StackLayout Grid.Column="0" Margin="5">
+                        <Label
+                            FontAttributes="Bold"
+                            FontSize="12"
+                            Text="{loc:Translate Mov_LblDescripcion}" />
+                        <Entry
+                            x:Name="DescripcionEntry"
+                            FontSize="14"
+                            Placeholder="{loc:Translate Mov_PlaceholderDescripcion}" />
+                    </StackLayout>
+
+                    <!--  Botón agregar  -->
+                    <Button
+                        x:Name="AgregarButton"
+                        Grid.Column="1"
+                        Margin="5,20,5,5"
+                        BackgroundColor="#4CAF50"
+                        Clicked="OnAgregarClicked"
+                        CornerRadius="10"
+                        FontAttributes="Bold"
+                        FontSize="24"
+                        Text="+"
+                        TextColor="White" />
+                </Grid>
+            </Grid>
+        </Border>
+
+        <!--  Lista de movimientos  -->
+        <Border
+            Grid.Row="3"
+            Margin="10,5"
+            Background="{DynamicResource SurfaceColor}"
+            StrokeThickness="0"
+            StrokeShape="RoundRectangle 10">
+            <CollectionView
+                x:Name="MovimientosCollectionView"
+                ItemsSource="{Binding MovimientosFiltrados}"
+                SelectedItem="{Binding MovimientoSeleccionado}"
+                SelectionMode="Single">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:MovimientoEfectivo">
+                        <Grid Padding="10,5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="80" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="50" />
+                            </Grid.ColumnDefinitions>
+
+                            <Border
+                                Grid.Column="0"
+                                Padding="5,2"
+                                Background="{Binding ColorTipoFondo}"
+                                StrokeThickness="0"
+                                StrokeShape="RoundRectangle 5">
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="10"
+                                    HorizontalOptions="Center"
+                                    Text="{Binding TipoTexto}"
+                                    TextColor="White" />
+                            </Border>
+
+                            <StackLayout
+                                Grid.Column="1"
+                                Margin="10,0"
+                                VerticalOptions="Center">
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="14"
+                                    Text="{Binding Concepto}" />
+                                <Label
+                                    FontSize="12"
+                                    Text="{Binding Fecha, StringFormat='{0:dd/MM/yyyy}'}"
+                                    TextColor="Gray" />
+                                <Label
+                                    FontSize="11"
+                                    IsVisible="{Binding Descripcion, Converter={StaticResource StringToBoolConverter}}"
+                                    Text="{Binding Descripcion}"
+                                    TextColor="Gray" />
+                            </StackLayout>
+
+                            <Label
+                                Grid.Column="2"
+                                FontAttributes="Bold"
+                                FontSize="16"
+                                HorizontalOptions="End"
+                                Text="{Binding MontoTexto}"
+                                TextColor="{Binding ColorTipoTexto}"
+                                VerticalOptions="Center" />
+
+                            <Button
+                                Grid.Column="3"
+                                BackgroundColor="Transparent"
+                                Clicked="OnEliminarClicked"
+                                CommandParameter="{Binding .}"
+                                FontSize="16"
+                                Text="🗑️"
+                                TextColor="#F44336" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+                <CollectionView.EmptyView>
+                    <StackLayout
+                        Padding="50"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center">
+                        <Label
+                            FontSize="48"
+                            HorizontalOptions="Center"
+                            Text="📊" />
+                        <Label
+                            FontAttributes="Bold"
+                            FontSize="16"
+                            HorizontalOptions="Center"
+                            Text="{loc:Translate Mov_EmptyTitle}"
+                            TextColor="Gray" />
+                        <Label
+                            Margin="10,5"
+                            FontSize="14"
+                            HorizontalOptions="Center"
+                            Text="{loc:Translate Mov_EmptyMsg}"
+                            TextColor="Gray" />
+                    </StackLayout>
+                </CollectionView.EmptyView>
+            </CollectionView>
+        </Border>
+
+        <!--  Botones de acción  -->
+        <Grid
+            Grid.Row="4"
+            Margin="10,5,10,20"
+            ColumnSpacing="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button
+                Grid.Column="0"
+                x:Name="LimpiarButton"
+                BackgroundColor="#FF9800"
+                Clicked="OnLimpiarFormularioClicked"
+                CornerRadius="10"
+                Text="{loc:Translate Btn_Limpiar}"
+                TextColor="White" />
+
+            <Button
+                Grid.Column="1"
+                x:Name="ReporteButton"
+                BackgroundColor="#2196F3"
+                Clicked="OnGenerarReporteClicked"
+                CornerRadius="10"
+                Text="{loc:Translate Mov_BtnReporte}"
+                TextColor="White" />
+
+            <Button
+                Grid.Column="2"
+                x:Name="CompartirButton"
+                BackgroundColor="#4CAF50"
+                Clicked="OnCompartirClicked"
+                CornerRadius="10"
+                Text="{loc:Translate Btn_Compartir}"
+                TextColor="White" />
+
+            <Button
+                Grid.Column="3"
+                x:Name="ExportExcelButton"
+                BackgroundColor="#1565C0"
+                Clicked="OnExportarExcelClicked"
+                CornerRadius="10"
+                Text="📊 Excel"
+                TextColor="White" />
+
+            <Button
+                Grid.Column="4"
+                x:Name="ExportPdfButton"
+                BackgroundColor="#B71C1C"
+                Clicked="OnExportarPdfClicked"
+                CornerRadius="10"
+                Text="📄 PDF"
+                TextColor="White" />
+        </Grid>
+
+        <!--  Loading overlay  -->
+        <Border
+            Grid.RowSpan="5"
+            Background="#80000000"
+            StrokeThickness="0"
+            IsVisible="{Binding IsLoading}">
+            <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                <ActivityIndicator
+                    IsRunning="{Binding IsLoading}"
+                    Scale="1.5"
+                    Color="White" />
+                <Label
+                    Margin="10"
+                    FontSize="16"
+                    Text="{loc:Translate Lbl_Cargando}"
+                    TextColor="White" />
+            </StackLayout>
+        </Border>
+    </Grid>
+</ContentPage>

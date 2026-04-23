@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CajaApp.Views.AcercaDePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:loc="clr-namespace:CajaApp.Helpers;assembly=Sellik"
+    Title="{loc:Translate Acerca_Titulo}"
+    BackgroundColor="{DynamicResource BackgroundColor}">
+
+    <ScrollView>
+        <StackLayout Padding="20">
+
+            <!--  Logo/Icono  -->
+            <Border
+                Margin="0,20,0,30"
+                Background="Transparent"
+                StrokeThickness="0">
+                <StackLayout HorizontalOptions="Center">
+                    <Image
+                        HeightRequest="100"
+                        HorizontalOptions="Center"
+                        Source="appiconfg.svg"
+                        WidthRequest="100" />
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="32"
+                        HorizontalOptions="Center"
+                        Text="Sellik"
+                        TextColor="{DynamicResource PrimaryColor}" />
+                    <Label
+                        FontSize="16"
+                        HorizontalOptions="Center"
+                        Text="{loc:Translate Acerca_Subtitulo}"
+                        TextColor="{DynamicResource TextColor}" />
+                </StackLayout>
+            </Border>
+
+            <!--  Información Principal  -->
+            <Border
+                Margin="0,0,0,15"
+                Padding="20"
+                Background="{DynamicResource CardColor}"
+                StrokeShape="RoundRectangle 10"
+                StrokeThickness="0">
+                <StackLayout>
+                    <Label
+                        Margin="0,0,0,15"
+                        FontAttributes="Bold"
+                        FontSize="16"
+                        Text="{loc:Translate Acerca_SeccionInfo}"
+                        TextColor="{DynamicResource PrimaryColor}" />
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <Label
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Margin="0,5"
+                            FontAttributes="Bold"
+                            FontSize="14"
+                            Text="{loc:Translate Acerca_Version}" />
+                        <Label
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Margin="10,5,0,5"
+                            FontSize="14"
+                            Text="1.0.0" />
+
+                        <Label
+                            Grid.Row="2"
+                            Grid.Column="0"
+                            Margin="0,5"
+                            FontAttributes="Bold"
+                            FontSize="14"
+                            Text="{loc:Translate Acerca_DesarrolladoPor}" />
+                        <Label
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            Margin="10,5,0,5"
+                            FontSize="14"
+                            Text="QuBitSoft ©️ Yoansy L.T" />
+
+                        <Label
+                            Grid.Row="3"
+                            Grid.Column="0"
+                            Margin="0,5"
+                            FontAttributes="Bold"
+                            FontSize="14"
+                            Text="Email:" />
+
+                        <Label
+                            Grid.Row="3"
+                            Grid.Column="1"
+                            Margin="10,5,0,5"
+                            FontSize="14"
+                            Text="qubitsoftxxi@gmail.com">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnEmailTapped" />
+                            </Label.GestureRecognizers>
+                        </Label>
+
+                        <Label
+                            Grid.Row="4"
+                            Grid.Column="0"
+                            Margin="0,5"
+                            FontAttributes="Bold"
+                            FontSize="14"
+                            Text="{loc:Translate Acerca_FechaBuild}" />
+                        <Label
+                            Grid.Row="4"
+                            Grid.Column="1"
+                            Margin="10,5,0,5"
+                            FontSize="14"
+                            Text="{loc:Translate Acerca_FechaBuildValor}" />
+                    </Grid>
+                </StackLayout>
+            </Border>
+
+            <!--  Características  -->
+            <Border
+                Margin="0,0,0,15"
+                Padding="20"
+                Background="{DynamicResource CardColor}"
+                StrokeShape="RoundRectangle 10"
+                StrokeThickness="0">
+                <StackLayout>
+                    <Label
+                        Margin="0,0,0,15"
+                        FontAttributes="Bold"
+                        FontSize="16"
+                        Text="{loc:Translate Acerca_SeccionCaracteristicas}"
+                        TextColor="{DynamicResource PrimaryColor}" />
+
+                    <StackLayout>
+                        <Label
+                            Margin="0,2"
+                            FontSize="14"
+                            Text="{loc:Translate Acerca_Feat1}" />
+                        <Label
+                            Margin="0,2"
+                            FontSize="14"
+                            Text="{loc:Translate Acerca_Feat2}" />
+                        <Label
+                            Margin="0,2"
+                            FontSize="14"
+                            Text="{loc:Translate Acerca_Feat3}" />
+                        <Label
+                            Margin="0,2"
+                            FontSize="14"
+                            Text="{loc:Translate Acerca_Feat4}" />
+                        <Label
+                            Margin="0,2"
+                            FontSize="14"
+                            Text="{loc:Translate Acerca_Feat5}" />
+                        <Label
+                            Margin="0,2"
+                            FontSize="14"
+                            Text="{loc:Translate Acerca_Feat6}" />
+                        <Label
+                            Margin="0,2"
+                            FontSize="14"
+                            Text="{loc:Translate Acerca_Feat7}" />
+                        <Label
+                            Margin="0,2"
+                            FontSize="14"
+                            Text="{loc:Translate Acerca_Feat8}" />
+                    </StackLayout>
+                </StackLayout>
+            </Border>
+
+            <!--  Tecnologías  -->
+            <Border
+                Margin="0,0,0,15"
+                Padding="20"
+                Background="{DynamicResource CardColor}"
+                StrokeShape="RoundRectangle 10"
+                StrokeThickness="0">
+                <StackLayout>
+                    <Label
+                        Margin="0,0,0,15"
+                        FontAttributes="Bold"
+                        FontSize="16"
+                        Text="{loc:Translate Acerca_SeccionTecnologias}"
+                        TextColor="{DynamicResource PrimaryColor}" />
+
+                    <StackLayout>
+                        <Label
+                            Margin="0,2"
+                            FontSize="14"
+                            Text="{loc:Translate Acerca_Tech1}" />
+                        <Label
+                            Margin="0,2"
+                            FontSize="14"
+                            Text="{loc:Translate Acerca_Tech2}" />
+                        <Label
+                            Margin="0,2"
+                            FontSize="14"
+                            Text="{loc:Translate Acerca_Tech3}" />
+                        <Label
+                            Margin="0,2"
+                            FontSize="14"
+                            Text="{loc:Translate Acerca_Tech4}" />
+                        <Label
+                            Margin="0,2"
+                            FontSize="14"
+                            Text="{loc:Translate Acerca_Tech5}" />
+                        <Label
+                            Margin="0,2"
+                            FontSize="14"
+                            Text="{loc:Translate Acerca_Tech6}" />
+                        <Label
+                            Margin="0,2"
+                            FontSize="14"
+                            Text="{loc:Translate Acerca_Tech7}" />
+                        <Label
+                            Margin="0,2"
+                            FontSize="14"
+                            Text="{loc:Translate Acerca_Tech8}" />
+                    </StackLayout>
+                </StackLayout>
+            </Border>
+
+            <!--  Copyright  -->
+            <Border
+                Margin="0,20,0,20"
+                Background="Transparent"
+                StrokeThickness="0">
+                <StackLayout HorizontalOptions="Center">
+                    <Label
+                        FontSize="12"
+                        HorizontalOptions="Center"
+                        Text="{loc:Translate Acerca_Copyright}"
+                        TextColor="Gray" />
+                    <Label
+                        Margin="0,5,0,0"
+                        FontSize="12"
+                        HorizontalOptions="Center"
+                        Text="{loc:Translate Acerca_HechoCon}"
+                        TextColor="Gray" />
+                </StackLayout>
+            </Border>
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

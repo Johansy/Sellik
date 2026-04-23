@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CajaApp.Views.ConfiguracionPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:loc="clr-namespace:CajaApp.Helpers;assembly=Sellik"
+    xmlns:models="clr-namespace:CajaApp.Models"
+    xmlns:vm="clr-namespace:CajaApp.ViewModels"
+    Title="{loc:Translate Config_PageTitulo}"
+    x:DataType="vm:ConfiguracionViewModel"
+    BackgroundColor="{DynamicResource BackgroundColor}">
+
+    <ScrollView>
+        <StackLayout Padding="20">
+
+            <!--  Header  -->
+            <Border
+                Margin="0,0,0,20"
+                Padding="15"
+                BackgroundColor="{DynamicResource PrimaryColor}"
+                Stroke="Transparent"
+                StrokeShape="RoundRectangle 10">
+                <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="20"
+                        Text="{loc:Translate Config_Titulo}"
+                        TextColor="White" />
+                </StackLayout>
+            </Border>
+
+            <!--  ══ Sección OCR en la Nube ═════════════════════════════════════════════  -->
+            <Border
+                Margin="0,0,0,15"
+                Padding="15"
+                BackgroundColor="{DynamicResource CardColor}"
+                Stroke="Transparent"
+                StrokeShape="RoundRectangle 10">
+                <StackLayout>
+
+                    <!--  Título sección  -->
+                    <Label
+                        Margin="0,0,0,4"
+                        FontAttributes="Bold"
+                        FontSize="16"
+                        Text="{loc:Translate Config_OCRTitulo}"
+                        TextColor="{DynamicResource PrimaryColor}" />
+
+                    <Label
+                        Margin="0,0,0,15"
+                        FontSize="12"
+                        Text="{loc:Translate Config_OCRDesc}"
+                        TextColor="Gray" />
+
+                    <!--  Modo OCR  -->
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="14"
+                        Text="{loc:Translate Config_OCRModo}" />
+                    <Picker
+                        x:Name="ModoOCRPicker"
+                        Margin="0,0,0,6"
+                        BackgroundColor="{DynamicResource SurfaceColor}"
+                        SelectedIndex="{Binding ModoOCRIndex}"
+                        TextColor="{DynamicResource TextColor}" />
+
+                    <!--  Descripción del modo seleccionado  -->
+                    <Border
+                        Margin="0,0,0,15"
+                        Padding="10"
+                        BackgroundColor="#EDE7F6"
+                        Stroke="Transparent"
+                        StrokeShape="RoundRectangle 6">
+                        <Label
+                            FontSize="12"
+                            Text="{Binding DescripcionModoOCR}"
+                            TextColor="#4A148C" />
+                    </Border>
+
+                    <!--  ── API Keys: ocultas temporalmente (usando AppSecrets) ──  -->
+                    <StackLayout IsVisible="False">
+
+                        <!--  ── API Key OpenAI ────────────────────────────────────────────  -->
+                        <Label
+                            FontAttributes="Bold"
+                            FontSize="14"
+                            Text="API Key — OpenAI (GPT-4o Vision)" />
+                        <Label
+                            Margin="0,2,0,6"
+                            FontSize="11"
+                            Text="{loc:Translate Config_OpenAIKeyHint}"
+                            TextColor="Gray" />
+                        <Grid
+                            Margin="0,0,0,4"
+                            ColumnDefinitions="*,44"
+                            ColumnSpacing="6">
+                            <Entry
+                                Grid.Column="0"
+                                BackgroundColor="{DynamicResource SurfaceColor}"
+                                IsPassword="{Binding OcultarKeyOpenAI}"
+                                Placeholder="sk-..."
+                                Text="{Binding ApiKeyOpenAI}"
+                                TextColor="{DynamicResource TextColor}" />
+                            <Button
+                                Grid.Column="1"
+                                BackgroundColor="Transparent"
+                                Command="{Binding ToggleOcultarOpenAICommand}"
+                                FontSize="18"
+                                Text="{Binding IconoOcultarOpenAI}"
+                                TextColor="{DynamicResource PrimaryColor}" />
+                        </Grid>
+                        <Label
+                            Margin="0,0,0,12"
+                            FontSize="11"
+                            Text="{Binding EstadoKeyOpenAI}"
+                            TextColor="{Binding ColorEstadoKeyOpenAI}" />
+
+                        <!--  ── API Key Google ────────────────────────────────────────────  -->
+                        <Label
+                            FontAttributes="Bold"
+                            FontSize="14"
+                            Text="API Key — Google Cloud Vision" />
+                        <Label
+                            Margin="0,2,0,6"
+                            FontSize="11"
+                            Text="{loc:Translate Config_GoogleKeyHint}"
+                            TextColor="Gray" />
+                        <Grid
+                            Margin="0,0,0,4"
+                            ColumnDefinitions="*,44"
+                            ColumnSpacing="6">
+                            <Entry
+                                Grid.Column="0"
+                                BackgroundColor="{DynamicResource SurfaceColor}"
+                                IsPassword="{Binding OcultarKeyGoogle}"
+                                Placeholder="AIza..."
+                                Text="{Binding ApiKeyGoogle}"
+                                TextColor="{DynamicResource TextColor}" />
+                            <Button
+                                Grid.Column="1"
+                                BackgroundColor="Transparent"
+                                Command="{Binding ToggleOcultarGoogleCommand}"
+                                FontSize="18"
+                                Text="{Binding IconoOcultarGoogle}"
+                                TextColor="{DynamicResource PrimaryColor}" />
+                        </Grid>
+                        <Label
+                            Margin="0,0,0,12"
+                            FontSize="11"
+                            Text="{Binding EstadoKeyGoogle}"
+                            TextColor="{Binding ColorEstadoKeyGoogle}" />
+
+                    </StackLayout>
+
+                    <!--  Botón guardar  -->
+                    <Button
+                        BackgroundColor="{DynamicResource PrimaryColor}"
+                        Command="{Binding GuardarConfigOCRCommand}"
+                        CornerRadius="8"
+                        Text="{loc:Translate Config_GuardadoOK}"
+                        TextColor="White" />
+
+                </StackLayout>
+            </Border>
+
+            <Border
+                Margin="0,0,0,15"
+                Padding="15"
+                BackgroundColor="{DynamicResource CardColor}"
+                Stroke="Transparent"
+                StrokeShape="RoundRectangle 10">
+                <StackLayout>
+                    <Label
+                        Margin="0,0,0,15"
+                        FontAttributes="Bold"
+                        FontSize="16"
+                        Text="{loc:Translate Config_General}"
+                        TextColor="{DynamicResource PrimaryColor}" />
+
+                    <!--  Nombre del Negocio  -->
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="14"
+                        Text="{loc:Translate Config_NombreNegocio}" />
+                    <Entry
+                        x:Name="NombreNegocioEntry"
+                        Margin="0,0,0,15"
+                        BackgroundColor="{DynamicResource SurfaceColor}"
+                        Placeholder="{loc:Translate Config_NombrePlaceholder}"
+                        Text="{Binding NombreNegocio}"
+                        TextColor="{DynamicResource TextColor}" />
+
+                    <!--  Tema de la Aplicación  -->
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="14"
+                        Text="{loc:Translate Config_Tema}" />
+                    <Picker
+                        x:Name="TemaPicker"
+                        Margin="0,0,0,15"
+                        BackgroundColor="{DynamicResource SurfaceColor}"
+                        SelectedIndex="{Binding TemaSeleccionadoIndex}"
+                        TextColor="{DynamicResource TextColor}" />
+
+                    <!--  Selector de Idiomas  -->
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="14"
+                        Text="{loc:Translate Config_Idioma}" />
+                    <Picker
+                        Margin="0,0,0,15"
+                        BackgroundColor="{DynamicResource SurfaceColor}"
+                        SelectedIndex="{Binding IdiomaIndex}">
+                        <Picker.Items>
+                            <x:String>🇲🇽 Español</x:String>
+                            <x:String>🇺🇸 English</x:String>
+                        </Picker.Items>
+                    </Picker>
+
+                    <!--  Auto Guardado  -->
+                    <StackLayout Margin="0,0,0,10" Orientation="Horizontal">
+                        <CheckBox
+                            x:Name="AutoGuardadoCheckBox"
+                            IsChecked="{Binding AutoGuardado}"
+                            Color="{DynamicResource PrimaryColor}" />
+                        <Label
+                            FontSize="14"
+                            Text="{loc:Translate Config_AutoGuardado}"
+                            TextColor="{DynamicResource TextColor}"
+                            VerticalOptions="Center" />
+                    </StackLayout>
+
+                    <!--  Confirmación Eliminar  -->
+                    <StackLayout Margin="0,0,0,10" Orientation="Horizontal">
+                        <CheckBox
+                            x:Name="ConfirmacionEliminarCheckBox"
+                            IsChecked="{Binding ConfirmacionEliminar}"
+                            Color="{DynamicResource PrimaryColor}" />
+                        <Label
+                            FontSize="14"
+                            Text="{loc:Translate Config_ConfirmacionEliminar}"
+                            TextColor="{DynamicResource TextColor}"
+                            VerticalOptions="Center" />
+                    </StackLayout>
+
+                    <!--  Bloquear orientación en vertical  -->
+                    <StackLayout Margin="0,0,0,10" Orientation="Horizontal">
+                        <CheckBox IsChecked="{Binding BloquearOrientacion}" Color="{DynamicResource PrimaryColor}" />
+                        <Label
+                            FontSize="14"
+                            Text="{loc:Translate Config_BloquearOrientacion}"
+                            TextColor="{DynamicResource TextColor}"
+                            VerticalOptions="Center" />
+                    </StackLayout>
+
+                    <!--  Tiempo Auto Guardado  -->
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="14"
+                        Text="{loc:Translate Config_TiempoAutoGuardado}" />
+                    <Slider
+                        x:Name="TiempoAutoGuardadoSlider"
+                        Maximum="300"
+                        Minimum="10"
+                        MinimumTrackColor="{DynamicResource PrimaryColor}"
+                        ThumbColor="{DynamicResource PrimaryColor}"
+                        Value="{Binding TiempoAutoGuardado}" />
+                    <Label
+                        FontSize="12"
+                        HorizontalOptions="Center"
+                        Text="{Binding TiempoAutoGuardadoTexto}"
+                        TextColor="Gray" />
+                </StackLayout>
+            </Border>
+
+            <!--  Denominaciones  -->
+            <Border
+                Margin="0,0,0,15"
+                Padding="15"
+                BackgroundColor="{DynamicResource CardColor}"
+                Stroke="Transparent"
+                StrokeShape="RoundRectangle 10">
+                <StackLayout>
+                    <Label
+                        Margin="0,0,0,10"
+                        FontAttributes="Bold"
+                        FontSize="16"
+                        Text="{loc:Translate Config_DenominacionesTitulo}"
+                        TextColor="{DynamicResource PrimaryColor}" />
+
+                    <!--  Estadísticas  -->
+                    <Grid Margin="0,0,0,15">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <StackLayout Grid.Column="0" HorizontalOptions="Center">
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="10"
+                                HorizontalOptions="Center"
+                                Text="{loc:Translate Config_DenomTotal}"
+                                TextColor="Gray" />
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="16"
+                                HorizontalOptions="Center"
+                                Text="{Binding TotalDenominaciones}"
+                                TextColor="{DynamicResource TextColor}" />
+                        </StackLayout>
+
+                        <StackLayout Grid.Column="1" HorizontalOptions="Center">
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="10"
+                                HorizontalOptions="Center"
+                                Text="{loc:Translate Config_DenomActivas}"
+                                TextColor="Gray" />
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="16"
+                                HorizontalOptions="Center"
+                                Text="{Binding DenominacionesActivas}"
+                                TextColor="#4CAF50" />
+                        </StackLayout>
+
+                        <StackLayout Grid.Column="2" HorizontalOptions="Center">
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="10"
+                                HorizontalOptions="Center"
+                                Text="{loc:Translate Config_DenomInactivas}"
+                                TextColor="Gray" />
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="16"
+                                HorizontalOptions="Center"
+                                Text="{Binding DenominacionesInactivas}"
+                                TextColor="#F44336" />
+                        </StackLayout>
+
+                        <StackLayout Grid.Column="3" HorizontalOptions="Center">
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="10"
+                                HorizontalOptions="Center"
+                                Text="{loc:Translate Config_DenomPersonalizadas}"
+                                TextColor="Gray" />
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="16"
+                                HorizontalOptions="Center"
+                                Text="{Binding DenominacionesPersonalizadas}"
+                                TextColor="#FF9800" />
+                        </StackLayout>
+                    </Grid>
+
+                    <!--  Botón Agregar Denominación  -->
+                    <Button
+                        x:Name="AgregarDenominacionButton"
+                        Margin="0,0,0,15"
+                        BackgroundColor="{DynamicResource SecondaryColor}"
+                        Clicked="OnAgregarDenominacionClicked"
+                        CornerRadius="8"
+                        FontSize="14"
+                        Text="{loc:Translate Config_AgregarDenom}"
+                        TextColor="White" />
+
+                    <!--  Lista de Denominaciones  -->
+                    <CollectionView
+                        x:Name="DenominacionesCollectionView"
+                        HeightRequest="300"
+                        ItemsSource="{Binding Denominaciones}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="models:DenominacionConfig">
+                                <Grid Padding="5">
+                                    <Border
+                                        Padding="10"
+                                        BackgroundColor="{DynamicResource SurfaceColor}"
+                                        Stroke="Transparent"
+                                        StrokeShape="RoundRectangle 8">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="50" />
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="Auto" />
+                                            </Grid.ColumnDefinitions>
+
+                                            <Border
+                                                Grid.Column="0"
+                                                Padding="2"
+                                                BackgroundColor="{Binding ColorValue}"
+                                                Stroke="Transparent"
+                                                StrokeShape="RoundRectangle 5">
+                                                <Label
+                                                    FontAttributes="Bold"
+                                                    FontSize="10"
+                                                    HorizontalOptions="Center"
+                                                    Text="{Binding Simbolo}"
+                                                    TextColor="White"
+                                                    VerticalOptions="Center" />
+                                            </Border>
+
+                                            <StackLayout
+                                                Grid.Column="1"
+                                                Margin="10,0"
+                                                VerticalOptions="Center">
+                                                <Label
+                                                    FontAttributes="Bold"
+                                                    FontSize="14"
+                                                    Text="{Binding DescripcionCompleta}"
+                                                    TextColor="{DynamicResource TextColor}" />
+                                                <Label
+                                                    FontSize="11"
+                                                    Text="{Binding EstadoTexto}"
+                                                    TextColor="{Binding ColorEstadoColor}" />
+                                            </StackLayout>
+
+                                            <Switch
+                                                Grid.Column="2"
+                                                IsToggled="{Binding EstaActiva, Mode=OneWay}"
+                                                OnColor="{DynamicResource PrimaryColor}"
+                                                Toggled="OnDenominacionToggled" />
+
+                                            <Button
+                                                Grid.Column="3"
+                                                BackgroundColor="Transparent"
+                                                Clicked="OnEliminarDenominacionClicked"
+                                                CommandParameter="{Binding .}"
+                                                FontSize="14"
+                                                IsVisible="{Binding EsPersonalizada}"
+                                                Text="🗑️"
+                                                TextColor="#F44336" />
+                                        </Grid>
+                                    </Border>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+            </Border>
+
+
+            <!--  Botones de Acción  -->
+            <Grid
+                Margin="0,10,0,20"
+                ColumnDefinitions="*,*,*"
+                ColumnSpacing="10">
+                <Button
+                    x:Name="ExportarButton"
+                    Grid.Column="0"
+                    BackgroundColor="#607D8B"
+                    Clicked="OnExportarClicked"
+                    CornerRadius="10"
+                    FontSize="14"
+                    Text="{loc:Translate Config_BtnExportar}"
+                    TextColor="White" />
+
+                <Button
+                    x:Name="RestaurarButton"
+                    Grid.Column="1"
+                    BackgroundColor="#FF9800"
+                    Clicked="OnRestaurarClicked"
+                    CornerRadius="10"
+                    FontSize="14"
+                    Text="{loc:Translate Config_BtnRestaurar}"
+                    TextColor="White" />
+
+                <Button
+                    x:Name="AcercaDeButton"
+                    Grid.Column="2"
+                    BackgroundColor="#2196F3"
+                    Clicked="OnAcercaDeClicked"
+                    CornerRadius="10"
+                    FontSize="14"
+                    Text="{loc:Translate Config_BtnAcercaDe}"
+                    TextColor="White" />
+            </Grid>
+
+            <!--  Loading overlay  -->
+            <Border
+                BackgroundColor="#80000000"
+                IsVisible="{Binding IsLoading}"
+                Stroke="Transparent">
+                <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                    <ActivityIndicator
+                        IsRunning="{Binding IsLoading}"
+                        Scale="1.5"
+                        Color="White" />
+                    <Label
+                        Margin="10"
+                        FontSize="16"
+                        Text="{loc:Translate Lbl_Cargando}"
+                        TextColor="White" />
+                </StackLayout>
+            </Border>
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CajaApp.Views.CajaPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:CajaApp.Models"
+    xmlns:vm="clr-namespace:CajaApp.ViewModels"
+    xmlns:loc="clr-namespace:CajaApp.Helpers;assembly=Sellik"
+    Title="{loc:Translate Caja_PageTitulo}"
+    x:DataType="vm:CajaViewModel"
+    BackgroundColor="{DynamicResource BackgroundColor}">
+
+    <ContentPage.Content>
+        <Grid
+            Padding="12"
+            RowDefinitions="Auto,Auto,*,Auto"
+            RowSpacing="10">
+            <!--  Nombre de la nota / conteo y Fecha  -->
+            <Grid
+                Grid.Row="0"
+                ColumnDefinitions="Auto,*,Auto"
+                ColumnSpacing="8">
+                <Label Text="{loc:Translate Caja_Nombre}" VerticalOptions="Center" />
+                <Entry
+                    x:Name="NombreNotaEntry"
+                    Placeholder="{loc:Translate Caja_NombrePlaceholder}"
+                    Text="{Binding NombreNota, Mode=TwoWay}" />
+                <DatePicker
+                    x:Name="FechaPicker"
+                    Grid.Column="2"
+                    Date="{Binding Fecha, Mode=TwoWay}" />
+            </Grid>
+
+            <!--  Total: texto y numérico  -->
+            <StackLayout
+                Grid.Row="1"
+                HorizontalOptions="Center"
+                Orientation="Vertical">
+                <Label
+                    x:Name="TotalTextoLabel"
+                    FontAttributes="Bold"
+                    FontSize="16"
+                    HorizontalOptions="Center"
+                    Text="{Binding TotalTexto}" />
+                <Label
+                    x:Name="TotalNumericoLabel"
+                    FontSize="14"
+                    HorizontalOptions="Center"
+                    Text="{Binding Total, StringFormat='${0:F2}'}" />
+            </StackLayout>
+
+            <!--  Denominaciones (editable)  -->
+            <CollectionView
+                Grid.Row="2"
+                ItemsSource="{Binding Denominaciones}"
+                SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Denominacion">
+                        <Grid
+                            Padding="6"
+                            ColumnDefinitions="Auto,*,Auto"
+                            VerticalOptions="Center">
+                            <Label
+                                Text="{Binding Simbolo}"
+                                VerticalOptions="Center"
+                                WidthRequest="64" />
+                            <Entry
+                                Grid.Column="1"
+                                HorizontalOptions="Fill"
+                                Keyboard="Numeric"
+                                Placeholder="0"
+                                Text="{Binding Cantidad, Mode=TwoWay}" />
+                            <Label
+                                Grid.Column="2"
+                                HorizontalOptions="End"
+                                Text="{Binding SubTotal, StringFormat='${0:F2}'}"
+                                VerticalOptions="Center" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!--  Acciones  -->
+            <StackLayout
+                Grid.Row="3"
+                HorizontalOptions="Fill"
+                Orientation="Horizontal"
+                Spacing="12">
+                <Button
+                    Command="{Binding GuardarCajaCommand}"
+                    HorizontalOptions="Fill"
+                    Text="{loc:Translate Btn_Guardar}" />
+                <Button
+                    Command="{Binding LimpiarCommand}"
+                    HorizontalOptions="Fill"
+                    Text="{loc:Translate Btn_Limpiar}" />
+                <Button
+                    Command="{Binding CompartirCommand}"
+                    HorizontalOptions="Fill"
+                    Text="{loc:Translate Btn_Compartir}" />
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

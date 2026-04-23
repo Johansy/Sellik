@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CajaApp.Views.NotaDetallePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:loc="clr-namespace:CajaApp.Helpers;assembly=Sellik"
+    Title="{loc:Translate NotaDetalle_Titulo}"
+    BackgroundColor="{DynamicResource BackgroundColor}">
+
+    <ScrollView>
+        <StackLayout Padding="20">
+
+            <!--  Header con información básica  -->
+            <Border
+                Margin="0,0,0,20"
+                Padding="15"
+                BackgroundColor="#9C27B0"
+                StrokeShape="RoundRectangle 10"
+                Stroke="Transparent">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <StackLayout Grid.Column="0">
+                        <Label
+                            x:Name="TituloLabel"
+                            FontAttributes="Bold"
+                            FontSize="18"
+                            TextColor="White" />
+                        <Label
+                            x:Name="TipoFechaLabel"
+                            FontSize="12"
+                            TextColor="#E1BEE7" />
+                    </StackLayout>
+
+                    <Label
+                        x:Name="FavoritaLabel"
+                        Grid.Column="1"
+                        FontSize="24"
+                        TextColor="#FFD700"
+                        VerticalOptions="Center" />
+                </Grid>
+            </Border>
+            <Border
+                x:Name="ImagenFrame"
+                Margin="0,0,0,15"
+                Padding="10"
+                BackgroundColor="{DynamicResource SurfaceColor}"
+                StrokeShape="RoundRectangle 10"
+                Stroke="Transparent"
+                IsVisible="False">
+                <StackLayout>
+                    <Label
+                        Margin="0,0,0,10"
+                        FontAttributes="Bold"
+                        FontSize="14"
+                        Text="📷 Imagen" />
+                    <Image
+                        x:Name="ImagenDetalle"
+                        Aspect="AspectFit"
+                        HeightRequest="300" />
+                    <Button
+                        x:Name="VerImagenCompletaButton"
+                        Margin="0,10,0,0"
+                        BackgroundColor="#2196F3"
+                        Clicked="OnVerImagenCompletaClicked"
+                        CornerRadius="5"
+                        FontSize="12"
+                        Text="🔍 Ver imagen completa"
+                        TextColor="White" />
+                </StackLayout>
+            </Border>
+
+            <!--  Contenido  -->
+            <Border
+                x:Name="ContenidoFrame"
+                Margin="0,0,0,15"
+                Padding="15"
+                BackgroundColor="{DynamicResource SurfaceColor}"
+                StrokeShape="RoundRectangle 10"
+                Stroke="Transparent"
+                IsVisible="False">
+                <StackLayout>
+                    <Label
+                        Margin="0,0,0,10"
+                        FontAttributes="Bold"
+                        FontSize="14"
+                        Text="📝 Contenido" />
+                    <Label
+                        x:Name="ContenidoLabel"
+                        FontSize="14"
+                        LineBreakMode="WordWrap"
+                        TextColor="{DynamicResource TextColor}" />
+                </StackLayout>
+            </Border>
+
+            <!--  Etiquetas  -->
+            <Border
+                x:Name="EtiquetasFrame"
+                Margin="0,0,0,15"
+                Padding="15"
+                BackgroundColor="{DynamicResource SurfaceColor}"
+                StrokeShape="RoundRectangle 10"
+                Stroke="Transparent"
+                IsVisible="False">
+                <StackLayout>
+                    <Label
+                        Margin="0,0,0,10"
+                        FontAttributes="Bold"
+                        FontSize="14"
+                        Text="🏷️ Etiquetas"
+                        TextColor="#2E7D32" />
+                    <Label
+                        x:Name="EtiquetasLabel"
+                        FontSize="14"
+                        TextColor="#388E3C" />
+                </StackLayout>
+            </Border>
+
+            <!--  Información adicional  -->
+            <Border
+                Margin="0,0,0,20"
+                Padding="15"
+                BackgroundColor="{DynamicResource SurfaceColor}"
+                StrokeShape="RoundRectangle 10"
+                Stroke="Transparent">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Label
+                        Grid.Row="0"
+                        Grid.ColumnSpan="2"
+                        Margin="0,0,0,10"
+                        FontAttributes="Bold"
+                        FontSize="14"
+                        Text="ℹ️ Información adicional"
+                        TextColor="#E65100" />
+
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        FontAttributes="Bold"
+                        FontSize="12"
+                        Text="Fecha de creación:"
+                        TextColor="Gray" />
+                    <Label
+                        x:Name="FechaCreacionLabel"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        FontSize="12"
+                        TextColor="{DynamicResource TextColor}" />
+
+                    <Label
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        FontAttributes="Bold"
+                        FontSize="12"
+                        Text="Última modificación:"
+                        TextColor="Gray" />
+                    <Label
+                        x:Name="FechaModificacionLabel"
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        FontSize="12"
+                        TextColor="{DynamicResource TextColor}" />
+                </Grid>
+            </Border>
+
+            <!--  Botones de acción  -->
+            <StackLayout Orientation="Horizontal" Spacing="10">
+                <Button
+                    x:Name="EditarButton"
+                    BackgroundColor="#FF9800"
+                    Clicked="OnEditarClicked"
+                    CornerRadius="10"
+                    FontAttributes="Bold"
+                    FontSize="14"
+                    HorizontalOptions="Fill"
+                    Text="{loc:Translate Btn_Editar}"
+                    TextColor="White" />
+
+                <Button
+                    x:Name="CompartirButton"
+                    BackgroundColor="#4CAF50"
+                    Clicked="OnCompartirClicked"
+                    CornerRadius="10"
+                    FontAttributes="Bold"
+                    FontSize="14"
+                    HorizontalOptions="Fill"
+                    Text="{loc:Translate Btn_Compartir}"
+                    TextColor="White" />
+
+                <Button
+                    x:Name="FavoritaButton"
+                    BackgroundColor="#FFD700"
+                    Clicked="OnToggleFavoritaClicked"
+                    CornerRadius="10"
+                    FontAttributes="Bold"
+                    FontSize="14"
+                    HorizontalOptions="Fill"
+                    TextColor="White" />
+
+                <Button
+                    x:Name="EliminarButton"
+                    BackgroundColor="#F44336"
+                    Clicked="OnEliminarClicked"
+                    CornerRadius="10"
+                    FontAttributes="Bold"
+                    FontSize="14"
+                    Text="🗑️"
+                    TextColor="White"
+                    WidthRequest="50" />
+            </StackLayout>
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

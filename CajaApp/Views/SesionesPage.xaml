@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CajaApp.Views.SesionesPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:loc="clr-namespace:CajaApp.Helpers;assembly=Sellik"
+    xmlns:models="clr-namespace:CajaApp.Models"
+    xmlns:vm="clr-namespace:CajaApp.ViewModels"
+    x:Name="ThisPage"
+    Title="{loc:Translate Sesiones_Titulo}"
+    x:DataType="vm:SesionesViewModel"
+    BackgroundColor="{DynamicResource BackgroundColor}">
+
+    <Grid RowDefinitions="Auto,Auto,*" RowSpacing="0">
+
+        <!--  Cabecera  -->
+        <VerticalStackLayout
+            Grid.Row="0"
+            Padding="20,24,20,16"
+            BackgroundColor="{DynamicResource CardColor}"
+            Spacing="4">
+            <Label
+                FontAttributes="Bold"
+                FontSize="22"
+                HorizontalOptions="Center"
+                Text="{loc:Translate Sesiones_Subtitulo}"
+                TextColor="{DynamicResource TextColor}" />
+            <Label
+                FontSize="13"
+                HorizontalOptions="Center"
+                Opacity="0.7"
+                Text="{loc:Translate Sesiones_Desc}"
+                TextColor="{DynamicResource TextColor}" />
+        </VerticalStackLayout>
+
+        <!--  Formulario nueva sesion  -->
+        <Border
+            Grid.Row="1"
+            Margin="16,12"
+            Padding="16"
+            BackgroundColor="{DynamicResource CardColor}"
+            Stroke="{DynamicResource PrimaryColor}"
+            StrokeShape="RoundRectangle 12"
+            StrokeThickness="1">
+            <VerticalStackLayout Spacing="10">
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="14"
+                    Text="{loc:Translate Sesiones_NuevaSesion}"
+                    TextColor="{DynamicResource TextColor}" />
+                <Entry
+                    ClearButtonVisibility="WhileEditing"
+                    Placeholder="{loc:Translate Sesiones_NombrePlaceholder}"
+                    ReturnType="Next"
+                    Text="{Binding NuevaSesionNombre, Mode=TwoWay}" />
+                <Entry
+                    ClearButtonVisibility="WhileEditing"
+                    Placeholder="{loc:Translate Sesiones_DescPlaceholder}"
+                    ReturnType="Done"
+                    Text="{Binding NuevaSesionDescripcion, Mode=TwoWay}" />
+                <Button
+                    BackgroundColor="{DynamicResource PrimaryColor}"
+                    Command="{Binding CrearSesionCommand}"
+                    CornerRadius="8"
+                    Text="{loc:Translate Sesiones_BtnCrear}"
+                    TextColor="White" />
+            </VerticalStackLayout>
+        </Border>
+
+        <!--  Lista de sesiones  -->
+        <RefreshView
+            Grid.Row="2"
+            Command="{Binding CargarSesionesCommand}"
+            IsRefreshing="{Binding IsBusy}">
+            <CollectionView
+                x:Name="SesionesList"
+                EmptyView="{loc:Translate Sesiones_Vacia}"
+                ItemsSource="{Binding Sesiones}"
+                SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Sesion">
+                        <SwipeView Margin="16,6">
+                            <SwipeView.RightItems>
+                                <SwipeItems Mode="Execute">
+                                    <SwipeItem
+                                        BackgroundColor="#F44336"
+                                        Invoked="OnSwipeEliminarInvoked"
+                                        Text="{loc:Translate Btn_Eliminar}" />
+                                </SwipeItems>
+                            </SwipeView.RightItems>
+
+                            <Border
+                                Padding="16,12"
+                                BackgroundColor="{DynamicResource CardColor}"
+                                StrokeShape="RoundRectangle 12"
+                                StrokeThickness="0">
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnSesionTapped" />
+                                </Border.GestureRecognizers>
+
+                                <Grid ColumnDefinitions="*,Auto,Auto" ColumnSpacing="8">
+                                    <VerticalStackLayout Grid.Column="0" Spacing="2">
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontSize="16"
+                                            Text="{Binding Nombre}"
+                                            TextColor="{DynamicResource TextColor}" />
+                                        <Label
+                                            FontSize="12"
+                                            Opacity="0.7"
+                                            Text="{Binding Descripcion}"
+                                            TextColor="{DynamicResource TextColor}" />
+                                        <Label
+                                            FontSize="11"
+                                            Opacity="0.5"
+                                            Text="{Binding FechaUltimoAccesoTexto}"
+                                            TextColor="{DynamicResource TextColor}" />
+                                    </VerticalStackLayout>
+                                    <Button
+                                        Grid.Column="1"
+                                        Padding="4,0"
+                                        BackgroundColor="Transparent"
+                                        Clicked="OnEliminarClicked"
+                                        FontSize="18"
+                                        Text="&#x1F5D1;"
+                                        TextColor="#F44336"
+                                        VerticalOptions="Center" />
+                                    <Label
+                                        Grid.Column="2"
+                                        FontSize="28"
+                                        Text="&#x203A;"
+                                        TextColor="{DynamicResource PrimaryColor}"
+                                        VerticalOptions="Center" />
+                                </Grid>
+                            </Border>
+                        </SwipeView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+
+    </Grid>
+</ContentPage>

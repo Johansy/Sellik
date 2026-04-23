@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <Color x:Key="Primary">#2E7D32</Color>
+    <Color x:Key="PrimaryDark">#1B5E20</Color>
+    <Color x:Key="PrimaryLight">#4CAF50</Color>
+    <Color x:Key="Secondary">#FF9800</Color>
+    <Color x:Key="SecondaryDark">#E65100</Color>
+    <Color x:Key="SecondaryLight">#FFB74D</Color>
+    <Color x:Key="Tertiary">#2196F3</Color>
+    <Color x:Key="White">White</Color>
+    <Color x:Key="Black">Black</Color>
+    <Color x:Key="Magenta">#D600AA</Color>
+    <Color x:Key="MidnightBlue">#190649</Color>
+    <Color x:Key="OffBlack">#1f1f1f</Color>
+
+    <!--  Colores para denominaciones  -->
+    <Color x:Key="MonedaColor">#8D6E63</Color>
+    <Color x:Key="BilleteColor">#1976D2</Color>
+    <Color x:Key="DineroColor">#2E7D32</Color>
+    <Color x:Key="ErrorColor">#F44336</Color>
+    <Color x:Key="SuccessColor">#4CAF50</Color>
+    <Color x:Key="WarningColor">#FF9800</Color>
+
+    <!--  Colores para modo claro  -->
+    <Color x:Key="LightBackgroundColor">White</Color>
+    <Color x:Key="LightTextColor">Black</Color>
+    <Color x:Key="LightSurfaceColor">#F5F5F5</Color>
+    <Color x:Key="LightCardColor">White</Color>
+    <Color x:Key="LightBorderColor">#E0E0E0</Color>
+
+    <!--  Colores para modo oscuro  -->
+    <Color x:Key="DarkBackgroundColor">#121212</Color>
+    <Color x:Key="DarkTextColor">White</Color>
+    <Color x:Key="DarkSurfaceColor">#1E1E1E</Color>
+    <Color x:Key="DarkCardColor">#2D2D2D</Color>
+    <Color x:Key="DarkBorderColor">#333333</Color>
+
+    <!--  Colores dinámicos que cambian según el tema (definidos en App.xaml)  -->
+
+</ResourceDictionary>

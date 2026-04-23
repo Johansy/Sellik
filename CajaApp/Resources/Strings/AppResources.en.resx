@@ -1,0 +1,411 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter</value></resheader>
+
+  <!-- == Navigation / AppShell ==========================================─ -->
+  <data name="Nav_Caja"><value>Cash</value></data>
+  <data name="Nav_Movimientos"><value>Movements</value></data>
+  <data name="Nav_Vouchers"><value>Vouchers</value></data>
+  <data name="Nav_Notas"><value>Notes</value></data>
+  <data name="Nav_Historial"><value>🕘 History</value></data>
+  <data name="Nav_Configuracion"><value>⚙️ Settings</value></data>
+  <data name="Nav_Estadisticas"><value>📊 Stats</value></data>
+
+  <!-- == Common ==========================================================─ -->
+  <data name="Btn_Guardar"><value>✓ Save</value></data>
+  <data name="Btn_Cancelar"><value>✗ Cancel</value></data>
+  <data name="Btn_Eliminar"><value>Delete</value></data>
+  <data name="Btn_Editar"><value>✏️ Edit</value></data>
+  <data name="Btn_Compartir"><value>Share</value></data>
+  <data name="Btn_Limpiar"><value>Clear</value></data>
+  <data name="Btn_Aceptar"><value>OK</value></data>
+  <data name="Btn_Cerrar"><value>Close</value></data>
+  <data name="Btn_AbrirAjustes"><value>Open settings</value></data>
+  <data name="Lbl_Error"><value>Error</value></data>
+  <data name="Lbl_Exito"><value>Success</value></data>
+  <data name="Lbl_Informacion"><value>Information</value></data>
+  <data name="Lbl_Confirmar"><value>Confirm</value></data>
+  <data name="Lbl_Validacion"><value>Validation</value></data>
+  <data name="Lbl_ErrorProcesar"><value>Error processing: {0}</value></data>
+  <data name="Lbl_ErrorCargar"><value>Could not load settings. Default values will be applied.</value></data>
+  <data name="Lbl_Cargando"><value>Loading...</value></data>
+  <data name="Lbl_NoDisponible"><value>Not available</value></data>
+  <data name="Lbl_SinDatos"><value>No data</value></data>
+  <data name="Msg_ConfirmarEliminar"><value>Are you sure you want to delete this item?</value></data>
+  <data name="Msg_AbrirAjustes"><value>Open settings</value></data>
+
+  <!-- == VoucherScannerPage ==============================================─ -->
+  <data name="Voucher_Titulo"><value>Voucher Scanner</value></data>
+  <data name="Voucher_Credito"><value>CREDIT</value></data>
+  <data name="Voucher_Debito"><value>DEBIT</value></data>
+  <data name="Voucher_Total"><value>TOTAL</value></data>
+  <data name="Voucher_BtnEscanear"><value>📷 Scan</value></data>
+  <data name="Voucher_BtnGaleria"><value>🖼️ Gallery</value></data>
+  <data name="Voucher_Detectado"><value>✅ VOUCHER DETECTED</value></data>
+  <data name="Voucher_Comercio"><value>Business:</value></data>
+  <data name="Voucher_Tipo"><value>Type:</value></data>
+  <data name="Voucher_Subtotal"><value>Subtotal:</value></data>
+  <data name="Voucher_TotalLabel"><value>Total:</value></data>
+  <data name="Voucher_ListaVacia"><value>No scanned vouchers</value></data>
+  <data name="Voucher_ListaVaciaDesc"><value>Use the buttons above to scan your first voucher</value></data>
+  <data name="Voucher_BtnOCR"><value>📋 OCR</value></data>
+  <data name="Voucher_BtnExportar"><value>⬆️ Export</value></data>
+  <data name="Voucher_BtnReporte"><value>📊 Report</value></data>
+  <data name="Voucher_BtnTodos"><value>☑️ All</value></data>
+  <data name="Voucher_BtnNinguno"><value>☐ None</value></data>
+  <data name="Voucher_BtnEliminarTodos"><value>🗑️ Delete all</value></data>
+  <data name="Voucher_ConfirmarEliminarTodosTitulo"><value>Delete all</value></data>
+  <data name="Voucher_ConfirmarEliminarTodos"><value>Delete all vouchers? This action cannot be undone.</value></data>
+  <data name="Voucher_EliminadosTodos"><value>All vouchers have been deleted.</value></data>
+  <data name="Voucher_ErrorEliminarTodos"><value>Could not delete all vouchers.</value></data>
+  <data name="Voucher_FiltroTodos"><value>📋 All</value></data>
+  <data name="Voucher_FiltroHoy"><value>📅 Today</value></data>
+  <data name="Voucher_FiltroSemana"><value>📆 Week</value></data>
+  <data name="Voucher_FiltroMes"><value>🗓️ Month</value></data>
+  <data name="Voucher_FiltroAnio"><value>📊 Year</value></data>
+  <data name="Voucher_FiltroFecha"><value>🔍 Date</value></data>
+  <data name="Voucher_Procesando"><value>Processing...</value></data>
+  <data name="Voucher_ProcesandoDesc"><value>Extracting information with OCR...</value></data>
+  <data name="Voucher_PermisoCamara"><value>Camera permission</value></data>
+  <data name="Voucher_PermisoCamaraMsg"><value>The app needs camera access to scan vouchers.</value></data>
+  <data name="Voucher_PermisoDenegado"><value>Permission denied</value></data>
+  <data name="Voucher_PermisoDenegadoMsg"><value>Camera access is required to scan. Would you like to open settings?</value></data>
+  <data name="Voucher_CamaraNoDisponible"><value>Camera is not available on this device or emulator.</value></data>
+  <data name="Voucher_ErrorCamara"><value>Could not access the camera: {0}</value></data>
+  <data name="Voucher_ErrorSeleccionarImagen"><value>Could not select the image: {0}</value></data>
+  <data name="Voucher_ErrorOCR"><value>Could not process the image:\n{0}\n\nMake sure the image is clear and well-lit.</value></data>
+  <data name="Voucher_ErrorAlGuardar"><value>Error saving: {0}</value></data>
+  <data name="Voucher_ErrorReporte"><value>Could not generate the report: {0}</value></data>
+  <data name="Voucher_Guardado"><value>✓ Saved</value></data>
+  <data name="Voucher_GuardadoMsg"><value>Voucher saved successfully.</value></data>
+  <data name="Voucher_ErrorGuardar"><value>Could not save the voucher.</value></data>
+  <data name="Voucher_ConfirmarEliminar"><value>Delete this voucher?\n\n{0}\n{1}: {2}\n{3}</value></data>
+  <data name="Voucher_ConfirmarEliminarTitulo"><value>Confirm deletion</value></data>
+  <data name="Voucher_Eliminado"><value>Voucher deleted successfully.</value></data>
+  <data name="Voucher_EliminadoMsg"><value>Voucher deleted successfully.</value></data>
+  <data name="Voucher_ErrorEliminar"><value>Could not delete the voucher.</value></data>
+  <data name="Voucher_SinDatos"><value>No vouchers to export.</value></data>
+  <data name="Voucher_ExportarTitulo"><value>Export {0}</value></data>
+  <data name="Voucher_ExportarSeleccionados"><value>{0} selected voucher(s)</value></data>
+  <data name="Voucher_ExportarTodos"><value>all vouchers ({0})</value></data>
+  <data name="Voucher_FormatoExcel"><value>📊 Excel (.xlsx)</value></data>
+  <data name="Voucher_FormatoPDF"><value>📄 PDF</value></data>
+  <data name="Voucher_FormatoAmbos"><value>📊 Excel + 📄 PDF</value></data>
+  <data name="Voucher_ErrorExportar"><value>Could not generate the file:\n{0}</value></data>
+  <data name="Voucher_ReporteTitulo"><value>Voucher Report</value></data>
+  <data name="Voucher_ReporteAccion"><value>What would you like to do?</value></data>
+  <data name="Voucher_VerReporte"><value>View report</value></data>
+  <data name="Voucher_CompartirReporte"><value>Share report</value></data>
+  <data name="Voucher_TituloOCR"><value>Extracted OCR Text</value></data>
+  <data name="Voucher_CompartirTexto"><value>📤 Share text</value></data>
+  <data name="Voucher_TipoCreditoItem"><value>Credit</value></data>
+  <data name="Voucher_TipoDebitoItem"><value>Debit</value></data>
+  <data name="Voucher_TipoEfectivoItem"><value>Cash</value></data>
+  <data name="Voucher_TipoTransferenciaItem"><value>Transfer</value></data>
+  <data name="Voucher_TipoOtroItem"><value>Other</value></data>
+
+  <!-- == CajaPage ========================================================─ -->
+  <data name="Caja_Titulo"><value>Cash Register</value></data>
+  <data name="Caja_Nombre"><value>Name:</value></data>
+  <data name="Caja_Guardar"><value>Save</value></data>
+  <data name="Caja_Limpiar"><value>Clear</value></data>
+  <data name="Caja_Compartir"><value>Share</value></data>
+
+  <!-- == Movements ======================================================─ -->
+  <data name="Mov_Titulo"><value>Movements</value></data>
+  <data name="Mov_Registrado"><value>Movement recorded successfully</value></data>
+  <data name="Mov_Eliminado"><value>Movement deleted</value></data>
+  <data name="Mov_ErrorEliminar"><value>Could not delete the movement</value></data>
+  <data name="Mov_MontoInvalido"><value>Enter a valid amount greater than zero</value></data>
+
+  <!-- == Settings ========================================================─ -->
+  <data name="Config_Titulo"><value>⚙️ Settings</value></data>
+  <data name="Config_General"><value>🏢 GENERAL SETTINGS</value></data>
+  <data name="Config_NombreNegocio"><value>Business Name</value></data>
+  <data name="Config_Tema"><value>App Theme</value></data>
+  <data name="Config_TemaClaro"><value>🌞 Light</value></data>
+  <data name="Config_TemaOscuro"><value>🌙 Dark</value></data>
+  <data name="Config_TemaAuto"><value>🔄 Automatic</value></data>
+  <data name="Config_AutoGuardado"><value>💾 Enable auto-save</value></data>
+  <data name="Config_BloquearOrientacion"><value>🔒 Lock screen to portrait mode</value></data>
+  <data name="Config_ConfirmacionEliminar"><value>⚠️ Show confirmation before deleting</value></data>
+  <data name="Config_MostrarTutorial"><value>📖 Show tutorial on startup</value></data>
+  <data name="Config_Idioma"><value>Language / Idioma</value></data>
+  <data name="Config_IdiomaEspanol"><value>🇲🇽 Español</value></data>
+  <data name="Config_IdiomaIngles"><value>🇺🇸 English</value></data>
+  <data name="Config_OCRTitulo"><value>🤖 CLOUD OCR</value></data>
+  <data name="Config_OCRDesc"><value>Improve data extraction using artificial intelligence.</value></data>
+  <data name="Config_OCRModo"><value>OCR Engine</value></data>
+  <data name="Config_OCRModoAuto"><value>🤖 Automatic (cloud if available, local if not)</value></data>
+  <data name="Config_OCRModoNativo"><value>📱 Local only (offline, free)</value></data>
+  <data name="Config_OCRModoGPT"><value>✨ GPT-4o Vision (best accuracy)</value></data>
+  <data name="Config_OCRModoGoogle"><value>🔍 Google Cloud Vision</value></data>
+  <data name="Config_GuardadoOK"><value>✅ Saved</value></data>
+  <data name="Config_GuardadoMsg"><value>Settings saved successfully.</value></data>
+  <data name="Config_RestaurarPregunta"><value>Restore default settings? Your changes will be lost.</value></data>
+  <data name="Config_Restaurada"><value>Settings restored</value></data>
+  <data name="Config_OCRModoNativoGPT"><value>📱+✨ Local + GPT-4o text (more economical)</value></data>
+  <data name="Config_OCRModoFusion"><value>⚡ Fusion (local + Google + GPT-4o)</value></data>
+  <data name="Config_OCRDescAuto"><value>Uses cloud AI when internet and API key are available.\nFalls back to on-device OCR when offline or no key is set.</value></data>
+  <data name="Config_OCRDescNativo"><value>Always uses the phone's built-in OCR.\nWorks offline at no cost, but with lower accuracy.</value></data>
+  <data name="Config_OCRDescGPT"><value>Uses GPT-4o Vision by OpenAI.\nExcellent accuracy, extracts structured data directly.\nRequires internet and an OpenAI API key.</value></data>
+  <data name="Config_OCRDescGoogle"><value>Uses Google Cloud Vision.\nVery high accuracy for printed text.\nRequires internet and a Google Cloud API key.</value></data>
+  <data name="Config_OCRDescNativoGPT"><value>On-device OCR extracts text (free, no image upload).\nGPT-4o structures data from the text (~10× cheaper than Vision).\nRequires internet and an OpenAI API key.</value></data>
+  <data name="Config_OCRDescFusion"><value>All three engines combined for maximum accuracy.\nLocal and Google Vision run in parallel; the most complete text is used.\nGPT-4o structures the final result.\nRequires internet, a Google Cloud API key and an OpenAI API key.</value></data>
+  <data name="Config_OpenAIKeyHint"><value>Get your key at platform.openai.com/api-keys</value></data>
+  <data name="Config_GoogleKeyHint"><value>Enable it at console.cloud.google.com → APIs → Vision API</value></data>
+  <data name="Config_TiempoAutoGuardado"><value>⏱️ Time between auto-saves (seconds)</value></data>
+  <data name="Config_TiempoAutoGuardadoFmt"><value>{0} seconds</value></data>
+  <data name="Config_NombrePlaceholder"><value>Enter your business name</value></data>
+  <data name="Config_DenominacionesTitulo"><value>💰 DENOMINATIONS</value></data>
+  <data name="Config_DenomTotal"><value>TOTAL</value></data>
+  <data name="Config_DenomActivas"><value>ACTIVE</value></data>
+  <data name="Config_DenomInactivas"><value>INACTIVE</value></data>
+  <data name="Config_DenomPersonalizadas"><value>CUSTOM</value></data>
+  <data name="Config_AgregarDenom"><value>➕ Add Custom Denomination</value></data>
+  <data name="Config_InfoTitulo"><value>ℹ️ APP INFORMATION</value></data>
+  <data name="Config_InfoVersion"><value>Version:</value></data>
+  <data name="Config_InfoDesarrollador"><value>Developed by:</value></data>
+  <data name="Config_BtnExportar"><value>📤 Export</value></data>
+  <data name="Config_BtnRestaurar"><value>🔄 Restore</value></data>
+  <data name="Config_BtnAcercaDe"><value>ℹ️ About</value></data>
+  <data name="Config_ElimDenomNoPredeterminada"><value>Default denominations cannot be deleted.\nYou can only deactivate them using the toggle.</value></data>
+  <data name="Config_ElimDenomConfirmar"><value>Are you sure you want to delete this custom denomination?\n\n{0}\n\n⚠️ This action cannot be undone.</value></data>
+  <data name="Config_ElimDenomTitulo"><value>Confirm deletion</value></data>
+  <data name="Config_ElimDenomOK"><value>Denomination deleted successfully</value></data>
+  <data name="Config_ElimDenomError"><value>Could not delete the denomination</value></data>
+  <data name="Config_ErrorCambiarEstado"><value>Could not change the denomination status</value></data>
+  <data name="Config_ExportarTitulo"><value>Export settings</value></data>
+  <data name="Config_ExportarVerResumen"><value>View summary</value></data>
+  <data name="Config_ExportarCompleto"><value>Full export</value></data>
+  <data name="Config_ExportarCompartir"><value>Share settings</value></data>
+  <data name="Config_ExportarError"><value>Could not export: {0}</value></data>
+  <data name="Config_RestaurarTitulo"><value>Restore settings</value></data>
+  <data name="Config_RestaurarDetalle"><value>Are you sure you want to restore all settings to their defaults?\n\nThis includes:\n• General settings\n• Denomination states\n• App theme\n\n⚠️ Custom denominations will be kept but deactivated.</value></data>
+  <data name="Config_RestauradaOK"><value>Settings restored successfully.\nThe app has been reset to default values.</value></data>
+  <data name="Config_RestaurarError"><value>Could not restore the settings</value></data>
+
+  <!-- == Notes -->
+  <data name="Notas_Titulo"><value>Notes</value></data>
+  <data name="Notas_TituloObligatorio"><value>Title is required</value></data>
+  <data name="Notas_ContenidoObligatorio"><value>Content is required for text notes</value></data>
+  <data name="Notas_Eliminada"><value>Could not delete the note</value></data>
+  <data name="Notas_Total"><value>TOTAL</value></data>
+  <data name="Notas_ConImagen"><value>WITH IMAGE</value></data>
+  <data name="Notas_Favoritas"><value>FAVORITES</value></data>
+  <data name="Notas_BtnTexto"><value>📝 Text</value></data>
+  <data name="Notas_BtnFoto"><value>📷 Photo</value></data>
+  <data name="Notas_BtnMixta"><value>📝📷 Mixed</value></data>
+  <data name="Notas_BuscarPlaceholder"><value>Search...</value></data>
+  <data name="Notas_FiltroTipo"><value>Type...</value></data>
+  <data name="Notas_FiltroTodos"><value>All</value></data>
+  <data name="Notas_FiltroTexto"><value>Text</value></data>
+  <data name="Notas_FiltroImagen"><value>Image</value></data>
+  <data name="Notas_FiltroMixta"><value>Mixed</value></data>
+  <data name="Notas_FiltroFavoritas"><value>⭐ Favorites</value></data>
+  <data name="Notas_EmptyTitle"><value>No notes found</value></data>
+  <data name="Notas_EliminadaOk"><value>Note deleted successfully</value></data>
+  <data name="Notas_ConfirmarEliminar"><value>Are you sure you want to delete this note?</value></data>
+  <data name="Notas_SinTitulo"><value>Untitled</value></data>
+  <data name="Notas_TieneImagen"><value>⚠️ The image will also be deleted</value></data>
+  <data name="Notas_ExportarTitulo"><value>Export notes</value></data>
+  <data name="Notas_ExportarSoloTexto"><value>Export text only</value></data>
+  <data name="Notas_ExportarCompleto"><value>Export with image paths</value></data>
+  <data name="Notas_BackupCompleto"><value>Full backup</value></data>
+  <data name="Notas_AccionReporte"><value>What would you like to do with the report?</value></data>
+  <data name="Notas_VerReporte"><value>View report</value></data>
+  <data name="Notas_CompartirReporte"><value>Share report</value></data>
+  <data name="Notas_TituloReporte"><value>Notes Report</value></data>
+  <data name="Notas_TituloCompartir"><value>My Notes</value></data>
+  <data name="Notas_FiltroFechaTodas"><value>All</value></data>
+  <data name="Notas_FiltroFechaHoy"><value>Today</value></data>
+  <data name="Notas_FiltroFechaSemana"><value>This week</value></data>
+  <data name="Notas_FiltroFechaMes"><value>This month</value></data>
+  <data name="Notas_FiltroFechaAnio"><value>This year</value></data>
+  <data name="Notas_IrAFecha"><value>📅 Go to date:</value></data>
+
+  <!-- == History ========================================================== -->
+  <data name="Historial_Titulo"><value>History</value></data>
+
+  <!-- == Report / Export ================================================─ -->
+  <data name="Export_ReporteVouchers"><value>VOUCHER REPORT</value></data>
+  <data name="Export_Generado"><value>Generated:</value></data>
+  <data name="Export_TotalVouchers"><value>Total vouchers:</value></data>
+  <data name="Export_ResumenTipo"><value>Summary by payment type</value></data>
+  <data name="Export_Detalle"><value>Voucher detail</value></data>
+  <data name="Export_ColNumero"><value>#</value></data>
+  <data name="Export_ColFecha"><value>Date</value></data>
+  <data name="Export_ColComercio"><value>Business</value></data>
+  <data name="Export_ColTipo"><value>Payment Type</value></data>
+  <data name="Export_ColTarjeta"><value>Card</value></data>
+  <data name="Export_ColFolio"><value>Folio/Ticket</value></data>
+  <data name="Export_ColSubtotal"><value>Subtotal</value></data>
+  <data name="Export_ColIVA"><value>Tax</value></data>
+  <data name="Export_ColTotal"><value>Total</value></data>
+  <data name="Export_ColAuth"><value>Authorization</value></data>
+  <data name="Export_ColNotas"><value>Notes</value></data>
+  <data name="Export_TotalGeneral"><value>GRAND TOTAL</value></data>
+
+  <!-- == Page titles ==================================================─ -->
+  <data name="Caja_PageTitulo"><value>Count</value></data>
+  <data name="Caja_NombrePlaceholder"><value>Count name</value></data>
+  <data name="Config_PageTitulo"><value>Settings</value></data>
+  <data name="Estadisticas_Titulo"><value>Detailed Statistics</value></data>
+  <data name="Mov_PageTitulo"><value>Cash Movements</value></data>
+  <data name="NotaDetalle_Titulo"><value>Note Detail</value></data>
+  <data name="NotaEditor_Titulo"><value>Note Editor</value></data>
+  <data name="NuevaDen_Titulo"><value>New Denomination</value></data>
+  <data name="Reporte_Titulo"><value>Full Report</value></data>
+  <data name="Shell_Titulo"><value>Cash Register</value></data>
+  <data name="Mov_Entradas"><value>INCOME</value></data>
+  <data name="Mov_Salidas"><value>EXPENSES</value></data>
+  <data name="Mov_Saldo"><value>BALANCE</value></data>
+  <data name="Mov_LblTipo"><value>Type</value></data>
+  <data name="Mov_LblFecha"><value>Date</value></data>
+  <data name="Mov_LblConcepto"><value>Category</value></data>
+  <data name="Mov_LblMonto"><value>Amount $</value></data>
+  <data name="Mov_LblDescripcion"><value>Description (optional)</value></data>
+  <data name="Mov_PlaceholderTipo"><value>Select type...</value></data>
+  <data name="Mov_PlaceholderConcepto"><value>Select category...</value></data>
+  <data name="Mov_PlaceholderDescripcion"><value>Additional description...</value></data>
+  <data name="Mov_TipoEntrada"><value>Income</value></data>
+  <data name="Mov_TipoSalida"><value>Expense</value></data>
+  <data name="Mov_EmptyTitle"><value>No movements recorded</value></data>
+  <data name="Mov_EmptyMsg"><value>Add your first movement using the form above</value></data>
+  <data name="Mov_BtnReporte"><value>Report</value></data>
+  <data name="Mov_ValidarTipo"><value>Select the movement type</value></data>
+  <data name="Mov_ValidarConcepto"><value>Select a category</value></data>
+  <data name="Mov_ConfirmarEliminar"><value>Are you sure you want to delete this movement?</value></data>
+  <data name="Mov_PeriodoTitulo"><value>Select period</value></data>
+  <data name="Mov_PeriodoHoy"><value>Today</value></data>
+  <data name="Mov_PeriodoSemana"><value>This week</value></data>
+  <data name="Mov_PeriodoMes"><value>This month</value></data>
+  <data name="Mov_Periodo30"><value>Last 30 days</value></data>
+  <data name="Mov_PeriodoTodo"><value>All</value></data>
+  <data name="Mov_PeriodoAnio"><value>Year</value></data>
+  <data name="Mov_FiltroFecha"><value>📅 Date:</value></data>
+  <data name="Mov_AccionReporte"><value>What would you like to do with the report?</value></data>
+  <data name="Mov_VerReporte"><value>View report</value></data>
+  <data name="Mov_CompartirReporte"><value>Share report</value></data>
+  <data name="Mov_TituloCompartir"><value>Complete Movement Report</value></data>
+  <data name="Mov_ExitoGuardar"><value>Movement recorded successfully</value></data>
+  <data name="Mov_ErrorGuardar"><value>Could not save the movement</value></data>
+
+  <!-- == Default movement concepts =========================================== -->
+  <data name="Concepto_VentasDia"><value>Daily sales</value></data>
+  <data name="Concepto_PrestamoRecibido"><value>Loan received</value></data>
+  <data name="Concepto_Devolucion"><value>Return</value></data>
+  <data name="Concepto_IngresoExtra"><value>Extra income</value></data>
+  <data name="Concepto_CapitalInicial"><value>Initial capital</value></data>
+  <data name="Concepto_GastosOperativos"><value>Operating expenses</value></data>
+  <data name="Concepto_PagoProveedores"><value>Supplier payment</value></data>
+  <data name="Concepto_PrestamoOtorgado"><value>Loan granted</value></data>
+  <data name="Concepto_GastosVarios"><value>Miscellaneous expenses</value></data>
+  <data name="Concepto_RetiroPersonal"><value>Personal withdrawal</value></data>
+
+  <!-- == AcercaDe ====================================================─ -->
+  <data name="Acerca_Titulo"><value>About</value></data>
+  <data name="Acerca_Subtitulo"><value>Comprehensive Cash Register Reconciliation System</value></data>
+  <data name="Acerca_SeccionInfo"><value>📱 APP INFORMATION</value></data>
+  <data name="Acerca_Version"><value>Version:</value></data>
+  <data name="Acerca_DesarrolladoPor"><value>Developed by:</value></data>
+  <data name="Acerca_FechaBuild"><value>Build date:</value></data>
+  <data name="Acerca_FechaBuildValor"><value>May 2026</value></data>
+  <data name="Acerca_SeccionCaracteristicas"><value>✨ MAIN FEATURES</value></data>
+  <data name="Acerca_Feat1"><value>📱 Cash Register Reconciliation - Count monetary denominations</value></data>
+  <data name="Acerca_Feat2"><value>💰 Movements - Track cash inflows and outflows</value></data>
+  <data name="Acerca_Feat3"><value>📄 Vouchers &amp; Tickets - OCR scanner to process receipts</value></data>
+  <data name="Acerca_Feat4"><value>📝 Notes - Full system with text and images</value></data>
+  <data name="Acerca_Feat5"><value>📊 History - Summary and detailed reports</value></data>
+  <data name="Acerca_Feat6"><value>⚙️ Settings - Full customization</value></data>
+  <data name="Acerca_Feat7"><value>🌙 Dark/Light mode - Customizable themes</value></data>
+  <data name="Acerca_Feat8"><value>🔒 100% Offline - No external dependencies</value></data>
+  <data name="Acerca_SeccionTecnologias"><value>🔧 TECHNOLOGIES USED</value></data>
+  <data name="Acerca_Tech1"><value>• .NET MAUI - Cross-platform framework</value></data>
+  <data name="Acerca_Tech2"><value>• SQLite - Embedded database</value></data>
+  <data name="Acerca_Tech3"><value>• Native OCR - Free optical recognition</value></data>
+  <data name="Acerca_Tech4"><value>• GPT4o - Always OpenAI GPT-4o Vision (requires network + Subscription)</value></data>
+  <data name="Acerca_Tech5"><value>• Google - Always Google Cloud Vision (requires network + Subscription)</value></data>
+  <data name="Acerca_Tech6"><value>• SkiaSharp - Image processing</value></data>
+  <data name="Acerca_Tech7"><value>• MVVM Pattern - Scalable architecture</value></data>
+  <data name="Acerca_Tech8"><value>• XAML + C# - Declarative UI and robust logic</value></data>
+  <data name="Acerca_Copyright"><value>© 2026 QuBitSoft. All rights reserved.</value></data>
+  <data name="Acerca_HechoCon"><value>Made with ❤️ in Mexico 🇲🇽</value></data>
+  <data name="Estadisticas_Header"><value>📈 Statistics</value></data>
+  <data name="Estadisticas_Periodo"><value>⏱ PERIOD</value></data>
+  <data name="Estadisticas_Desde"><value>From</value></data>
+  <data name="Estadisticas_Hasta"><value>To</value></data>
+  <data name="Estadisticas_Actualizar"><value>🔄 Refresh</value></data>
+  <data name="Estadisticas_ActividadPrincipal"><value>🎯 MAIN ACTIVITY</value></data>
+  <data name="Estadisticas_Cajas"><value>💰 Cash Counts</value></data>
+  <data name="Estadisticas_Movimientos"><value>💸 Movements</value></data>
+  <data name="Estadisticas_Vouchers"><value>📄 Vouchers</value></data>
+  <data name="Estadisticas_Notas"><value>📝 Notes</value></data>
+  <data name="Estadisticas_ArqueosHeader"><value>💰 CASH COUNTS</value></data>
+  <data name="Estadisticas_ArqueosRegistrados"><value>Registered counts</value></data>
+  <data name="Estadisticas_TotalContado"><value>Total counted</value></data>
+  <data name="Estadisticas_PromedioPorArqueo"><value>Average per count</value></data>
+  <data name="Estadisticas_MaximoMinimo"><value>Maximum / Minimum</value></data>
+  <data name="Estadisticas_MovimientosHeader"><value>💸 CASH MOVEMENTS</value></data>
+  <data name="Estadisticas_TotalMovimientos"><value>Total movements</value></data>
+  <data name="Estadisticas_Entradas"><value>Income</value></data>
+  <data name="Estadisticas_Salidas"><value>Expenses</value></data>
+  <data name="Estadisticas_SaldoNeto"><value>Net balance</value></data>
+  <data name="Estadisticas_VouchersHeader"><value>📄 VOUCHERS &amp; TICKETS</value></data>
+  <data name="Estadisticas_TotalEscaneados"><value>Total scanned</value></data>
+  <data name="Estadisticas_ImporteTotal"><value>Total amount</value></data>
+  <data name="Estadisticas_Credito"><value>Credit</value></data>
+  <data name="Estadisticas_Debito"><value>Debit</value></data>
+  <data name="Estadisticas_Efectivo"><value>Cash</value></data>
+  <data name="Estadisticas_OtrosTipos"><value>Other types</value></data>
+  <data name="Estadisticas_NotasHeader"><value>📝 NOTES</value></data>
+  <data name="Estadisticas_TotalNotas"><value>Total notes</value></data>
+  <data name="Estadisticas_SoloTexto"><value>📝 Text only</value></data>
+  <data name="Estadisticas_SoloImagen"><value>📷 Image only</value></data>
+  <data name="Estadisticas_Mixtas"><value>📝📷 Mixed</value></data>
+  <data name="Estadisticas_Favoritas"><value>⭐ Favorites</value></data>
+  <data name="Estadisticas_GananciaHeader"><value>📊 ESTIMATED SUMMARY</value></data>
+  <data name="Estadisticas_UltimoArqueo"><value>Last cash count total</value></data>
+  <data name="Estadisticas_TotalVouchersLabel"><value>+ Total vouchers</value></data>
+  <data name="Estadisticas_SaldoMovLabel"><value>− Net movements balance</value></data>
+  <data name="Estadisticas_GananciaTotal"><value>= Estimated earnings</value></data>
+  <data name="Estadisticas_GananciaTooltip"><value>Last count + Vouchers − Net movements balance</value></data>
+
+  <!-- == Sessions ======================================================== -->
+  <data name="Sesiones_Titulo"><value>Sessions</value></data>
+  <data name="Sesiones_Subtitulo"><value>🗂️ My Workspaces</value></data>
+  <data name="Sesiones_Desc"><value>Each session has its own cash counts, movements, vouchers and notes.</value></data>
+  <data name="Sesiones_NuevaSesion"><value>➕ New session</value></data>
+  <data name="Sesiones_NombrePlaceholder"><value>Session name (e.g. Morning shift)</value></data>
+  <data name="Sesiones_DescPlaceholder"><value>Description (optional)</value></data>
+  <data name="Sesiones_BtnCrear"><value>✓ Create session</value></data>
+  <data name="Sesiones_Vacia"><value>No sessions yet. Create your first one above!</value></data>
+  <data name="Sesiones_CerrarSesion"><value>🔓 Switch session</value></data>
+  <data name="Sesiones_SesionActiva"><value>Active session</value></data>
+  <data name="Sesiones_ConfirmarEliminar"><value>Are you sure you want to delete this session?
+
+⚠️ All its data will be deleted: cash counts, movements, vouchers and notes.
+This action cannot be undone.</value></data>
+  <data name="Sesiones_EliminarTitulo"><value>Delete session</value></data>
+</root>

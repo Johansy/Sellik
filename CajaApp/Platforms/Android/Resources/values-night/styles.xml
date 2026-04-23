@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- DayNight también cubre el modo noche del sistema -->
+	<style name="Maui.MainTheme" parent="Maui.MainTheme.Base">
+		<item name="popupTheme">@style/ThemeOverlay.AppCompat.Dark</item>
+	</style>
+</resources>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:loc="clr-namespace:CajaApp.Helpers;assembly=Sellik"
+             x:Class="CajaApp.Views.NuevaDenominacionPage"
+             Title="{loc:Translate NuevaDen_Titulo}"
+             BackgroundColor="{DynamicResource BackgroundColor}">
+
+    <ScrollView>
+        <StackLayout Padding="20">
+
+            <!-- Header -->
+            <Border BackgroundColor="{DynamicResource SecondaryColor}" StrokeShape="RoundRectangle 10" Stroke="Transparent" Padding="15" Margin="0,0,0,20">
+                <Label Text="➕ Agregar Denominación Personalizada"
+                       FontSize="18" FontAttributes="Bold"
+                       TextColor="White" 
+                       HorizontalOptions="Center" />
+            </Border>
+
+            <!-- Formulario -->
+            <StackLayout>
+                <!-- Valor -->
+                <Label Text="Valor de la denominación" FontSize="14" FontAttributes="Bold" />
+                <Entry x:Name="ValorEntry" 
+                       Placeholder="Ej: 25.00, 500, 1000"
+                       Keyboard="Numeric"
+                       BackgroundColor="{DynamicResource SurfaceColor}"
+                       TextColor="{DynamicResource TextColor}"
+                       Margin="0,0,0,15" />
+
+                <!-- Símbolo -->
+                <Label Text="Símbolo" FontSize="14" FontAttributes="Bold" />
+                <Entry x:Name="SimboloEntry" 
+                       Placeholder="Ej: $25, $500"
+                       BackgroundColor="{DynamicResource SurfaceColor}"
+                       TextColor="{DynamicResource TextColor}"
+                       Margin="0,0,0,15" />
+
+                <!-- Tipo -->
+                <Label Text="Tipo" FontSize="14" FontAttributes="Bold" />
+                <Picker x:Name="TipoPicker" 
+                        BackgroundColor="{DynamicResource SurfaceColor}"
+                        TextColor="{DynamicResource TextColor}"
+                        Margin="0,0,0,15">
+                    <Picker.Items>
+                        <x:String>Moneda</x:String>
+                        <x:String>Billete</x:String>
+                    </Picker.Items>
+                </Picker>
+
+                <!-- Color -->
+                <Label Text="Color" FontSize="14" FontAttributes="Bold" />
+                <Picker x:Name="ColorPicker" 
+                        BackgroundColor="{DynamicResource SurfaceColor}"
+                        TextColor="{DynamicResource TextColor}"
+                        Margin="0,0,0,20">
+                    <Picker.Items>
+                        <x:String>Café (Monedas pequeñas)</x:String>
+                        <x:String>Dorado (Monedas grandes)</x:String>
+                        <x:String>Azul (Billetes)</x:String>
+                        <x:String>Rojo (Billetes)</x:String>
+                        <x:String>Verde (Billetes)</x:String>
+                        <x:String>Naranja (Billetes)</x:String>
+                        <x:String>Morado (Billetes)</x:String>
+                        <x:String>Rosa (Billetes)</x:String>
+                        <x:String>Gris (Personalizado)</x:String>
+                    </Picker.Items>
+                </Picker>
+
+                <!-- Vista previa -->
+                <Border x:Name="VistaPreviewFrame" 
+                       IsVisible="False"
+                       BackgroundColor="{DynamicResource SurfaceColor}" 
+                       StrokeShape="RoundRectangle 10" Stroke="Transparent" Padding="15" Margin="0,0,0,20">
+                    <StackLayout>
+                        <Label Text="👁️ Vista Previa" FontSize="14" FontAttributes="Bold" Margin="0,0,0,10" />
+                        <Border x:Name="PreviewFrame" 
+                               BackgroundColor="#757575" 
+                               StrokeShape="RoundRectangle 5" Stroke="Transparent" Padding="5" 
+                               WidthRequest="60" HorizontalOptions="Center">
+                            <Label x:Name="PreviewLabel" 
+                                   Text="$XXX" 
+                                   FontSize="12" FontAttributes="Bold"
+                                   TextColor="White"
+                                   HorizontalOptions="Center" />
+                        </Border>
+                        <Label x:Name="DescripcionPreviewLabel" 
+                               Text="Descripción" 
+                               FontSize="12" TextColor="Gray"
+                               HorizontalOptions="Center" />
+                    </StackLayout>
+                </Border>
+
+                <!-- Botones -->
+                <StackLayout Orientation="Horizontal">
+                    <Button x:Name="CancelarButton" 
+                            Text="{loc:Translate Btn_Cancelar}"
+                            FontSize="14"
+                            BackgroundColor="#F44336"
+                            TextColor="White"
+                            CornerRadius="10"
+                            HorizontalOptions="Fill"
+                            Clicked="OnCancelarClicked" />
+
+                    <Button x:Name="GuardarButton" 
+                            Text="{loc:Translate Btn_Guardar}"
+                            FontSize="14"
+                            BackgroundColor="#4CAF50"
+                            TextColor="White"
+                            CornerRadius="10"
+                            Margin="15,0,0,0"
+                            HorizontalOptions="Fill"
+                            Clicked="OnGuardarClicked" />
+                </StackLayout>
+            </StackLayout>
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Application
+    x:Class="CajaApp.App"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:CajaApp">
+    <Application.Resources>
+        <ResourceDictionary>
+            <!--  Colores dinámicos de tema definidos aquí (nivel raíz) para que las  -->
+            <!--  actualizaciones en tiempo de ejecución sean detectadas por DynamicResource  -->
+            <Color x:Key="BackgroundColor">White</Color>
+            <Color x:Key="TextColor">Black</Color>
+            <Color x:Key="SurfaceColor">#F5F5F5</Color>
+            <Color x:Key="CardColor">White</Color>
+            <Color x:Key="BorderColor">#E0E0E0</Color>
+            <Color x:Key="PrimaryColor">#2E7D32</Color>
+            <Color x:Key="SecondaryColor">#FF9800</Color>
+
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
+                <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
