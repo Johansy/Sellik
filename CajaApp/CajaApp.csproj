@@ -42,7 +42,7 @@
 		<!-- Linker agresivo: elimina código no alcanzable -->
 		<AndroidLinkMode>SdkOnly</AndroidLinkMode>
 		<!-- R8: minificación y optimización de bytecode Dalvik -->
-		<AndroidEnableProguard>true</AndroidEnableProguard>
+		<AndroidLinkTool>r8</AndroidLinkTool>
 		<!-- Trim .NET assemblies -->
 		<PublishTrimmed>true</PublishTrimmed>
 		<TrimMode>partial</TrimMode>
@@ -52,6 +52,9 @@
 		<AndroidCreatePackagePerAbi>false</AndroidCreatePackagePerAbi>
 		<!-- Solo ABIs modernas de 64 bits -->
 		<RuntimeIdentifiers>android-arm64</RuntimeIdentifiers>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net9.0-android|AnyCPU'">
+	  <AndroidPackageFormat>apk</AndroidPackageFormat>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -79,6 +82,8 @@
 		</EmbeddedResource>
 	</ItemGroup>
 
+
+
 	<ItemGroup>
 	  <AndroidResource Remove="Resources\drawable-night\**" />
 	  <Compile Remove="Resources\drawable-night\**" />
@@ -91,6 +96,17 @@
 	<ItemGroup>
 	  <AndroidResource Remove="Platforms\Android\Resources\values-night\styles.xml" />
 	  <AndroidResource Remove="Platforms\Android\Resources\values\strings.xml" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <AndroidResource Include="Platforms\Android\Resources\drawable-night-v31\maui_splash_image.xml" />
+	  <AndroidResource Include="Platforms\Android\Resources\drawable-night\maui_splash_image.xml" />
+	  <AndroidResource Include="Platforms\Android\Resources\drawable\maui_splash.xml" />
+	  <AndroidResource Include="Platforms\Android\Resources\drawable\maui_splash_dark.xml" />
+	  <AndroidResource Include="Platforms\Android\Resources\drawable\maui_splash_light.xml" />
+	  <AndroidResource Include="Platforms\Android\Resources\values-night\colors.xml" />
+	  <AndroidResource Include="Platforms\Android\Resources\values\colors.xml" />
+	  <AndroidResource Include="Platforms\Android\Resources\values\styles.xml" />
 	</ItemGroup>
 
 	<ItemGroup>

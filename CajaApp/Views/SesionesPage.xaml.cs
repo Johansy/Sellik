@@ -72,5 +72,12 @@ namespace CajaApp.Views
             if (sender is SwipeItem swipe && swipe.BindingContext is Sesion sesion)
                 await EliminarSesionAsync(sesion);
         }
+
+        private async void OnConfiguracionClicked(object sender, EventArgs e)
+        {
+            var vm = IPlatformApplication.Current!.Services.GetRequiredService<ConfiguracionViewModel>();
+            var configuracionPage = new ConfiguracionPage(vm);
+            await Navigation.PushModalAsync(new NavigationPage(configuracionPage));
+        }
     }
 }

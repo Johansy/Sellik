@@ -14,24 +14,43 @@
     <Grid RowDefinitions="Auto,Auto,*" RowSpacing="0">
 
         <!--  Cabecera  -->
-        <VerticalStackLayout
+        <Grid
             Grid.Row="0"
             Padding="20,24,20,16"
             BackgroundColor="{DynamicResource CardColor}"
-            Spacing="4">
-            <Label
-                FontAttributes="Bold"
-                FontSize="22"
-                HorizontalOptions="Center"
-                Text="{loc:Translate Sesiones_Subtitulo}"
-                TextColor="{DynamicResource TextColor}" />
-            <Label
+            ColumnDefinitions="*,Auto"
+            RowDefinitions="Auto,Auto">
+            <VerticalStackLayout
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Grid.Row="0"
+                Spacing="4">
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="22"
+                    HorizontalOptions="Center"
+                    Text="{loc:Translate Sesiones_Subtitulo}"
+                    TextColor="{DynamicResource TextColor}" />
+                <Label
+                    FontSize="13"
+                    HorizontalOptions="Center"
+                    Opacity="0.7"
+                    Text="{loc:Translate Sesiones_Desc}"
+                    TextColor="{DynamicResource TextColor}" />
+            </VerticalStackLayout>
+            <Button
+                Grid.Column="1"
+                Grid.Row="1"
+                Margin="0,8,0,0"
+                Padding="12,8"
+                BackgroundColor="{DynamicResource PrimaryColor}"
+                Clicked="OnConfiguracionClicked"
+                CornerRadius="8"
                 FontSize="13"
-                HorizontalOptions="Center"
-                Opacity="0.7"
-                Text="{loc:Translate Sesiones_Desc}"
-                TextColor="{DynamicResource TextColor}" />
-        </VerticalStackLayout>
+                HorizontalOptions="End"
+                Text="{loc:Translate Nav_Configuracion}"
+                TextColor="White" />
+        </Grid>
 
         <!--  Formulario nueva sesion  -->
         <Border

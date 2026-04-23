@@ -1,7 +1,7 @@
 ﻿using ObjCRuntime;
 using UIKit;
 
-namespace CajaApp
+namespace CajaApp.Resources.Platforms.MacCatalyst
 {
     public class Program
     {
