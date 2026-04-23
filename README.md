@@ -317,9 +317,3 @@ Idioma aplicado al iniciar mediante `LocalizationService`.
 ## 📬 Contacto
 
 **QuBitSoft** · ✉️ [qubitsoftxxi@gmail.com](mailto:qubitsoftxxi@gmail.com)
-
-# Sellik
-Comprehensive Cash Register Reconciliation System => Sistema Integral para Arqueo de Caja Contable
-
-#   S e l l i k  
- 
