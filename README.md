@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-﻿# Sellik — Cash Register & Reconciliation App
+# Sellik — Cash Register & Reconciliation App
 
 <p align="center">
   <img src="CajaApp/Resources/AppIcon/appiconfg.svg" alt="Sellik Logo" width="100" height="100"/>
@@ -318,9 +317,9 @@ Idioma aplicado al iniciar mediante `LocalizationService`.
 ## 📬 Contacto
 
 **QuBitSoft** · ✉️ [qubitsoftxxi@gmail.com](mailto:qubitsoftxxi@gmail.com)
-=======
+
 # Sellik
 Comprehensive Cash Register Reconciliation System => Sistema Integral para Arqueo de Caja Contable
->>>>>>> 22cfaff23547f273aae98ae0a9dfcbe42c6b53ec
+
 #   S e l l i k  
  
