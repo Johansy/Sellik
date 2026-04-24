@@ -295,6 +295,8 @@ namespace CajaApp.ViewModels
                 sb.AppendLine($"  Comercio: {v.Comercio}");
                 if (!string.IsNullOrEmpty(v.UltimosDigitosTarjeta))
                     sb.AppendLine($"  Tarjeta: ****{v.UltimosDigitosTarjeta}");
+                if (!string.IsNullOrWhiteSpace(v.TextoManuscrito))
+                    sb.AppendLine($"  ✍️ Manuscrito: {v.TextoManuscrito}");
             }
             return sb.ToString();
         }

@@ -33,7 +33,8 @@ namespace CajaApp.Services
               "numero_autorizacion": "código de autorización o vacío",
               "referencia": "referencia, folio o vacío",
               "numero_voucher": "número de ticket o venta o vacío",
-              "texto_completo": "todo el texto visible en la imagen"
+              "texto_completo": "todo el texto visible en la imagen",
+              "texto_manuscrito": "todo el texto escrito a mano en la imagen, o vacío si no hay"
             }
 
             Reglas importantes:
@@ -47,6 +48,7 @@ namespace CajaApp.Services
             - tipo_pago: detecta Efectivo, Crédito/Credito, Débito/Debito, Transferencia, SPEI
             - Si no encuentras un dato pon vacío "" o 0
             - Ignora las líneas que son sólo guiones, iguales, puntos o caracteres decorativos (ej. "------", "======", "· · · ·"); no son datos
+            - El campo "texto_manuscrito" debe contener ÚNICAMENTE el texto escrito a mano (notas, correcciones, firmas, etc.); si no hay texto manuscrito pon vacío ""
             """;
 
         // Prompt para extracción estructurada desde TEXTO (no imagen).
@@ -69,7 +71,8 @@ namespace CajaApp.Services
               "numero_autorizacion": "código de autorización o vacío",
               "referencia": "referencia, folio o vacío",
               "numero_voucher": "número de ticket o venta o vacío",
-              "texto_completo": "el mismo texto que recibiste, sin modificaciones"
+              "texto_completo": "el mismo texto que recibiste, sin modificaciones",
+              "texto_manuscrito": "texto escrito a mano identificado en el voucher, o vacío si no hay"
             }
 
             Reglas importantes:
@@ -83,6 +86,7 @@ namespace CajaApp.Services
             - tipo_pago: detecta Efectivo, Crédito/Credito, Débito/Debito, Transferencia, SPEI
             - Si no encuentras un dato pon vacío "" o 0
             - Ignora las líneas que son sólo guiones, iguales, puntos o caracteres decorativos (ej. "------", "======", "· · · ·"); no son datos
+            - El campo "texto_manuscrito" es cualquier texto escrito a mano que aparezca en el documento (anotaciones, firmas, etc.); pon vacío "" si no identificas ninguno
 
             Texto del voucher:
             """;
@@ -374,6 +378,7 @@ namespace CajaApp.Services
                     Descuentos = ParsearDecimal(node["descuento"]),
                     Total      = ParsearDecimal(node["total"]),
                     Fecha     = ParsearFecha(node["fecha"]?.ToString()),
+                    TextoManuscrito = LimpiarString(node["texto_manuscrito"]) ?? "",
                 };
             }
             catch (Exception ex)

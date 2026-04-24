@@ -275,6 +275,12 @@ namespace CajaApp.Views
                 sb.AppendLine($"Referencia: {v.ReferenciaBanco}");
             if (!string.IsNullOrEmpty(v.Notas))
                 sb.AppendLine($"Notas: {v.Notas}");
+            if (!string.IsNullOrWhiteSpace(v.TextoManuscrito))
+            {
+                sb.AppendLine();
+                sb.AppendLine($"✍️ {L["Voucher_Manuscrito"]}");
+                sb.AppendLine(v.TextoManuscrito);
+            }
             return sb.ToString();
         }
 

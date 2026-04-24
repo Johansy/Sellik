@@ -29,6 +29,7 @@ namespace CajaApp.Models
         public string RutaImagen { get; set; } = string.Empty;
         public DateTime FechaCreacion { get; set; } = DateTime.Now;
         public string Notas { get; set; } = string.Empty;
+        public string TextoManuscrito { get; set; } = string.Empty;
 
         // FK a Sesion (0 = datos sin sesión / legado)
         public int SesionId { get; set; } = 0;

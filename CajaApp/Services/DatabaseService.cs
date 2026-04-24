@@ -34,8 +34,9 @@ namespace CajaApp.Services
                     await EnsureSesionIdSchemaAsync(_database);
                     await _database.CreateTableAsync<ConceptoMovimiento>();
                     await _database.CreateTableAsync<Voucher>();
+                        await EnsureVoucherSchemaAsync(_database);
 
-                    // Tablas usadas por Configuración y Notas
+                        // Tablas usadas por Configuración y Notas
                     await _database.CreateTableAsync<ConfiguracionApp>();
                     await _database.CreateTableAsync<DenominacionConfig>();
                     await _database.CreateTableAsync<Nota>();
@@ -92,6 +93,21 @@ namespace CajaApp.Services
             catch (Exception ex)
             {
                 Debug.WriteLine($"[DatabaseService] Error verificando esquema SesionId: {ex}");
+            }
+        }
+
+        private async Task EnsureVoucherSchemaAsync(SQLiteAsyncConnection db)
+        {
+            try
+            {
+                var cols = await db.QueryAsync<SqliteTableInfo>("PRAGMA table_info('Vouchers')");
+                var nombres = cols.Select(c => c.name).ToHashSet(StringComparer.OrdinalIgnoreCase);
+                if (!nombres.Contains("TextoManuscrito"))
+                    await db.ExecuteAsync("ALTER TABLE Vouchers ADD COLUMN TextoManuscrito TEXT NOT NULL DEFAULT ''");
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"[DatabaseService] Error verificando esquema Vouchers: {ex}");
             }
         }
 

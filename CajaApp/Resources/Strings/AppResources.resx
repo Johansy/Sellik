@@ -124,6 +124,8 @@
   <data name="Voucher_TipoEfectivoItem"><value>Efectivo</value></data>
   <data name="Voucher_TipoTransferenciaItem"><value>Transferencia</value></data>
   <data name="Voucher_TipoOtroItem"><value>Otro</value></data>
+  <data name="Voucher_Manuscrito"><value>✍️ Manuscrito</value></data>
+  <data name="Voucher_ManuscritoLabel"><value>Manuscrito:</value></data>
 
   <!-- == CajaPage ========================================================─ -->
   <data name="Caja_Titulo"><value>Caja Registradora</value></data>

@@ -124,6 +124,8 @@
   <data name="Voucher_TipoEfectivoItem"><value>Cash</value></data>
   <data name="Voucher_TipoTransferenciaItem"><value>Transfer</value></data>
   <data name="Voucher_TipoOtroItem"><value>Other</value></data>
+  <data name="Voucher_Manuscrito"><value>✍️ Handwritten</value></data>
+  <data name="Voucher_ManuscritoLabel"><value>Handwritten:</value></data>
 
   <!-- == CajaPage ========================================================─ -->
   <data name="Caja_Titulo"><value>Cash Register</value></data>

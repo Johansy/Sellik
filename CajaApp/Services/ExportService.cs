@@ -113,8 +113,8 @@ namespace CajaApp.Services
             ws.ShowGridLines = false;
 
             string[] encabezados = { "#", "Fecha", "Comercio", "Tipo Pago", "Tarjeta",
-                                     "Folio/Ticket", "Subtotal", "IVA", "Total", "Autorización", "Notas" };
-            double[] anchos     = { 5, 18, 32, 13, 11, 14, 13, 11, 13, 14, 20 };
+                                     "Folio/Ticket", "Subtotal", "IVA", "Total", "Autorización", "Notas", "Manuscrito" };
+            double[] anchos     = { 5, 18, 32, 13, 11, 14, 13, 11, 13, 14, 20, 30 };
 
             for (int i = 0; i < encabezados.Length; i++)
             {
@@ -142,6 +142,7 @@ namespace CajaApp.Services
                 DataCeldaMoneda(ws.Cell(fila, 9), v.Total, esPar);
                 DataCelda(ws.Cell(fila, 10), v.NumeroAutorizacion ?? "-", esPar);
                 DataCelda(ws.Cell(fila, 11), v.Notas ?? "", esPar);
+                DataCelda(ws.Cell(fila, 12), v.TextoManuscrito ?? "", esPar);
             }
 
             // Fila de totales
@@ -284,18 +285,19 @@ namespace CajaApp.Services
                     t.ColumnsDefinition(cd =>
                     {
                         cd.ConstantColumn(22);   // #
-                        cd.RelativeColumn(2.2f); // Fecha
-                        cd.RelativeColumn(3.5f); // Comercio
-                        cd.RelativeColumn(1.5f); // Tipo
-                        cd.RelativeColumn(1.3f); // Tarjeta
-                        cd.RelativeColumn(1.8f); // Total
-                        cd.RelativeColumn(1.8f); // Autorización
+                        cd.RelativeColumn(2.0f); // Fecha
+                        cd.RelativeColumn(3.0f); // Comercio
+                        cd.RelativeColumn(1.4f); // Tipo
+                        cd.RelativeColumn(1.2f); // Tarjeta
+                        cd.RelativeColumn(1.6f); // Total
+                        cd.RelativeColumn(1.6f); // Autorización
+                        cd.RelativeColumn(2.5f); // Manuscrito
                     });
 
                     // Encabezados
                     t.Header(header =>
                     {
-                        foreach (var txt in new[] { "#","Fecha","Comercio","Tipo","Tarjeta","Total","Autorización" })
+                        foreach (var txt in new[] { "#","Fecha","Comercio","Tipo","Tarjeta","Total","Autorización","Manuscrito" })
                             header.Cell().Background(COLOR_MORADO).Padding(4)
                              .AlignCenter().Text(txt).FontColor(PdfColors.White).Bold().FontSize(8);
                     });
@@ -316,6 +318,8 @@ namespace CajaApp.Services
                          .Text($"{v.Total:C2}").FontSize(8).Bold();
                         t.Cell().Background(bg).Padding(3).AlignCenter()
                          .Text(v.NumeroAutorizacion ?? "-").FontSize(8);
+                        t.Cell().Background(bg).Padding(3)
+                         .Text(v.TextoManuscrito ?? "").FontSize(8).Italic();
 
                         par = !par;
                     }
@@ -326,7 +330,8 @@ namespace CajaApp.Services
 
                     t.Cell().Background(COLOR_MORADO_MED).Padding(4).AlignRight()
                      .Text($"{lista.Sum(v => v.Total):C2}").Bold().FontSize(9);
-                                     t.Cell().Background(COLOR_MORADO_MED).Padding(4).Text("").FontSize(8);
+                    t.Cell().Background(COLOR_MORADO_MED).Padding(4).Text("").FontSize(8);
+                    t.Cell().Background(COLOR_MORADO_MED).Padding(4).Text("").FontSize(8);
                                     });
                                 });
                             }
@@ -727,8 +732,8 @@ namespace CajaApp.Services
             const float headerH  = 50f;
             const float summaryH = 60f;
 
-            float[] colW      = { contentW * 0.18f, contentW * 0.22f, contentW * 0.15f, contentW * 0.13f, contentW * 0.17f, contentW * 0.15f };
-            string[] colTitles = { "Fecha", "Comercio", "Tipo Pago", "Tarjeta", "Total", "Autorización" };
+            float[] colW      = { contentW * 0.14f, contentW * 0.18f, contentW * 0.12f, contentW * 0.10f, contentW * 0.13f, contentW * 0.12f, contentW * 0.21f };
+            string[] colTitles = { "Fecha", "Comercio", "Tipo Pago", "Tarjeta", "Total", "Autorización", "Manuscrito" };
 
             using var stream = new FileStream(ruta, FileMode.Create, FileAccess.Write);
             using var doc    = SKDocument.CreatePdf(stream);
@@ -803,12 +808,13 @@ namespace CajaApp.Services
 
                     x = margin;
                     canvas.DrawText(v.Fecha.ToString("dd/MM/yy HH:mm"), x + 3f, y + rowH - 5f, paintBlackSm); x += colW[0];
-                    canvas.DrawText(Truncar(v.Comercio ?? "-", 22),       x + 3f, y + rowH - 5f, paintBlackSm); x += colW[1];
-                    canvas.DrawText(v.TipoPago.ToString(),                 x + 3f, y + rowH - 5f, paintBlackSm); x += colW[2];
+                    canvas.DrawText(Truncar(v.Comercio ?? "-", 18),        x + 3f, y + rowH - 5f, paintBlackSm); x += colW[1];
+                    canvas.DrawText(v.TipoPago.ToString(),                  x + 3f, y + rowH - 5f, paintBlackSm); x += colW[2];
                     canvas.DrawText(string.IsNullOrEmpty(v.UltimosDigitosTarjeta) ? "-" : $"****{v.UltimosDigitosTarjeta}",
                                     x + 3f, y + rowH - 5f, paintBlackSm); x += colW[3];
-                    canvas.DrawText($"{v.Total:C2}",                       x + 3f, y + rowH - 5f, paintBoldSm);  x += colW[4];
-                    canvas.DrawText(v.NumeroAutorizacion ?? "-",            x + 3f, y + rowH - 5f, paintBlackSm);
+                    canvas.DrawText($"{v.Total:C2}",                        x + 3f, y + rowH - 5f, paintBoldSm);  x += colW[4];
+                    canvas.DrawText(v.NumeroAutorizacion ?? "-",             x + 3f, y + rowH - 5f, paintBlackSm); x += colW[5];
+                    canvas.DrawText(Truncar(v.TextoManuscrito ?? "", 22),   x + 3f, y + rowH - 5f, paintBlackSm);
 
                     y += rowH;
                 }

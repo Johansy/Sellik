@@ -259,12 +259,13 @@
                     Text="{loc:Translate Voucher_Detectado}"
                     TextColor="#2E7D32" />
 
-                <Grid Grid.Row="1" Margin="0,8">
+                    <Grid Grid.Row="1" Margin="0,8">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
@@ -358,6 +359,30 @@
                         FontSize="12"
                         Keyboard="Numeric"
                         Text="{Binding VoucherPrevisualizacion.Total, StringFormat='{0:F2}'}" />
+
+                    <!--  Texto manuscrito (visible solo si fue detectado)  -->
+                    <Border
+                        Grid.Row="5"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Margin="0,6,0,0"
+                        Padding="8,6"
+                        Background="#FFF8E1"
+                        IsVisible="{Binding VoucherPrevisualizacion.TextoManuscrito, Converter={StaticResource StringToBoolConverter}}"
+                        StrokeShape="RoundRectangle 6"
+                        StrokeThickness="0">
+                        <StackLayout Spacing="2">
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="11"
+                                Text="{loc:Translate Voucher_Manuscrito}"
+                                TextColor="#F57F17" />
+                            <Label
+                                FontSize="12"
+                                Text="{Binding VoucherPrevisualizacion.TextoManuscrito}"
+                                TextColor="#5D4037" />
+                        </StackLayout>
+                    </Border>
                 </Grid>
 
                 <StackLayout
