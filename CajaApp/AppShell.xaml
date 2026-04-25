@@ -96,4 +96,9 @@
         Command="{Binding IrAConfiguracionCommand}"
         Text="{loc:Translate Nav_Configuracion}" />
 
+    <MenuItem
+        x:DataType="shell:AppShell"
+        Command="{Binding IrAPremiumCommand}"
+        Text="💎 Premium" />
+
 </Shell>

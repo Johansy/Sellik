@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using CajaApp.Models;
 using CajaApp.Services;
+using CajaApp.Views;
 
 namespace CajaApp.ViewModels
 {
@@ -258,6 +259,11 @@ namespace CajaApp.ViewModels
 
         public async Task ExportarExcelAsync(IEnumerable<Voucher>? vouchers = null)
         {
+            if (!LicenseService.Instance.PuedeExportar())
+            {
+                await MostrarAlertaPremiumAsync();
+                return;
+            }
             IsProcessing = true;
             try
             {
@@ -269,6 +275,11 @@ namespace CajaApp.ViewModels
 
         public async Task ExportarPdfAsync(IEnumerable<Voucher>? vouchers = null)
         {
+            if (!LicenseService.Instance.PuedeExportar())
+            {
+                await MostrarAlertaPremiumAsync();
+                return;
+            }
             IsProcessing = true;
             try
             {
@@ -276,6 +287,20 @@ namespace CajaApp.ViewModels
                 await _exportService.CompartirArchivoAsync(ruta, $"Vouchers {DateTime.Now:dd-MM-yyyy}");
             }
             finally { IsProcessing = false; }
+        }
+
+        private static async Task MostrarAlertaPremiumAsync()
+        {
+            var page = Application.Current?.Windows.Count > 0
+                ? Application.Current.Windows[0].Page
+                : null;
+            var irAPremium = await (page?.DisplayAlert(
+                LocalizationService.Get("Premium_FuncionTitulo"),
+                LocalizationService.Get("Premium_FuncionExportar"),
+                LocalizationService.Get("Premium_BtnVerPremium"),
+                LocalizationService.Get("Btn_Cancelar")) ?? Task.FromResult(false));
+            if (irAPremium)
+                await Shell.Current.GoToAsync(nameof(PremiumPage));
         }
 
         public string GenerarReporteVouchers()

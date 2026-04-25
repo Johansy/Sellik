@@ -364,3 +364,9 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+# Keystore - NO subir al repositorio
+*.keystore
+*.jks
+
+# Generador de claves de licencia (uso local, no subir al repo)
+KeyGenerator/

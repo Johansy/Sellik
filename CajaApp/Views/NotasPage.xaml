@@ -175,84 +175,48 @@
         </Border>
 
         <!--  Filtros de fecha  -->
-        <Border
+        <ScrollView
             Grid.Row="3"
-            Margin="10,0,10,5"
-            Background="{DynamicResource SurfaceColor}"
-            StrokeThickness="0"
-            StrokeShape="RoundRectangle 10">
-            <Grid RowSpacing="4">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
-                <ScrollView Grid.Row="0" Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
-                    <HorizontalStackLayout Spacing="6" Padding="6,6,6,2">
-                        <Button x:Name="BtnFechaTodas"
-                                Text="{loc:Translate Notas_FiltroFechaTodas}"
-                                FontSize="12"
-                                Padding="10,6"
-                                CornerRadius="16"
-                                BackgroundColor="#9C27B0"
-                                TextColor="White"
-                                Clicked="OnFiltroFechaClicked"
-                                CommandParameter="0" />
-                        <Button x:Name="BtnFechaHoy"
-                                Text="{loc:Translate Notas_FiltroFechaHoy}"
-                                FontSize="12"
-                                Padding="10,6"
-                                CornerRadius="16"
-                                BackgroundColor="{DynamicResource CardColor}"
-                                TextColor="{DynamicResource TextColor}"
-                                Clicked="OnFiltroFechaClicked"
-                                CommandParameter="1" />
-                        <Button x:Name="BtnFechaSemana"
-                                Text="{loc:Translate Notas_FiltroFechaSemana}"
-                                FontSize="12"
-                                Padding="10,6"
-                                CornerRadius="16"
-                                BackgroundColor="{DynamicResource CardColor}"
-                                TextColor="{DynamicResource TextColor}"
-                                Clicked="OnFiltroFechaClicked"
-                                CommandParameter="2" />
-                        <Button x:Name="BtnFechaMes"
-                                Text="{loc:Translate Notas_FiltroFechaMes}"
-                                FontSize="12"
-                                Padding="10,6"
-                                CornerRadius="16"
-                                BackgroundColor="{DynamicResource CardColor}"
-                                TextColor="{DynamicResource TextColor}"
-                                Clicked="OnFiltroFechaClicked"
-                                CommandParameter="3" />
-                        <Button x:Name="BtnFechaAnio"
-                                Text="{loc:Translate Notas_FiltroFechaAnio}"
-                                FontSize="12"
-                                Padding="10,6"
-                                CornerRadius="16"
-                                BackgroundColor="{DynamicResource CardColor}"
-                                TextColor="{DynamicResource TextColor}"
-                                Clicked="OnFiltroFechaClicked"
-                                CommandParameter="4" />
-                    </HorizontalStackLayout>
-                </ScrollView>
-                <Grid Grid.Row="1" Padding="6,2,6,6" ColumnSpacing="8">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Label Grid.Column="0"
-                           Text="{loc:Translate Notas_IrAFecha}"
-                           FontSize="12"
-                           VerticalOptions="Center"
-                           TextColor="{DynamicResource TextColor}" />
-                    <DatePicker x:Name="FechaEspecificaPicker"
-                                Grid.Column="1"
-                                Format="dd/MM/yyyy"
-                                DateSelected="OnFechaEspecificaSelected"
-                                FontSize="12" />
-                </Grid>
-            </Grid>
-        </Border>
+            Orientation="Horizontal"
+            HorizontalScrollBarVisibility="Never"
+            Margin="10,0,10,4">
+            <HorizontalStackLayout Spacing="4" Padding="0,6">
+                <Button x:Name="BtnFechaTodas"
+                        Style="{StaticResource FilterChipActive}"
+                        Text="{loc:Translate Notas_FiltroFechaTodas}"
+                        Clicked="OnFiltroFechaClicked"
+                        CommandParameter="0" />
+                <Button x:Name="BtnFechaHoy"
+                        Style="{StaticResource FilterChipInactive}"
+                        Text="{loc:Translate Notas_FiltroFechaHoy}"
+                        Clicked="OnFiltroFechaClicked"
+                        CommandParameter="1" />
+                <Button x:Name="BtnFechaSemana"
+                        Style="{StaticResource FilterChipInactive}"
+                        Text="{loc:Translate Notas_FiltroFechaSemana}"
+                        Clicked="OnFiltroFechaClicked"
+                        CommandParameter="2" />
+                <Button x:Name="BtnFechaMes"
+                        Style="{StaticResource FilterChipInactive}"
+                        Text="{loc:Translate Notas_FiltroFechaMes}"
+                        Clicked="OnFiltroFechaClicked"
+                        CommandParameter="3" />
+                <Button x:Name="BtnFechaAnio"
+                        Style="{StaticResource FilterChipInactive}"
+                        Text="{loc:Translate Notas_FiltroFechaAnio}"
+                        Clicked="OnFiltroFechaClicked"
+                        CommandParameter="4" />
+
+                <BoxView WidthRequest="1" HeightRequest="24" Color="{DynamicResource BorderColor}" VerticalOptions="Center" Margin="4,0" />
+
+                <DatePicker x:Name="FechaEspecificaPicker"
+                            Format="dd/MM/yy"
+                            FontSize="12"
+                            HeightRequest="34"
+                            VerticalOptions="Center"
+                            DateSelected="OnFechaEspecificaSelected" />
+            </HorizontalStackLayout>
+        </ScrollView>
 
         <!--  Lista de notas  -->
         <CollectionView

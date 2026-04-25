@@ -505,6 +505,20 @@ namespace CajaApp.Services
             await db.ExecuteAsync("DELETE FROM Notas WHERE SesionId = ?", sesion.Id);
             return await db.DeleteAsync(sesion);
         }
+
+        /// Conteo total de vouchers (todas las sesiones) — usado por LicenseService.
+        public async Task<int> ContarVouchersTotalAsync()
+        {
+            var db = await GetDatabaseAsync();
+            return await db.Table<Voucher>().CountAsync();
+        }
+
+        /// Conteo total de sesiones — usado por LicenseService para el límite Free.
+        public async Task<int> ContarSesionesAsync()
+        {
+            var db = await GetDatabaseAsync();
+            return await db.Table<Sesion>().CountAsync();
+        }
         #endregion
     }
 }

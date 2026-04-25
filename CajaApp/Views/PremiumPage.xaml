@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CajaApp.Views.PremiumPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:CajaApp.ViewModels"
+    xmlns:loc="clr-namespace:CajaApp.Helpers;assembly=Sellik"
+    Title="{loc:Translate Premium_PageTitulo}"
+    x:DataType="vm:PremiumViewModel"
+    BackgroundColor="{DynamicResource BackgroundColor}">
+
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="16">
+
+            <!-- ── Encabezado ─────────────────────────────────────────────── -->
+            <Border
+                Padding="20"
+                BackgroundColor="{DynamicResource PrimaryColor}"
+                Stroke="Transparent"
+                StrokeShape="RoundRectangle 12">
+                <StackLayout HorizontalOptions="Center" Spacing="4">
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="26"
+                        HorizontalOptions="Center"
+                        Text="{loc:Translate Premium_Encabezado}"
+                        TextColor="White" />
+                    <Label
+                        FontSize="14"
+                        HorizontalOptions="Center"
+                        Opacity="0.85"
+                        Text="{loc:Translate Premium_PlanActual}"
+                        TextColor="White" />
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="18"
+                        HorizontalOptions="Center"
+                        Text="{Binding TextoPlan}"
+                        TextColor="White" />
+                </StackLayout>
+            </Border>
+
+            <!-- ── Plan GRATIS ────────────────────────────────────────────── -->
+            <Border
+                Padding="16"
+                BackgroundColor="{DynamicResource CardColor}"
+                Stroke="#E0E0E0"
+                StrokeShape="RoundRectangle 10"
+                StrokeThickness="1">
+                <StackLayout Spacing="6">
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="18"
+                        Text="{loc:Translate Premium_PlanFreeNombre}"
+                        TextColor="{DynamicResource TextColor}" />
+                    <Label FontSize="14" Text="{loc:Translate Premium_PlanFree1}" TextColor="{DynamicResource TextColor}" />
+                    <Label FontSize="14" Text="{loc:Translate Premium_PlanFree2}" TextColor="{DynamicResource TextColor}" />
+                    <Label FontSize="14" Text="{loc:Translate Premium_PlanFree3}" TextColor="{DynamicResource TextColor}" />
+                    <Label FontSize="14" Text="{loc:Translate Premium_PlanFree4}" TextColor="{DynamicResource TextColor}" />
+                    <Label FontSize="14" Text="{loc:Translate Premium_PlanFree5}" TextColor="Gray" />
+                    <Label FontSize="14" Text="{loc:Translate Premium_PlanFree6}" TextColor="Gray" />
+                    <Label FontSize="14" Text="{loc:Translate Premium_PlanFree7}" TextColor="Gray" />
+                    <Label FontSize="14" Text="{loc:Translate Premium_PlanFree8}" TextColor="Gray" />
+                </StackLayout>
+            </Border>
+
+            <!-- ── Plan PREMIUM ───────────────────────────────────────────── -->
+            <Border
+                Padding="16"
+                BackgroundColor="#EDE7F6"
+                Stroke="{DynamicResource PrimaryColor}"
+                StrokeShape="RoundRectangle 10"
+                StrokeThickness="2">
+                <StackLayout Spacing="6">
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="18"
+                        Text="{loc:Translate Premium_PlanPremiumNombre}"
+                        TextColor="#4527A0" />
+                    <Label FontSize="14" Text="{loc:Translate Premium_PlanPremium1}" TextColor="#311B92" />
+                    <Label FontSize="14" Text="{loc:Translate Premium_PlanPremium2}" TextColor="#311B92" />
+                    <Label FontSize="14" Text="{loc:Translate Premium_PlanPremium3}" TextColor="#311B92" />
+                    <Label FontSize="14" Text="{loc:Translate Premium_PlanPremium4}" TextColor="#311B92" />
+                    <Label FontSize="14" Text="{loc:Translate Premium_PlanPremium5}" TextColor="#311B92" />
+
+                    <BoxView HeightRequest="1" Color="#D1C4E9" Margin="0,8" />
+
+                    <!-- Purchase options -->
+                    <Button
+                        Padding="0,14"
+                        BackgroundColor="{DynamicResource PrimaryColor}"
+                        Command="{Binding ComprarUnicoCommand}"
+                        CornerRadius="8"
+                        FontAttributes="Bold"
+                        FontSize="15"
+                        Text="{loc:Translate Premium_BtnAnual}"
+                        TextColor="White" />
+
+                    <Button
+                        Padding="0,14"
+                        BackgroundColor="#7B1FA2"
+                        Command="{Binding ComprarMensualCommand}"
+                        CornerRadius="8"
+                        FontAttributes="Bold"
+                        FontSize="15"
+                        Text="{loc:Translate Premium_BtnMensual}"
+                        TextColor="White" />
+
+                    <Label
+                        FontSize="11"
+                        HorizontalOptions="Center"
+                        Opacity="0.7"
+                        Text="{loc:Translate Premium_PagoSeguro}"
+                        TextColor="#4527A0" />
+                </StackLayout>
+            </Border>
+
+            <!-- ── Activar clave de licencia ──────────────────────────────── -->
+            <Border
+                Padding="16"
+                BackgroundColor="{DynamicResource CardColor}"
+                Stroke="Transparent"
+                StrokeShape="RoundRectangle 10">
+                <StackLayout Spacing="10">
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="15"
+                        Text="{loc:Translate Premium_ActivarTitulo}"
+                        TextColor="{DynamicResource TextColor}" />
+                    <Label
+                        FontSize="12"
+                        Opacity="0.7"
+                        Text="{loc:Translate Premium_ActivarDesc}"
+                        TextColor="{DynamicResource TextColor}" />
+
+                    <Button
+                        Padding="0,10"
+                        BackgroundColor="Transparent"
+                        BorderColor="{DynamicResource PrimaryColor}"
+                        BorderWidth="1"
+                        Command="{Binding EnviarComprobanteCommand}"
+                        CornerRadius="8"
+                        FontSize="13"
+                        Text="{loc:Translate Premium_BtnEnviarComprobante}"
+                        TextColor="{DynamicResource PrimaryColor}" />
+
+                    <Entry
+                        Placeholder="{loc:Translate Premium_ClavePlaceholder}"
+                        Text="{Binding ClaveIngresada}"
+                        IsEnabled="{Binding IsBusy, Converter={StaticResource InvertedBoolConverter}}"
+                        ClearButtonVisibility="WhileEditing" />
+
+                    <Button
+                        Padding="0,12"
+                        BackgroundColor="{DynamicResource PrimaryColor}"
+                        Command="{Binding ActivarClaveCommand}"
+                        CornerRadius="8"
+                        FontSize="14"
+                        IsEnabled="{Binding IsBusy, Converter={StaticResource InvertedBoolConverter}}"
+                        Text="{loc:Translate Premium_BtnActivar}"
+                        TextColor="White" />
+
+                    <Button
+                        Padding="0,10"
+                        BackgroundColor="Transparent"
+                        BorderColor="{DynamicResource PrimaryColor}"
+                        BorderWidth="1"
+                        Command="{Binding RestaurarCommand}"
+                        CornerRadius="8"
+                        FontSize="13"
+                        IsEnabled="{Binding IsBusy, Converter={StaticResource InvertedBoolConverter}}"
+                        Text="{loc:Translate Premium_BtnRestaurar}"
+                        TextColor="{DynamicResource PrimaryColor}" />
+
+                    <!-- Indicador de carga -->
+                    <ActivityIndicator
+                        HorizontalOptions="Center"
+                        IsRunning="{Binding IsBusy}"
+                        IsVisible="{Binding IsBusy}"
+                        Color="{DynamicResource PrimaryColor}" />
+
+                    <!-- Mensaje de estado -->
+                    <Border
+                        IsVisible="{Binding HayMensaje}"
+                        Padding="12,8"
+                        StrokeShape="RoundRectangle 8">
+                        <Border.Triggers>
+                            <DataTrigger
+                                Binding="{Binding MensajeExito}"
+                                TargetType="Border"
+                                Value="True">
+                                <Setter Property="BackgroundColor" Value="#E8F5E9" />
+                                <Setter Property="Stroke" Value="#4CAF50" />
+                            </DataTrigger>
+                            <DataTrigger
+                                Binding="{Binding MensajeExito}"
+                                TargetType="Border"
+                                Value="False">
+                                <Setter Property="BackgroundColor" Value="#FFEBEE" />
+                                <Setter Property="Stroke" Value="#F44336" />
+                            </DataTrigger>
+                        </Border.Triggers>
+                        <Label
+                            FontSize="13"
+                            Text="{Binding MensajeEstado}"
+                            TextColor="{DynamicResource TextColor}" />
+                    </Border>
+                </StackLayout>
+            </Border>
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

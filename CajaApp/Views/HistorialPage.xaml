@@ -10,7 +10,7 @@
              BackgroundColor="{DynamicResource BackgroundColor}">
 
   <ContentPage.Content>
-    <Grid RowDefinitions="Auto,Auto,Auto,*">
+    <Grid RowDefinitions="Auto,Auto,*">
 
       <!-- Barra de búsqueda -->
       <SearchBar Grid.Row="0"
@@ -18,37 +18,47 @@
                  Text="{Binding FiltroTexto}"
                  Margin="8,8,8,0" />
 
-      <!-- Filtro de fechas -->
-      <Grid Grid.Row="1" ColumnDefinitions="*,Auto,*,Auto"
-            Padding="8,6,8,0" ColumnSpacing="4">
-        <DatePicker Grid.Column="0"
-                    Date="{Binding FechaInicio}"
-                    Format="dd/MM/yyyy"
-                    VerticalOptions="Center" />
-        <Label Grid.Column="1" Text="→"
-               VerticalOptions="Center" HorizontalOptions="Center" Margin="4,0"/>
-        <DatePicker Grid.Column="2"
-                    Date="{Binding FechaFin}"
-                    Format="dd/MM/yyyy"
-                    VerticalOptions="Center" />
-        <Button Grid.Column="3"
-                Text="{Binding IconoOrden}"
-                Command="{Binding ToggleOrdenCommand}"
-                FontSize="18"
-                BackgroundColor="Transparent"
-                WidthRequest="40"
-                VerticalOptions="Center" />
-      </Grid>
-
-      <!-- Picker de categoría -->
-      <Picker Grid.Row="2"
+      <!-- Filtro de fechas compacto -->
+      <ScrollView Grid.Row="1" Orientation="Horizontal" HorizontalScrollBarVisibility="Never" Margin="8,4,8,0">
+        <HorizontalStackLayout Spacing="6" Padding="0,4">
+          <DatePicker
+              Date="{Binding FechaInicio}"
+              Format="dd/MM/yy"
+              FontSize="11"
+              HeightRequest="28"
+              VerticalOptions="Center" />
+          <Label Text="→" FontSize="13" TextColor="{DynamicResource SubtleTextColor}" VerticalOptions="Center" />
+          <DatePicker
+              Date="{Binding FechaFin}"
+              Format="dd/MM/yy"
+              FontSize="11"
+              HeightRequest="28"
+              VerticalOptions="Center" />
+          <BoxView WidthRequest="1" HeightRequest="20" Color="{DynamicResource BorderColor}" VerticalOptions="Center" Margin="4,0" />
+          <Picker
               ItemsSource="{Binding TiposFiltro}"
               SelectedItem="{Binding FiltroTipo}"
-              Title="Filtrar por tipo"
-              Margin="8,4,8,4" />
+              Title="Tipo"
+              FontSize="11"
+              WidthRequest="110"
+              VerticalOptions="Center" />
+          <Button
+              Text="{Binding IconoOrden}"
+              Command="{Binding ToggleOrdenCommand}"
+              FontSize="16"
+              BackgroundColor="Transparent"
+              TextColor="{DynamicResource SubtleTextColor}"
+              WidthRequest="36"
+              HeightRequest="28"
+              Padding="0"
+              MinimumHeightRequest="0"
+              MinimumWidthRequest="0"
+              VerticalOptions="Center" />
+        </HorizontalStackLayout>
+      </ScrollView>
 
       <!-- Lista agrupada -->
-      <CollectionView Grid.Row="3"
+      <CollectionView Grid.Row="2"
                       ItemsSource="{Binding ElementosAgrupados}"
                       IsGrouped="True"
                       SelectionMode="Single"

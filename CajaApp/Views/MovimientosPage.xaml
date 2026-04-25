@@ -87,99 +87,55 @@
             </Grid>
         </Border>
 
-        <!--  Barra de filtros  -->
-        <Border
+        <!--  Barra de filtros compacta  -->
+        <ScrollView
             Grid.Row="1"
-            Margin="10,5"
-            Background="{DynamicResource SurfaceColor}"
-            StrokeThickness="0"
-            StrokeShape="RoundRectangle 10">
-            <StackLayout Padding="8,6" Spacing="6">
+            Orientation="Horizontal"
+            HorizontalScrollBarVisibility="Never"
+            Margin="10,4,10,2">
+            <HorizontalStackLayout Spacing="4" Padding="0,6">
 
-                <!--  Botones de filtro rápido  -->
-                <Grid ColumnSpacing="4">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
+                <Button x:Name="BtnTodo"
+                        Style="{StaticResource FilterChipActive}"
+                        Text="{loc:Translate Mov_PeriodoTodo}"
+                        Clicked="OnFiltroRapidoClicked"
+                        CommandParameter="Todo" />
 
-                    <Button Grid.Column="0"
-                            x:Name="BtnTodo"
-                            Text="{loc:Translate Mov_PeriodoTodo}"
-                            FontSize="11"
-                            Padding="2"
-                            CornerRadius="8"
-                            BackgroundColor="#2E7D32"
-                            TextColor="White"
-                            Clicked="OnFiltroRapidoClicked"
-                            CommandParameter="Todo" />
+                <Button x:Name="BtnHoy"
+                        Style="{StaticResource FilterChipInactive}"
+                        Text="{loc:Translate Mov_PeriodoHoy}"
+                        Clicked="OnFiltroRapidoClicked"
+                        CommandParameter="Hoy" />
 
-                    <Button Grid.Column="1"
-                            x:Name="BtnHoy"
-                            Text="{loc:Translate Mov_PeriodoHoy}"
-                            FontSize="11"
-                            Padding="2"
-                            CornerRadius="8"
-                            BackgroundColor="{DynamicResource SurfaceVariantColor}"
-                            TextColor="{DynamicResource OnSurfaceColor}"
-                            Clicked="OnFiltroRapidoClicked"
-                            CommandParameter="Hoy" />
+                <Button x:Name="BtnSemana"
+                        Style="{StaticResource FilterChipInactive}"
+                        Text="{loc:Translate Mov_PeriodoSemana}"
+                        Clicked="OnFiltroRapidoClicked"
+                        CommandParameter="Semana" />
 
-                    <Button Grid.Column="2"
-                            x:Name="BtnSemana"
-                            Text="{loc:Translate Mov_PeriodoSemana}"
-                            FontSize="11"
-                            Padding="2"
-                            CornerRadius="8"
-                            BackgroundColor="{DynamicResource SurfaceVariantColor}"
-                            TextColor="{DynamicResource OnSurfaceColor}"
-                            Clicked="OnFiltroRapidoClicked"
-                            CommandParameter="Semana" />
+                <Button x:Name="BtnMes"
+                        Style="{StaticResource FilterChipInactive}"
+                        Text="{loc:Translate Mov_PeriodoMes}"
+                        Clicked="OnFiltroRapidoClicked"
+                        CommandParameter="Mes" />
 
-                    <Button Grid.Column="3"
-                            x:Name="BtnMes"
-                            Text="{loc:Translate Mov_PeriodoMes}"
-                            FontSize="11"
-                            Padding="2"
-                            CornerRadius="8"
-                            BackgroundColor="{DynamicResource SurfaceVariantColor}"
-                            TextColor="{DynamicResource OnSurfaceColor}"
-                            Clicked="OnFiltroRapidoClicked"
-                            CommandParameter="Mes" />
+                <Button x:Name="BtnAnio"
+                        Style="{StaticResource FilterChipInactive}"
+                        Text="{loc:Translate Mov_PeriodoAnio}"
+                        Clicked="OnFiltroRapidoClicked"
+                        CommandParameter="Anio" />
 
-                    <Button Grid.Column="4"
-                            x:Name="BtnAnio"
-                            Text="{loc:Translate Mov_PeriodoAnio}"
-                            FontSize="11"
-                            Padding="2"
-                            CornerRadius="8"
-                            BackgroundColor="{DynamicResource SurfaceVariantColor}"
-                            TextColor="{DynamicResource OnSurfaceColor}"
-                            Clicked="OnFiltroRapidoClicked"
-                            CommandParameter="Anio" />
-                </Grid>
+                <BoxView WidthRequest="1" HeightRequest="24" Color="{DynamicResource BorderColor}" VerticalOptions="Center" Margin="4,0" />
 
-                <!--  DatePicker para fecha específica  -->
-                <Grid ColumnSpacing="6">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Label Grid.Column="0"
-                           Text="{loc:Translate Mov_FiltroFecha}"
-                           VerticalOptions="Center"
-                           FontSize="13" />
-                    <DatePicker Grid.Column="1"
-                                x:Name="FiltroFechaPicker"
-                                Date="{Binding FechaFiltro}"
-                                FontSize="13"
-                                DateSelected="OnFiltroFechaSeleccionada" />
-                </Grid>
-            </StackLayout>
-        </Border>
+                <DatePicker x:Name="FiltroFechaPicker"
+                            Date="{Binding FechaFiltro}"
+                            FontSize="12"
+                            Format="dd/MM/yy"
+                            HeightRequest="34"
+                            VerticalOptions="Center"
+                            DateSelected="OnFiltroFechaSeleccionada" />
+            </HorizontalStackLayout>
+        </ScrollView>
 
         <!--  Formulario de nuevo movimiento  -->
         <Border

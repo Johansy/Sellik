@@ -136,105 +136,73 @@
         </Border>
 
         <!--  ══ Barra de filtros de fecha ════════════════════════════════════  -->
-        <Border
+        <StackLayout
             Grid.Row="2"
-            Margin="10,0,10,5"
-            Padding="8,6"
-            Background="{DynamicResource SurfaceColor}"
-            StrokeShape="RoundRectangle 10"
-            StrokeThickness="0">
-            <StackLayout Spacing="6">
-                <!--  Chips de período  -->
-                <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
-                    <HorizontalStackLayout Spacing="6">
-                        <Button
-                            x:Name="FiltroTodosBtn"
-                            BackgroundColor="#673AB7"
-                            Clicked="OnFiltroTodosClicked"
-                            CornerRadius="16"
-                            FontSize="12"
-                            Padding="12,4"
-                            Text="{loc:Translate Voucher_FiltroTodos}"
-                            TextColor="White" />
-                        <Button
-                            x:Name="FiltroHoyBtn"
-                            BackgroundColor="#607D8B"
-                            Clicked="OnFiltroHoyClicked"
-                            CornerRadius="16"
-                            FontSize="12"
-                            Padding="12,4"
-                            Text="{loc:Translate Voucher_FiltroHoy}"
-                            TextColor="White" />
-                        <Button
-                            x:Name="FiltroSemanaBtn"
-                            BackgroundColor="#607D8B"
-                            Clicked="OnFiltroSemanaClicked"
-                            CornerRadius="16"
-                            FontSize="12"
-                            Padding="12,4"
-                            Text="{loc:Translate Voucher_FiltroSemana}"
-                            TextColor="White" />
-                        <Button
-                            x:Name="FiltroMesBtn"
-                            BackgroundColor="#607D8B"
-                            Clicked="OnFiltroMesClicked"
-                            CornerRadius="16"
-                            FontSize="12"
-                            Padding="12,4"
-                            Text="{loc:Translate Voucher_FiltroMes}"
-                            TextColor="White" />
-                        <Button
-                            x:Name="FiltroAnioBtn"
-                            BackgroundColor="#607D8B"
-                            Clicked="OnFiltroAnioClicked"
-                            CornerRadius="16"
-                            FontSize="12"
-                            Padding="12,4"
-                            Text="{loc:Translate Voucher_FiltroAnio}"
-                            TextColor="White" />
-                        <Button
-                            x:Name="FiltroFechaBtn"
-                            BackgroundColor="#607D8B"
-                            Clicked="OnFiltroFechaClicked"
-                            CornerRadius="16"
-                            FontSize="12"
-                            Padding="12,4"
-                            Text="{loc:Translate Voucher_FiltroFecha}"
-                            TextColor="White" />
-                    </HorizontalStackLayout>
-                </ScrollView>
-                <!--  Chips de orden  -->
-                <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
-                    <HorizontalStackLayout Spacing="6">
-                        <Button
-                            x:Name="OrdenFechaVoucherBtn"
-                            BackgroundColor="#673AB7"
-                            Clicked="OnOrdenFechaVoucherClicked"
-                            CornerRadius="16"
-                            FontSize="12"
-                            Padding="12,4"
-                            Text="📄 Fecha voucher"
-                            TextColor="White" />
-                        <Button
-                            x:Name="OrdenFechaEscaneoBtn"
-                            BackgroundColor="#607D8B"
-                            Clicked="OnOrdenFechaEscaneoClicked"
-                            CornerRadius="16"
-                            FontSize="12"
-                            Padding="12,4"
-                            Text="📷 Fecha escaneo"
-                            TextColor="White" />
-                    </HorizontalStackLayout>
-                </ScrollView>
-                <!--  DatePicker (visible solo con filtro Fecha personalizada)  -->
-                <DatePicker
-                    x:Name="FechaPersonalizadaPicker"
-                    IsVisible="False"
-                    DateSelected="OnFechaPersonalizadaChanged"
-                    Format="dd/MM/yyyy"
-                    HorizontalOptions="Start" />
-            </StackLayout>
-        </Border>
+            Margin="10,0,10,4"
+            Spacing="0">
+
+            <!--  Chips de período  -->
+            <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+                <HorizontalStackLayout Spacing="4" Padding="0,6,0,2">
+                    <Button
+                        x:Name="FiltroTodosBtn"
+                        Style="{StaticResource FilterChipActive}"
+                        Clicked="OnFiltroTodosClicked"
+                        Text="{loc:Translate Voucher_FiltroTodos}" />
+                    <Button
+                        x:Name="FiltroHoyBtn"
+                        Style="{StaticResource FilterChipInactive}"
+                        Clicked="OnFiltroHoyClicked"
+                        Text="{loc:Translate Voucher_FiltroHoy}" />
+                    <Button
+                        x:Name="FiltroSemanaBtn"
+                        Style="{StaticResource FilterChipInactive}"
+                        Clicked="OnFiltroSemanaClicked"
+                        Text="{loc:Translate Voucher_FiltroSemana}" />
+                    <Button
+                        x:Name="FiltroMesBtn"
+                        Style="{StaticResource FilterChipInactive}"
+                        Clicked="OnFiltroMesClicked"
+                        Text="{loc:Translate Voucher_FiltroMes}" />
+                    <Button
+                        x:Name="FiltroAnioBtn"
+                        Style="{StaticResource FilterChipInactive}"
+                        Clicked="OnFiltroAnioClicked"
+                        Text="{loc:Translate Voucher_FiltroAnio}" />
+                    <Button
+                        x:Name="FiltroFechaBtn"
+                        Style="{StaticResource FilterChipInactive}"
+                        Clicked="OnFiltroFechaClicked"
+                        Text="{loc:Translate Voucher_FiltroFecha}" />
+
+                    <BoxView WidthRequest="1" HeightRequest="24" Color="{DynamicResource BorderColor}" VerticalOptions="Center" Margin="4,0" />
+
+                    <!--  Chips de orden  -->
+                    <Button
+                        x:Name="OrdenFechaVoucherBtn"
+                        Style="{StaticResource FilterChipActive}"
+                        Clicked="OnOrdenFechaVoucherClicked"
+                        Text="📄 Voucher" />
+                    <Button
+                        x:Name="OrdenFechaEscaneoBtn"
+                        Style="{StaticResource FilterChipInactive}"
+                        Clicked="OnOrdenFechaEscaneoClicked"
+                        Text="📷 Escaneo" />
+
+                    <BoxView WidthRequest="1" HeightRequest="24" Color="{DynamicResource BorderColor}" VerticalOptions="Center" Margin="4,0" />
+
+                    <!--  DatePicker visible solo con filtro Fecha personalizada  -->
+                    <DatePicker
+                        x:Name="FechaPersonalizadaPicker"
+                        IsVisible="False"
+                        DateSelected="OnFechaPersonalizadaChanged"
+                        Format="dd/MM/yy"
+                        FontSize="12"
+                        HeightRequest="34"
+                        VerticalOptions="Center" />
+                </HorizontalStackLayout>
+            </ScrollView>
+        </StackLayout>
 
         <!--  ══ Panel verde de previsualización ══════════════════════════════  -->
         <Border

@@ -9,6 +9,8 @@ namespace CajaApp
         public App(DatabaseService db)
         {
             _ = db; // Inyectado para asegurar que la DB se inicializa al arrancar
+            // Inicializar servicio de licencias (valida clave guardada o activa DEBUG mode)
+            _ = LicenseService.Instance.InicializarAsync();
             // Aplicar UserAppTheme antes de InitializeComponent para que
             // los recursos DynamicResource arranquen con los colores correctos.
             AplicarTemaInicial();

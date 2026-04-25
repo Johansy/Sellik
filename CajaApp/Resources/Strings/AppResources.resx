@@ -240,11 +240,11 @@
   <data name="Notas_CompartirReporte"><value>Compartir reporte</value></data>
   <data name="Notas_TituloReporte"><value>Reporte de Notas</value></data>
   <data name="Notas_TituloCompartir"><value>Mis Notas</value></data>
-  <data name="Notas_FiltroFechaTodas"><value>Todas</value></data>
-  <data name="Notas_FiltroFechaHoy"><value>Hoy</value></data>
-  <data name="Notas_FiltroFechaSemana"><value>Esta semana</value></data>
-  <data name="Notas_FiltroFechaMes"><value>Este mes</value></data>
-  <data name="Notas_FiltroFechaAnio"><value>Este año</value></data>
+  <data name="Notas_FiltroFechaTodas"><value>📋 Todas</value></data>
+  <data name="Notas_FiltroFechaHoy"><value>📅 Hoy</value></data>
+  <data name="Notas_FiltroFechaSemana"><value>📆 Semana</value></data>
+  <data name="Notas_FiltroFechaMes"><value>🗓️ Mes</value></data>
+  <data name="Notas_FiltroFechaAnio"><value>📊 Año</value></data>
   <data name="Notas_IrAFecha"><value>📅 Ir a fecha:</value></data>
 
   <!-- == Historial ======================================================== -->
@@ -300,12 +300,12 @@
   <data name="Mov_ValidarConcepto"><value>Seleccione un concepto</value></data>
   <data name="Mov_ConfirmarEliminar"><value>¿Está seguro de eliminar este movimiento?</value></data>
   <data name="Mov_PeriodoTitulo"><value>Seleccionar período</value></data>
-  <data name="Mov_PeriodoHoy"><value>Hoy</value></data>
-  <data name="Mov_PeriodoSemana"><value>Esta semana</value></data>
-  <data name="Mov_PeriodoMes"><value>Este mes</value></data>
+  <data name="Mov_PeriodoHoy"><value>📅 Hoy</value></data>
+  <data name="Mov_PeriodoSemana"><value>📆 Semana</value></data>
+  <data name="Mov_PeriodoMes"><value>🗓️ Mes</value></data>
   <data name="Mov_Periodo30"><value>Últimos 30 días</value></data>
-  <data name="Mov_PeriodoTodo"><value>Todo</value></data>
-  <data name="Mov_PeriodoAnio"><value>Año</value></data>
+  <data name="Mov_PeriodoTodo"><value>📋 Todo</value></data>
+  <data name="Mov_PeriodoAnio"><value>📊 Año</value></data>
   <data name="Mov_FiltroFecha"><value>📅 Fecha:</value></data>
   <data name="Mov_AccionReporte"><value>¿Qué desea hacer con el reporte?</value></data>
   <data name="Mov_VerReporte"><value>Ver reporte</value></data>
@@ -393,6 +393,59 @@
   <data name="Estadisticas_SaldoMovLabel"><value>− Saldo movimientos</value></data>
   <data name="Estadisticas_GananciaTotal"><value>= Ganancia estimada</value></data>
   <data name="Estadisticas_GananciaTooltip"><value>Último arqueo + Vouchers − Saldo neto de movimientos</value></data>
+
+  <!-- == Premium ========================================================= -->
+  <data name="Premium_PageTitulo"><value>Plan Premium</value></data>
+  <data name="Premium_Encabezado"><value>✨ Desbloquea todo</value></data>
+  <data name="Premium_PlanActual"><value>Plan actual:</value></data>
+  <data name="Premium_TextoPlanFree"><value>🆓 GRATIS</value></data>
+  <data name="Premium_TextoPlanPremium"><value>💎 PREMIUM</value></data>
+  <data name="Premium_PlanFreeNombre"><value>🆓 GRATIS — Siempre</value></data>
+  <data name="Premium_PlanFree1"><value>✅  Conteos de caja: ilimitados</value></data>
+  <data name="Premium_PlanFree2"><value>✅  Vouchers escaneados: hasta 300</value></data>
+  <data name="Premium_PlanFree3"><value>✅  1 sesión activa a la vez</value></data>
+  <data name="Premium_PlanFree4"><value>✅  Ver reportes en pantalla</value></data>
+  <data name="Premium_PlanFree5"><value>❌  Exportar PDF / Excel</value></data>
+  <data name="Premium_PlanFree6"><value>❌  Historial completo de sesiones</value></data>
+  <data name="Premium_PlanFree7"><value>❌  Respaldo automático</value></data>
+  <data name="Premium_PlanFree8"><value>❌  Soporte por email</value></data>
+  <data name="Premium_PlanPremiumNombre"><value>💎 PREMIUM — Todo incluido</value></data>
+  <data name="Premium_PlanPremium1"><value>✅  Todo lo del plan Gratis</value></data>
+  <data name="Premium_PlanPremium2"><value>✅  Exportar a PDF y Excel</value></data>
+  <data name="Premium_PlanPremium3"><value>✅  Historial completo de sesiones</value></data>
+  <data name="Premium_PlanPremium4"><value>✅  Respaldo automático</value></data>
+  <data name="Premium_PlanPremium5"><value>✅  Soporte por email</value></data>
+  <data name="Premium_BtnAnual"><value>💳  Suscripción Anual — $179.80 vía M.P</value></data>
+  <data name="Premium_BtnMensual"><value>🔄  Suscripción mensual — $89.80/mes vía M.P</value></data>
+  <data name="Premium_PagoSeguro"><value>Pago seguro vía Mercado Pago · Te enviaremos tu clave por email al confirmar el pago</value></data>
+  <data name="Premium_ActivarTitulo"><value>🔑 ¿Ya compraste? Activa tu licencia</value></data>
+  <data name="Premium_ActivarDesc"><value>Realiza el pago por Mercado Pago y envíanos el comprobante a: qubitsoftxxi@gmail.com -- Te responderemos con tu clave en menos de 24 h.</value></data>
+  <data name="Premium_BtnEnviarComprobante"><value>📧  Enviar comprobante por email</value></data>
+  <data name="Premium_ClavePlaceholder"><value>Pega tu clave de licencia aquí</value></data>
+  <data name="Premium_BtnActivar"><value>Activar clave</value></data>
+  <data name="Premium_BtnRestaurar"><value>Restaurar compra anterior</value></data>
+  <data name="Premium_ErrorNavegador"><value>No se pudo abrir el navegador: {0}</value></data>
+  <data name="Premium_ErrorCorreo"><value>No se pudo abrir el cliente de correo: {0}</value></data>
+  <data name="Premium_EmailAsunto"><value>Comprobante de pago SELLIK Premium</value></data>
+  <data name="Premium_EmailCuerpo"><value>Hola, adjunto el comprobante de mi pago para activar el plan Premium. Por favor envíame mi clave de licencia. Gracias.</value></data>
+  <data name="Premium_ClaveVacia"><value>Ingresa tu clave de licencia.</value></data>
+  <data name="License_DebugActivado"><value>Modo DEBUG: Premium activado automáticamente.</value></data>
+  <data name="License_DebugRestaurado"><value>Modo DEBUG: Premium restaurado.</value></data>
+  <data name="License_ClaveVacia"><value>Ingresa una clave de licencia válida.</value></data>
+  <data name="License_NoEncontrada"><value>No se encontró ninguna licencia guardada en este dispositivo.</value></data>
+  <data name="License_Vencida"><value>La licencia ha vencido. Renueva tu suscripción.</value></data>
+  <data name="License_ActivadaMensual"><value>¡Premium mensual activado! Vence el {0} 🎉</value></data>
+  <data name="License_ActivadaAnual"><value>¡Premium anual activado! Vence el {0} 🎉</value></data>
+  <data name="License_Invalida"><value>Clave inválida. Verifica que la copiaste correctamente.</value></data>
+  <data name="License_ErrorValidar"><value>Error al validar la clave.</value></data>
+  <data name="Premium_LimiteSesionTitulo"><value>Límite alcanzado 🆓</value></data>
+  <data name="Premium_LimiteSesionMsg"><value>El plan Gratis permite 1 sesión activa.\n\nActualiza a Premium para crear sesiones ilimitadas.</value></data>
+  <data name="Premium_BtnVerPremium"><value>Ver Premium</value></data>
+  <data name="Premium_FuncionTitulo"><value>Función Premium 💎</value></data>
+  <data name="Premium_FuncionExportar"><value>Exportar a PDF y Excel está disponible en el plan Premium.</value></data>
+  <data name="Mov_ExportarSinDatos"><value>No hay movimientos para exportar con el filtro actual.</value></data>
+  <data name="Mov_ExportarError"><value>No se pudo exportar: {0}</value></data>
+  <data name="Mov_ExportarNoDisponible"><value>No disponible</value></data>
 
   <!-- == Sesiones ======================================================== -->
   <data name="Sesiones_Titulo"><value>Sesiones</value></data>

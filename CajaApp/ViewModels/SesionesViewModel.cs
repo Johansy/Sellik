@@ -1,5 +1,6 @@
 using CajaApp.Models;
 using CajaApp.Services;
+using CajaApp.Views;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -74,6 +75,31 @@ namespace CajaApp.ViewModels
         {
             if (string.IsNullOrWhiteSpace(NuevaSesionNombre))
                 return;
+
+            // Verificar límite de sesiones en plan Free
+            if (!await LicenseService.Instance.PuedeCrearSesionAsync(_db))
+            {
+                var page = Application.Current?.Windows.Count > 0
+                    ? Application.Current.Windows[0].Page
+                    : null;
+
+                var irAPremium = await (page?.DisplayAlert(
+                    LocalizationService.Get("Premium_LimiteSesionTitulo"),
+                    LocalizationService.Get("Premium_LimiteSesionMsg"),
+                    LocalizationService.Get("Premium_BtnVerPremium"),
+                    LocalizationService.Get("Btn_Cancelar")) ?? Task.FromResult(false));
+
+                if (irAPremium)
+                {
+                    var vm       = IPlatformApplication.Current!.Services.GetRequiredService<PremiumViewModel>();
+                    var premium  = new PremiumPage(vm);
+                    var rootPage = Application.Current?.Windows[0].Page;
+                    if (rootPage is not null)
+                        await rootPage.Navigation.PushModalAsync(new NavigationPage(premium));
+                }
+
+                return;
+            }
 
             IsBusy = true;
             try

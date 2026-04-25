@@ -11,6 +11,7 @@ namespace CajaApp
         public ICommand IrAHistorialCommand    { get; }
         public ICommand IrAEstadisticasCommand { get; }
         public ICommand IrAConfiguracionCommand{ get; }
+        public ICommand IrAPremiumCommand      { get; }
 
         // Instancias cacheadas para evitar reinicializaciones y datos duplicados
         private HistorialPage?    _historialPage;
@@ -25,8 +26,17 @@ namespace CajaApp
             IrAHistorialCommand     = new Command(async () => await AbrirModal(ObtenerHistorial()));
             IrAEstadisticasCommand  = new Command(async () => await AbrirModal(ObtenerEstadisticas()));
             IrAConfiguracionCommand = new Command(async () => await AbrirModal(ObtenerConfiguracion()));
+            IrAPremiumCommand       = new Command(async () =>
+            {
+                FlyoutIsPresented = false;
+                var vm   = IPlatformApplication.Current!.Services.GetRequiredService<PremiumViewModel>();
+                var page = new PremiumPage(vm);
+                await Navigation.PushModalAsync(new NavigationPage(page));
+            });
 
             BindingContext = this;
+
+            Routing.RegisterRoute(nameof(PremiumPage), typeof(PremiumPage));
 
             ActualizarNombreSesion();
             SesionService.Instance.SesionCambiada += (_, _) =>

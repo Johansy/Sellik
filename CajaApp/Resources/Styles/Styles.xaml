@@ -173,4 +173,36 @@
         <Setter Property="FontAttributes" Value="Bold" />
     </Style>
 
+    <!--  Chip de filtro activo  -->
+    <Style x:Key="FilterChipActive" TargetType="Button">
+        <Setter Property="CornerRadius" Value="20" />
+        <Setter Property="FontSize" Value="11" />
+        <Setter Property="Padding" Value="10,4" />
+        <Setter Property="MinimumHeightRequest" Value="28" />
+        <Setter Property="MinimumWidthRequest" Value="0" />
+        <Setter Property="BackgroundColor" Value="{DynamicResource Primary}" />
+        <Setter Property="TextColor" Value="White" />
+        <Setter Property="FontAttributes" Value="Bold" />
+    </Style>
+
+    <!--  Chip de filtro inactivo  -->
+    <Style x:Key="FilterChipInactive" TargetType="Button">
+        <Setter Property="CornerRadius" Value="20" />
+        <Setter Property="FontSize" Value="11" />
+        <Setter Property="Padding" Value="10,4" />
+        <Setter Property="MinimumHeightRequest" Value="28" />
+        <Setter Property="MinimumWidthRequest" Value="0" />
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="TextColor" Value="{DynamicResource SubtleTextColor}" />
+        <Setter Property="FontAttributes" Value="None" />
+    </Style>
+
+    <!--  Barra de filtros: franja compacta sin borde pesado  -->
+    <Style x:Key="FilterBar" TargetType="Border">
+        <Setter Property="StrokeThickness" Value="0" />
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="Padding" Value="8,0" />
+        <Setter Property="Margin" Value="0" />
+    </Style>
+
 </ResourceDictionary>

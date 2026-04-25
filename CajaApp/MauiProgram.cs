@@ -74,8 +74,11 @@ public static class MauiProgram
         builder.Services.AddTransient<ReporteCompletePage>();
         builder.Services.AddTransient<SesionesPage>();
         builder.Services.AddTransient<SesionesViewModel>();
+        builder.Services.AddTransient<PremiumPage>();
+        builder.Services.AddTransient<PremiumViewModel>();
         builder.Services.AddTransient<AppShell>();
 
+        builder.Services.AddSingleton(LicenseService.Instance);
         builder.Services.AddSingleton(LocalizationService.Instance);
 
 #if DEBUG

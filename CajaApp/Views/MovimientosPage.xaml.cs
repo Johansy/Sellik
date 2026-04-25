@@ -344,10 +344,11 @@ namespace CajaApp.Views
         {
             try
             {
+                var L = LocalizationService.Instance;
                 var movimientos = _viewModel.ObtenerMovimientosFiltrados();
                 if (!movimientos.Any())
                 {
-                    await DisplayAlert("Sin datos", "No hay movimientos para exportar con el filtro actual.", "Aceptar");
+                    await DisplayAlert(L["Lbl_SinDatos"], L["Mov_ExportarSinDatos"], L["Btn_Aceptar"]);
                     return;
                 }
 
@@ -360,7 +361,8 @@ namespace CajaApp.Views
             catch (Exception ex)
             {
                 _viewModel.IsLoading = false;
-                await DisplayAlert("Error", $"No se pudo exportar: {ex.Message}", "Aceptar");
+                var L = LocalizationService.Instance;
+                await DisplayAlert(L["Lbl_Error"], LocalizationService.GetF("Mov_ExportarError", ex.Message), L["Btn_Aceptar"]);
             }
         }
 
@@ -368,10 +370,11 @@ namespace CajaApp.Views
         {
             try
             {
+                var L = LocalizationService.Instance;
                 var movimientos = _viewModel.ObtenerMovimientosFiltrados();
                 if (!movimientos.Any())
                 {
-                    await DisplayAlert("Sin datos", "No hay movimientos para exportar con el filtro actual.", "Aceptar");
+                    await DisplayAlert(L["Lbl_SinDatos"], L["Mov_ExportarSinDatos"], L["Btn_Aceptar"]);
                     return;
                 }
 
@@ -384,12 +387,14 @@ namespace CajaApp.Views
             catch (PlatformNotSupportedException pex)
             {
                 _viewModel.IsLoading = false;
-                await DisplayAlert("No disponible", pex.Message, "Aceptar");
+                var L = LocalizationService.Instance;
+                await DisplayAlert(L["Mov_ExportarNoDisponible"], pex.Message, L["Btn_Aceptar"]);
             }
             catch (Exception ex)
             {
                 _viewModel.IsLoading = false;
-                await DisplayAlert("Error", $"No se pudo exportar: {ex.Message}", "Aceptar");
+                var L = LocalizationService.Instance;
+                await DisplayAlert(L["Lbl_Error"], LocalizationService.GetF("Mov_ExportarError", ex.Message), L["Btn_Aceptar"]);
             }
         }
     }

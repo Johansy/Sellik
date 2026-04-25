@@ -50,11 +50,16 @@
 		<RunAOTCompilation>true</RunAOTCompilation>
 		<!-- Generar solo la ABI del dispositivo destino para APK más pequeño -->
 		<AndroidCreatePackagePerAbi>false</AndroidCreatePackagePerAbi>
-		<!-- Solo ABIs modernas de 64 bits -->
-		<RuntimeIdentifiers>android-arm64</RuntimeIdentifiers>
+		<!-- ABIs: arm64 (dispositivos modernos) + arm (dispositivos 32-bit) -->
+		<RuntimeIdentifiers>android-arm64;android-arm</RuntimeIdentifiers>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net9.0-android|AnyCPU'">
 	  <AndroidPackageFormat>apk</AndroidPackageFormat>
+	  <AndroidKeyStore>true</AndroidKeyStore>
+	  <AndroidSigningKeyStore>$(MSBuildThisFileDirectory)sellik.keystore</AndroidSigningKeyStore>
+	  <AndroidSigningKeyAlias>sellik</AndroidSigningKeyAlias>
+	  <AndroidSigningKeyPass>sellik123</AndroidSigningKeyPass>
+	  <AndroidSigningStorePass>sellik123</AndroidSigningStorePass>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -130,12 +135,15 @@
 	</ItemGroup>
 
 	<!-- Permisos para Android -->
-	<ItemGroup Condition="'$(TargetFramework)' == 'net8.0-android'">
+	<ItemGroup Condition="'$(TargetFramework)' == 'net9.0-android'">
 		<AndroidPermission Include="android.permission.CAMERA" />
 		<AndroidPermission Include="android.permission.READ_EXTERNAL_STORAGE" />
 		<AndroidPermission Include="android.permission.WRITE_EXTERNAL_STORAGE" />
 	</ItemGroup>
 	<ItemGroup>
+	  <MauiXaml Update="CajaApp\Views\PremiumPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\SesionesPage.xaml">
 		<Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

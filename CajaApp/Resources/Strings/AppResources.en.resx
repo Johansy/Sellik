@@ -240,11 +240,11 @@
   <data name="Notas_CompartirReporte"><value>Share report</value></data>
   <data name="Notas_TituloReporte"><value>Notes Report</value></data>
   <data name="Notas_TituloCompartir"><value>My Notes</value></data>
-  <data name="Notas_FiltroFechaTodas"><value>All</value></data>
-  <data name="Notas_FiltroFechaHoy"><value>Today</value></data>
-  <data name="Notas_FiltroFechaSemana"><value>This week</value></data>
-  <data name="Notas_FiltroFechaMes"><value>This month</value></data>
-  <data name="Notas_FiltroFechaAnio"><value>This year</value></data>
+  <data name="Notas_FiltroFechaTodas"><value>📋 All</value></data>
+  <data name="Notas_FiltroFechaHoy"><value>📅 Today</value></data>
+  <data name="Notas_FiltroFechaSemana"><value>📆 Week</value></data>
+  <data name="Notas_FiltroFechaMes"><value>🗓️ Month</value></data>
+  <data name="Notas_FiltroFechaAnio"><value>📊 Year</value></data>
   <data name="Notas_IrAFecha"><value>📅 Go to date:</value></data>
 
   <!-- == History ========================================================== -->
@@ -300,12 +300,12 @@
   <data name="Mov_ValidarConcepto"><value>Select a category</value></data>
   <data name="Mov_ConfirmarEliminar"><value>Are you sure you want to delete this movement?</value></data>
   <data name="Mov_PeriodoTitulo"><value>Select period</value></data>
-  <data name="Mov_PeriodoHoy"><value>Today</value></data>
-  <data name="Mov_PeriodoSemana"><value>This week</value></data>
-  <data name="Mov_PeriodoMes"><value>This month</value></data>
+  <data name="Mov_PeriodoHoy"><value>📅 Today</value></data>
+  <data name="Mov_PeriodoSemana"><value>📆 Week</value></data>
+  <data name="Mov_PeriodoMes"><value>🗓️ Month</value></data>
   <data name="Mov_Periodo30"><value>Last 30 days</value></data>
-  <data name="Mov_PeriodoTodo"><value>All</value></data>
-  <data name="Mov_PeriodoAnio"><value>Year</value></data>
+  <data name="Mov_PeriodoTodo"><value>📋 All</value></data>
+  <data name="Mov_PeriodoAnio"><value>📊 Year</value></data>
   <data name="Mov_FiltroFecha"><value>📅 Date:</value></data>
   <data name="Mov_AccionReporte"><value>What would you like to do with the report?</value></data>
   <data name="Mov_VerReporte"><value>View report</value></data>
@@ -393,6 +393,59 @@
   <data name="Estadisticas_SaldoMovLabel"><value>− Net movements balance</value></data>
   <data name="Estadisticas_GananciaTotal"><value>= Estimated earnings</value></data>
   <data name="Estadisticas_GananciaTooltip"><value>Last count + Vouchers − Net movements balance</value></data>
+
+  <!-- == Premium ========================================================= -->
+  <data name="Premium_PageTitulo"><value>Premium Plan</value></data>
+  <data name="Premium_Encabezado"><value>✨ Unlock Everything</value></data>
+  <data name="Premium_PlanActual"><value>Current Plan:</value></data>
+  <data name="Premium_TextoPlanFree"><value>🆓 FREE</value></data>
+  <data name="Premium_TextoPlanPremium"><value>💎 PREMIUM</value></data>
+  <data name="Premium_PlanFreeNombre"><value>🆓 FREE — Forever</value></data>
+  <data name="Premium_PlanFree1"><value>✅  Cash counts: unlimited</value></data>
+  <data name="Premium_PlanFree2"><value>✅  Scanned vouchers: up to 300</value></data>
+  <data name="Premium_PlanFree3"><value>✅  1 active session at a time</value></data>
+  <data name="Premium_PlanFree4"><value>✅  View reports on screen</value></data>
+  <data name="Premium_PlanFree5"><value>❌  Export PDF / Excel</value></data>
+  <data name="Premium_PlanFree6"><value>❌  Complete session history</value></data>
+  <data name="Premium_PlanFree7"><value>❌  Automatic backup</value></data>
+  <data name="Premium_PlanFree8"><value>❌  Email support</value></data>
+  <data name="Premium_PlanPremiumNombre"><value>💎 PREMIUM — All Inclusive</value></data>
+  <data name="Premium_PlanPremium1"><value>✅  Everything in Free plan</value></data>
+  <data name="Premium_PlanPremium2"><value>✅  Export to PDF and Excel</value></data>
+  <data name="Premium_PlanPremium3"><value>✅  Complete session history</value></data>
+  <data name="Premium_PlanPremium4"><value>✅  Automatic backup</value></data>
+  <data name="Premium_PlanPremium5"><value>✅  Email support</value></data>
+  <data name="Premium_BtnAnual"><value>💳  Annual Subscription — $179.80 via M.P</value></data>
+  <data name="Premium_BtnMensual"><value>🔄  Monthly Subscription — $89.80/month via M.P</value></data>
+  <data name="Premium_PagoSeguro"><value>Secure payment via Mercado Pago · We'll send your license key by email after payment confirmation</value></data>
+  <data name="Premium_ActivarTitulo"><value>🔑 Already purchased? Activate your license</value></data>
+  <data name="Premium_ActivarDesc"><value>Make the payment via Mercado Pago and send us the receipt to: qubitsoftxxi@gmail.com -- We'll reply with your license key within 24 hours.</value></data>
+  <data name="Premium_BtnEnviarComprobante"><value>📧  Send receipt by email</value></data>
+  <data name="Premium_ClavePlaceholder"><value>Paste your license key here</value></data>
+  <data name="Premium_BtnActivar"><value>Activate license key</value></data>
+  <data name="Premium_BtnRestaurar"><value>Restore previous purchase</value></data>
+  <data name="Premium_ErrorNavegador"><value>Could not open browser: {0}</value></data>
+  <data name="Premium_ErrorCorreo"><value>Could not open email client: {0}</value></data>
+  <data name="Premium_EmailAsunto"><value>SELLIK Premium Payment Receipt</value></data>
+  <data name="Premium_EmailCuerpo"><value>Hello, I'm attaching my payment receipt to activate the Premium plan. Please send me my license key. Thank you.</value></data>
+  <data name="Premium_ClaveVacia"><value>Please enter your license key.</value></data>
+  <data name="License_DebugActivado"><value>DEBUG Mode: Premium activated automatically.</value></data>
+  <data name="License_DebugRestaurado"><value>DEBUG Mode: Premium restored.</value></data>
+  <data name="License_ClaveVacia"><value>Please enter a valid license key.</value></data>
+  <data name="License_NoEncontrada"><value>No saved license found on this device.</value></data>
+  <data name="License_Vencida"><value>License has expired. Please renew your subscription.</value></data>
+  <data name="License_ActivadaMensual"><value>Premium monthly activated! Expires {0} 🎉</value></data>
+  <data name="License_ActivadaAnual"><value>Premium annual activated! Expires {0} 🎉</value></data>
+  <data name="License_Invalida"><value>Invalid license key. Please verify that you copied it correctly.</value></data>
+  <data name="License_ErrorValidar"><value>Error validating license key.</value></data>
+  <data name="Premium_LimiteSesionTitulo"><value>Limit reached 🆓</value></data>
+  <data name="Premium_LimiteSesionMsg"><value>The Free plan allows 1 active session.\n\nUpgrade to Premium for unlimited sessions.</value></data>
+  <data name="Premium_BtnVerPremium"><value>View Premium</value></data>
+  <data name="Premium_FuncionTitulo"><value>Premium Feature 💎</value></data>
+  <data name="Premium_FuncionExportar"><value>Export to PDF and Excel is available on the Premium plan.</value></data>
+  <data name="Mov_ExportarSinDatos"><value>There are no transactions to export with the current filter.</value></data>
+  <data name="Mov_ExportarError"><value>Could not export: {0}</value></data>
+  <data name="Mov_ExportarNoDisponible"><value>Not available</value></data>
 
   <!-- == Sessions ======================================================== -->
   <data name="Sesiones_Titulo"><value>Sessions</value></data>
