@@ -1,466 +1,1353 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string"/>
-              <xsd:attribute name="type" type="xsd:string"/>
-              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
       </xsd:complexType>
     </xsd:element>
   </xsd:schema>
-  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
-  <resheader name="version"><value>2.0</value></resheader>
-  <resheader name="reader"><value>System.Resources.ResXResourceReader</value></resheader>
-  <resheader name="writer"><value>System.Resources.ResXResourceWriter</value></resheader>
-
-  <!-- == Navegación / AppShell ==========================================─ -->
-  <data name="Nav_Caja"><value>Caja</value></data>
-  <data name="Nav_Movimientos"><value>Movimientos</value></data>
-  <data name="Nav_Vouchers"><value>Vouchers</value></data>
-  <data name="Nav_Notas"><value>Notas</value></data>
-  <data name="Nav_Historial"><value>🕘 Historial</value></data>
-  <data name="Nav_Configuracion"><value>⚙️ Config</value></data>
-  <data name="Nav_Estadisticas"><value>📊 Estadísticas</value></data>
-
-  <!-- == Comunes ========================================================== -->
-  <data name="Btn_Guardar"><value>✓ Guardar</value></data>
-  <data name="Btn_Cancelar"><value>✗ Cancelar</value></data>
-  <data name="Btn_Eliminar"><value>Eliminar</value></data>
-  <data name="Btn_Editar"><value>✏️ Editar</value></data>
-  <data name="Btn_Compartir"><value>Compartir</value></data>
-  <data name="Btn_Limpiar"><value>Limpiar</value></data>
-  <data name="Btn_Aceptar"><value>OK</value></data>
-  <data name="Btn_Cerrar"><value>Cerrar</value></data>
-  <data name="Btn_AbrirAjustes"><value>Abrir ajustes</value></data>
-  <data name="Lbl_Error"><value>Error</value></data>
-  <data name="Lbl_Exito"><value>Éxito</value></data>
-  <data name="Lbl_Informacion"><value>Información</value></data>
-  <data name="Lbl_Confirmar"><value>Confirmar</value></data>
-  <data name="Lbl_Validacion"><value>Validación</value></data>
-  <data name="Lbl_ErrorProcesar"><value>Error al procesar: {0}</value></data>
-  <data name="Lbl_ErrorCargar"><value>No se pudo cargar la configuración. Se aplicarán valores predeterminados.</value></data>
-  <data name="Lbl_Cargando"><value>Cargando...</value></data>
-  <data name="Lbl_NoDisponible"><value>No disponible</value></data>
-  <data name="Lbl_SinDatos"><value>Sin datos</value></data>
-  <data name="Msg_ConfirmarEliminar"><value>¿Estás seguro de que deseas eliminar este elemento?</value></data>
-  <data name="Msg_AbrirAjustes"><value>Abrir ajustes</value></data>
-
-  <!-- == VoucherScannerPage ==============================================─ -->
-  <data name="Voucher_Titulo"><value>Escáner de Vouchers</value></data>
-  <data name="Voucher_Credito"><value>CRÉDITO</value></data>
-  <data name="Voucher_Debito"><value>DÉBITO</value></data>
-  <data name="Voucher_Total"><value>TOTAL</value></data>
-  <data name="Voucher_BtnEscanear"><value>📷 Escanear</value></data>
-  <data name="Voucher_BtnGaleria"><value>🖼️ Galería</value></data>
-  <data name="Voucher_Detectado"><value>✅ VOUCHER DETECTADO</value></data>
-  <data name="Voucher_Comercio"><value>Comercio:</value></data>
-  <data name="Voucher_Tipo"><value>Tipo:</value></data>
-  <data name="Voucher_Subtotal"><value>Subtotal:</value></data>
-  <data name="Voucher_TotalLabel"><value>Total:</value></data>
-  <data name="Voucher_ListaVacia"><value>No hay vouchers escaneados</value></data>
-  <data name="Voucher_ListaVaciaDesc"><value>Usa los botones superiores para escanear tu primer voucher</value></data>
-  <data name="Voucher_BtnOCR"><value>📋 OCR</value></data>
-  <data name="Voucher_BtnExportar"><value>⬆️ Exportar</value></data>
-  <data name="Voucher_BtnReporte"><value>📊 Reporte</value></data>
-  <data name="Voucher_BtnTodos"><value>☑️ Todos</value></data>
-  <data name="Voucher_BtnNinguno"><value>☐ Ninguno</value></data>
-  <data name="Voucher_BtnEliminarTodos"><value>🗑️ Eliminar todo</value></data>
-  <data name="Voucher_ConfirmarEliminarTodosTitulo"><value>Eliminar todos</value></data>
-  <data name="Voucher_ConfirmarEliminarTodos"><value>¿Eliminar todos los vouchers? Esta acción no se puede deshacer.</value></data>
-  <data name="Voucher_EliminadosTodos"><value>Todos los vouchers han sido eliminados.</value></data>
-  <data name="Voucher_ErrorEliminarTodos"><value>No se pudieron eliminar los vouchers.</value></data>
-  <data name="Voucher_FiltroTodos"><value>📋 Todos</value></data>
-  <data name="Voucher_FiltroHoy"><value>📅 Hoy</value></data>
-  <data name="Voucher_FiltroSemana"><value>📆 Semana</value></data>
-  <data name="Voucher_FiltroMes"><value>🗓️ Mes</value></data>
-  <data name="Voucher_FiltroAnio"><value>📊 Año</value></data>
-  <data name="Voucher_FiltroFecha"><value>🔍 Fecha</value></data>
-  <data name="Voucher_Procesando"><value>Procesando...</value></data>
-  <data name="Voucher_ProcesandoDesc"><value>Extrayendo información con OCR...</value></data>
-  <data name="Voucher_PermisoCamara"><value>Permiso cámara</value></data>
-  <data name="Voucher_PermisoCamaraMsg"><value>La app necesita acceso a la cámara para escanear vouchers.</value></data>
-  <data name="Voucher_PermisoDenegado"><value>Permiso denegado</value></data>
-  <data name="Voucher_PermisoDenegadoMsg"><value>Sin acceso a la cámara no es posible escanear. ¿Deseas abrir los ajustes?</value></data>
-  <data name="Voucher_CamaraNoDisponible"><value>La cámara no está disponible en este dispositivo o emulador.</value></data>
-  <data name="Voucher_ErrorCamara"><value>No se pudo acceder a la cámara: {0}</value></data>
-  <data name="Voucher_ErrorSeleccionarImagen"><value>No se pudo seleccionar la imagen: {0}</value></data>
-  <data name="Voucher_ErrorOCR"><value>No se pudo procesar la imagen:\n{0}\n\nAsegúrate de que la imagen sea nítida y bien iluminada.</value></data>
-  <data name="Voucher_ErrorAlGuardar"><value>Error al guardar: {0}</value></data>
-  <data name="Voucher_ErrorReporte"><value>No se pudo generar el reporte: {0}</value></data>
-  <data name="Voucher_Guardado"><value>✓ Guardado</value></data>
-  <data name="Voucher_GuardadoMsg"><value>Voucher guardado correctamente.</value></data>
-  <data name="Voucher_ErrorGuardar"><value>No se pudo guardar el voucher.</value></data>
-  <data name="Voucher_ConfirmarEliminar"><value>¿Eliminar este voucher?\n\n{0}\n{1}: {2}\n{3}</value></data>
-  <data name="Voucher_ConfirmarEliminarTitulo"><value>Confirmar eliminación</value></data>
-  <data name="Voucher_Eliminado"><value>Eliminado</value></data>
-  <data name="Voucher_EliminadoMsg"><value>Voucher eliminado correctamente.</value></data>
-  <data name="Voucher_ErrorEliminar"><value>No se pudo eliminar.</value></data>
-  <data name="Voucher_SinDatos"><value>No hay vouchers para exportar.</value></data>
-  <data name="Voucher_ExportarTitulo"><value>Exportar {0}</value></data>
-  <data name="Voucher_ExportarSeleccionados"><value>{0} voucher(s) seleccionado(s)</value></data>
-  <data name="Voucher_ExportarTodos"><value>todos los vouchers ({0})</value></data>
-  <data name="Voucher_FormatoExcel"><value>📊 Excel (.xlsx)</value></data>
-  <data name="Voucher_FormatoPDF"><value>📄 PDF</value></data>
-  <data name="Voucher_FormatoAmbos"><value>📊 Excel + 📄 PDF</value></data>
-  <data name="Voucher_ErrorExportar"><value>No se pudo generar el archivo:\n{0}</value></data>
-  <data name="Voucher_ReporteTitulo"><value>Reporte de Vouchers</value></data>
-  <data name="Voucher_ReporteAccion"><value>¿Qué deseas hacer?</value></data>
-  <data name="Voucher_VerReporte"><value>Ver reporte</value></data>
-  <data name="Voucher_CompartirReporte"><value>Compartir reporte</value></data>
-  <data name="Voucher_TituloOCR"><value>Texto OCR extraído</value></data>
-  <data name="Voucher_CompartirTexto"><value>📤 Compartir texto</value></data>
-  <data name="Voucher_TipoCreditoItem"><value>Crédito</value></data>
-  <data name="Voucher_TipoDebitoItem"><value>Débito</value></data>
-  <data name="Voucher_TipoEfectivoItem"><value>Efectivo</value></data>
-  <data name="Voucher_TipoTransferenciaItem"><value>Transferencia</value></data>
-  <data name="Voucher_TipoOtroItem"><value>Otro</value></data>
-  <data name="Voucher_Manuscrito"><value>✍️ Manuscrito</value></data>
-  <data name="Voucher_ManuscritoLabel"><value>Manuscrito:</value></data>
-
-  <!-- == CajaPage ========================================================─ -->
-  <data name="Caja_Titulo"><value>Caja Registradora</value></data>
-  <data name="Caja_Nombre"><value>Nombre:</value></data>
-  <data name="Caja_Guardar"><value>Guardar</value></data>
-  <data name="Caja_Limpiar"><value>Limpiar</value></data>
-  <data name="Caja_Compartir"><value>Compartir</value></data>
-
-  <!-- == Movimientos ====================================================== -->
-  <data name="Mov_Titulo"><value>Movimientos</value></data>
-  <data name="Mov_Registrado"><value>Movimiento registrado correctamente</value></data>
-  <data name="Mov_Eliminado"><value>Movimiento eliminado</value></data>
-  <data name="Mov_ErrorEliminar"><value>No se pudo eliminar el movimiento</value></data>
-  <data name="Mov_MontoInvalido"><value>Ingrese un monto válido mayor a cero</value></data>
-
-  <!-- == Configuración ==================================================== -->
-  <data name="Config_Titulo"><value>⚙️ Configuración</value></data>
-  <data name="Config_General"><value>🏢 CONFIGURACIÓN GENERAL</value></data>
-  <data name="Config_NombreNegocio"><value>Nombre del Negocio</value></data>
-  <data name="Config_Tema"><value>Tema de la Aplicación</value></data>
-  <data name="Config_TemaClaro"><value>🌞 Claro</value></data>
-  <data name="Config_TemaOscuro"><value>🌙 Oscuro</value></data>
-  <data name="Config_TemaAuto"><value>🔄 Automático</value></data>
-  <data name="Config_AutoGuardado"><value>💾 Activar auto-guardado</value></data>
-  <data name="Config_BloquearOrientacion"><value>🔒 Bloquear pantalla en modo vertical</value></data>
-  <data name="Config_ConfirmacionEliminar"><value>⚠️ Mostrar confirmación al eliminar</value></data>
-  <data name="Config_MostrarTutorial"><value>📖 Mostrar tutorial al iniciar</value></data>
-  <data name="Config_Idioma"><value>Idioma / Language</value></data>
-  <data name="Config_IdiomaEspanol"><value>🇲🇽 Español</value></data>
-  <data name="Config_IdiomaIngles"><value>🇺🇸 English</value></data>
-  <data name="Config_OCRTitulo"><value>🤖 OCR EN LA NUBE</value></data>
-  <data name="Config_OCRDesc"><value>Mejora la extracción de datos usando inteligencia artificial.</value></data>
-  <data name="Config_OCRModo"><value>Motor OCR</value></data>
-  <data name="Config_OCRModoAuto"><value>🤖 Automático (nube si hay red, nativo si no)</value></data>
-  <data name="Config_OCRModoNativo"><value>📱 Solo nativo (offline, sin costo)</value></data>
-  <data name="Config_OCRModoGPT"><value>✨ GPT-4o Vision (mejor precisión)</value></data>
-  <data name="Config_OCRModoGoogle"><value>🔍 Google Cloud Vision</value></data>
-  <data name="Config_GuardadoOK"><value>✅ Guardado</value></data>
-  <data name="Config_GuardadoMsg"><value>Configuración guardada correctamente.</value></data>
-  <data name="Config_RestaurarPregunta"><value>¿Restaurar configuración predeterminada? Se perderán los cambios.</value></data>
-  <data name="Config_Restaurada"><value>Configuración restaurada</value></data>
-  <data name="Config_OCRModoNativoGPT"><value>📱+✨ Nativo + GPT-4o texto (más económico)</value></data>
-  <data name="Config_OCRModoFusion"><value>⚡ Fusión (nativo + Google + GPT-4o)</value></data>
-  <data name="Config_OCRDescAuto"><value>Usa IA en la nube si hay internet y API key configurada.\nSi no hay red o no hay key, usa el OCR del dispositivo.</value></data>
-  <data name="Config_OCRDescNativo"><value>Usa siempre el OCR integrado del teléfono.\nFunciona sin internet y sin costo, pero con menor precisión.</value></data>
-  <data name="Config_OCRDescGPT"><value>Usa GPT-4o Vision de OpenAI.\nExcelente precisión, extrae datos estructurados directamente.\nRequiere internet y API key de OpenAI.</value></data>
-  <data name="Config_OCRDescGoogle"><value>Usa Google Cloud Vision.\nMuy alta precisión en texto impreso.\nRequiere internet y API key de Google Cloud.</value></data>
-  <data name="Config_OCRDescNativoGPT"><value>El OCR del dispositivo extrae el texto (gratis, sin subir imágenes).\nGPT-4o estructura los datos desde el texto (~10× más barato que Vision).\nRequiere internet y API key de OpenAI.</value></data>
-  <data name="Config_OCRDescFusion"><value>Los tres motores combinados para máxima precisión.\nNativo y Google Vision corren en paralelo; se usa el texto más completo.\nGPT-4o estructura el resultado final.\nRequiere internet, API key de Google Cloud y de OpenAI.</value></data>
-  <data name="Config_OpenAIKeyHint"><value>Obtén tu key en platform.openai.com/api-keys</value></data>
-  <data name="Config_GoogleKeyHint"><value>Actívala en console.cloud.google.com → APIs → Vision API</value></data>
-  <data name="Config_TiempoAutoGuardado"><value>⏱️ Tiempo entre auto-guardados (segundos)</value></data>
-  <data name="Config_TiempoAutoGuardadoFmt"><value>{0} segundos</value></data>
-  <data name="Config_NombrePlaceholder"><value>Ingrese el nombre de su negocio</value></data>
-  <data name="Config_DenominacionesTitulo"><value>💰 DENOMINACIONES</value></data>
-  <data name="Config_DenomTotal"><value>TOTAL</value></data>
-  <data name="Config_DenomActivas"><value>ACTIVAS</value></data>
-  <data name="Config_DenomInactivas"><value>INACTIVAS</value></data>
-  <data name="Config_DenomPersonalizadas"><value>PERSONALIZADAS</value></data>
-  <data name="Config_AgregarDenom"><value>➕ Agregar Denominación Personalizada</value></data>
-  <data name="Config_InfoTitulo"><value>ℹ️ INFORMACIÓN DE LA APP</value></data>
-  <data name="Config_InfoVersion"><value>Versión:</value></data>
-  <data name="Config_InfoDesarrollador"><value>Desarrollado por:</value></data>
-  <data name="Config_BtnExportar"><value>📤 Exportar</value></data>
-  <data name="Config_BtnRestaurar"><value>🔄 Restaurar</value></data>
-  <data name="Config_BtnAcercaDe"><value>ℹ️ Acerca de</value></data>
-  <data name="Config_ElimDenomNoPredeterminada"><value>No se pueden eliminar las denominaciones predeterminadas.\nSolo puede desactivarlas usando el interruptor.</value></data>
-  <data name="Config_ElimDenomConfirmar"><value>¿Está seguro de eliminar esta denominación personalizada?\n\n{0}\n\n⚠️ Esta acción no se puede deshacer.</value></data>
-  <data name="Config_ElimDenomTitulo"><value>Confirmar eliminación</value></data>
-  <data name="Config_ElimDenomOK"><value>Denominación eliminada correctamente</value></data>
-  <data name="Config_ElimDenomError"><value>No se pudo eliminar la denominación</value></data>
-  <data name="Config_ErrorCambiarEstado"><value>No se pudo cambiar el estado de la denominación</value></data>
-  <data name="Config_ExportarTitulo"><value>Exportar configuración</value></data>
-  <data name="Config_ExportarVerResumen"><value>Ver resumen</value></data>
-  <data name="Config_ExportarCompleto"><value>Exportar completo</value></data>
-  <data name="Config_ExportarCompartir"><value>Compartir configuración</value></data>
-  <data name="Config_ExportarError"><value>No se pudo exportar: {0}</value></data>
-  <data name="Config_RestaurarTitulo"><value>Restaurar configuración</value></data>
-  <data name="Config_RestaurarDetalle"><value>¿Está seguro de restaurar toda la configuración a los valores predeterminados?\n\nEsto incluye:\n• Configuración general\n• Estado de denominaciones\n• Tema de la aplicación\n\n⚠️ Las denominaciones personalizadas se mantendrán pero se desactivarán.</value></data>
-  <data name="Config_RestauradaOK"><value>Configuración restaurada correctamente.\nLa aplicación se ha reiniciado con los valores predeterminados.</value></data>
-  <data name="Config_RestaurarError"><value>No se pudo restaurar la configuración</value></data>
-
-  <!-- == Notas -->
-  <data name="Notas_Titulo"><value>Notas</value></data>
-  <data name="Notas_TituloObligatorio"><value>El título es obligatorio</value></data>
-  <data name="Notas_ContenidoObligatorio"><value>El contenido es obligatorio para notas de texto</value></data>
-  <data name="Notas_Eliminada"><value>No se pudo eliminar la nota</value></data>
-  <data name="Notas_Total"><value>TOTAL</value></data>
-  <data name="Notas_ConImagen"><value>CON IMAGEN</value></data>
-  <data name="Notas_Favoritas"><value>FAVORITAS</value></data>
-  <data name="Notas_BtnTexto"><value>📝 Texto</value></data>
-  <data name="Notas_BtnFoto"><value>📷 Foto</value></data>
-  <data name="Notas_BtnMixta"><value>📝📷 Mixta</value></data>
-  <data name="Notas_BuscarPlaceholder"><value>Buscar...</value></data>
-  <data name="Notas_FiltroTipo"><value>Tipo...</value></data>
-  <data name="Notas_FiltroTodos"><value>Todos</value></data>
-  <data name="Notas_FiltroTexto"><value>Texto</value></data>
-  <data name="Notas_FiltroImagen"><value>Imagen</value></data>
-  <data name="Notas_FiltroMixta"><value>Mixta</value></data>
-  <data name="Notas_FiltroFavoritas"><value>⭐ Favoritas</value></data>
-  <data name="Notas_EmptyTitle"><value>No hay notas</value></data>
-  <data name="Notas_EliminadaOk"><value>Nota eliminada correctamente</value></data>
-  <data name="Notas_ConfirmarEliminar"><value>¿Está seguro de eliminar esta nota?</value></data>
-  <data name="Notas_SinTitulo"><value>Sin título</value></data>
-  <data name="Notas_TieneImagen"><value>⚠️ La imagen también será eliminada</value></data>
-  <data name="Notas_ExportarTitulo"><value>Exportar notas</value></data>
-  <data name="Notas_ExportarSoloTexto"><value>Exportar solo texto</value></data>
-  <data name="Notas_ExportarCompleto"><value>Exportar con rutas de imágenes</value></data>
-  <data name="Notas_BackupCompleto"><value>Backup completo</value></data>
-  <data name="Notas_AccionReporte"><value>¿Qué hacer con el reporte?</value></data>
-  <data name="Notas_VerReporte"><value>Ver reporte</value></data>
-  <data name="Notas_CompartirReporte"><value>Compartir reporte</value></data>
-  <data name="Notas_TituloReporte"><value>Reporte de Notas</value></data>
-  <data name="Notas_TituloCompartir"><value>Mis Notas</value></data>
-  <data name="Notas_FiltroFechaTodas"><value>📋 Todas</value></data>
-  <data name="Notas_FiltroFechaHoy"><value>📅 Hoy</value></data>
-  <data name="Notas_FiltroFechaSemana"><value>📆 Semana</value></data>
-  <data name="Notas_FiltroFechaMes"><value>🗓️ Mes</value></data>
-  <data name="Notas_FiltroFechaAnio"><value>📊 Año</value></data>
-  <data name="Notas_IrAFecha"><value>📅 Ir a fecha:</value></data>
-
-  <!-- == Historial ======================================================== -->
-  <data name="Historial_Titulo"><value>Historial</value></data>
-
-  <!-- == Reporte / Export ================================================─ -->
-  <data name="Export_ReporteVouchers"><value>REPORTE DE VOUCHERS</value></data>
-  <data name="Export_Generado"><value>Generado:</value></data>
-  <data name="Export_TotalVouchers"><value>Total de vouchers:</value></data>
-  <data name="Export_ResumenTipo"><value>Resumen por tipo de pago</value></data>
-  <data name="Export_Detalle"><value>Detalle de vouchers</value></data>
-  <data name="Export_ColNumero"><value>#</value></data>
-  <data name="Export_ColFecha"><value>Fecha</value></data>
-  <data name="Export_ColComercio"><value>Comercio</value></data>
-  <data name="Export_ColTipo"><value>Tipo Pago</value></data>
-  <data name="Export_ColTarjeta"><value>Tarjeta</value></data>
-  <data name="Export_ColFolio"><value>Folio/Ticket</value></data>
-  <data name="Export_ColSubtotal"><value>Subtotal</value></data>
-  <data name="Export_ColIVA"><value>IVA</value></data>
-  <data name="Export_ColTotal"><value>Total</value></data>
-  <data name="Export_ColAuth"><value>Autorización</value></data>
-  <data name="Export_ColNotas"><value>Notas</value></data>
-  <data name="Export_TotalGeneral"><value>TOTAL GENERAL</value></data>
-
-  <!-- == Títulos de página ==================================================─ -->
-  <data name="Caja_PageTitulo"><value>Conteo</value></data>
-  <data name="Caja_NombrePlaceholder"><value>Nombre del conteo</value></data>
-  <data name="Config_PageTitulo"><value>Configuración</value></data>
-  <data name="Estadisticas_Titulo"><value>Estadísticas Detalladas</value></data>
-  <data name="Mov_PageTitulo"><value>Movimientos de Efectivo</value></data>
-  <data name="NotaDetalle_Titulo"><value>Detalle de Nota</value></data>
-  <data name="NotaEditor_Titulo"><value>Editor de Nota</value></data>
-  <data name="NuevaDen_Titulo"><value>Nueva Denominación</value></data>
-  <data name="Reporte_Titulo"><value>Reporte Completo</value></data>
-  <data name="Shell_Titulo"><value>Caja Registradora</value></data>
-  <data name="Mov_Entradas"><value>ENTRADAS</value></data>
-  <data name="Mov_Salidas"><value>SALIDAS</value></data>
-  <data name="Mov_Saldo"><value>SALDO</value></data>
-  <data name="Mov_LblTipo"><value>Tipo</value></data>
-  <data name="Mov_LblFecha"><value>Fecha</value></data>
-  <data name="Mov_LblConcepto"><value>Concepto</value></data>
-  <data name="Mov_LblMonto"><value>Monto $</value></data>
-  <data name="Mov_LblDescripcion"><value>Descripción (opcional)</value></data>
-  <data name="Mov_PlaceholderTipo"><value>Seleccionar tipo...</value></data>
-  <data name="Mov_PlaceholderConcepto"><value>Seleccionar concepto...</value></data>
-  <data name="Mov_PlaceholderDescripcion"><value>Descripción adicional...</value></data>
-  <data name="Mov_TipoEntrada"><value>Entrada</value></data>
-  <data name="Mov_TipoSalida"><value>Salida</value></data>
-  <data name="Mov_EmptyTitle"><value>No hay movimientos registrados</value></data>
-  <data name="Mov_EmptyMsg"><value>Agrega tu primer movimiento usando el formulario superior</value></data>
-  <data name="Mov_BtnReporte"><value>Reporte</value></data>
-  <data name="Mov_ValidarTipo"><value>Seleccione el tipo de movimiento</value></data>
-  <data name="Mov_ValidarConcepto"><value>Seleccione un concepto</value></data>
-  <data name="Mov_ConfirmarEliminar"><value>¿Está seguro de eliminar este movimiento?</value></data>
-  <data name="Mov_PeriodoTitulo"><value>Seleccionar período</value></data>
-  <data name="Mov_PeriodoHoy"><value>📅 Hoy</value></data>
-  <data name="Mov_PeriodoSemana"><value>📆 Semana</value></data>
-  <data name="Mov_PeriodoMes"><value>🗓️ Mes</value></data>
-  <data name="Mov_Periodo30"><value>Últimos 30 días</value></data>
-  <data name="Mov_PeriodoTodo"><value>📋 Todo</value></data>
-  <data name="Mov_PeriodoAnio"><value>📊 Año</value></data>
-  <data name="Mov_FiltroFecha"><value>📅 Fecha:</value></data>
-  <data name="Mov_AccionReporte"><value>¿Qué desea hacer con el reporte?</value></data>
-  <data name="Mov_VerReporte"><value>Ver reporte</value></data>
-  <data name="Mov_CompartirReporte"><value>Compartir reporte</value></data>
-  <data name="Mov_TituloCompartir"><value>Reporte Completo de Movimientos</value></data>
-  <data name="Mov_ExitoGuardar"><value>Movimiento registrado correctamente</value></data>
-  <data name="Mov_ErrorGuardar"><value>No se pudo guardar el movimiento</value></data>
-
-  <!-- == Conceptos predeterminados de movimientos ============================ -->
-  <data name="Concepto_VentasDia"><value>Ventas del día</value></data>
-  <data name="Concepto_PrestamoRecibido"><value>Préstamo recibido</value></data>
-  <data name="Concepto_Devolucion"><value>Devolución</value></data>
-  <data name="Concepto_IngresoExtra"><value>Ingreso extra</value></data>
-  <data name="Concepto_CapitalInicial"><value>Capital inicial</value></data>
-  <data name="Concepto_GastosOperativos"><value>Gastos operativos</value></data>
-  <data name="Concepto_PagoProveedores"><value>Pago a proveedores</value></data>
-  <data name="Concepto_PrestamoOtorgado"><value>Préstamo otorgado</value></data>
-  <data name="Concepto_GastosVarios"><value>Gastos varios</value></data>
-  <data name="Concepto_RetiroPersonal"><value>Retiro personal</value></data>
-
-  <!-- == AcercaDe ====================================================─ -->
-  <data name="Acerca_Titulo"><value>Acerca de</value></data>
-  <data name="Acerca_Subtitulo"><value>Sistema Integral para Arqueo de Caja Contable</value></data>
-  <data name="Acerca_SeccionInfo"><value>📱 INFORMACIÓN DE LA APP</value></data>
-  <data name="Acerca_Version"><value>Versión:</value></data>
-  <data name="Acerca_DesarrolladoPor"><value>Desarrollado por:</value></data>
-  <data name="Acerca_FechaBuild"><value>Fecha de build:</value></data>
-  <data name="Acerca_FechaBuildValor"><value>Mayo 2026</value></data>
-  <data name="Acerca_SeccionCaracteristicas"><value>✨ CARACTERÍSTICAS PRINCIPALES</value></data>
-  <data name="Acerca_Feat1"><value>📱 Arqueo y Cuadre de Caja Registradora - Conteo de denominaciones monetarias</value></data>
-  <data name="Acerca_Feat2"><value>💰 Movimientos - Control de entradas y salidas de efectivo</value></data>
-  <data name="Acerca_Feat3"><value>📄 Vouchers y Tickets - Escáner OCR para procesar comprobantes</value></data>
-  <data name="Acerca_Feat4"><value>📝 Notas - Sistema completo con texto e imágenes</value></data>
-  <data name="Acerca_Feat5"><value>📊 Historial - Resumen y reportes detallados</value></data>
-  <data name="Acerca_Feat6"><value>⚙️ Configuración - Personalización completa</value></data>
-  <data name="Acerca_Feat7"><value>🌙 Modo oscuro/claro - Temas personalizables</value></data>
-  <data name="Acerca_Feat8"><value>🔒 100% Offline - Sin dependencias externas</value></data>
-  <data name="Acerca_SeccionTecnologias"><value>🔧 TECNOLOGÍAS UTILIZADAS</value></data>
-  <data name="Acerca_Tech1"><value>• .NET MAUI - Framework multiplataforma</value></data>
-  <data name="Acerca_Tech2"><value>• SQLite - Base de datos embebida</value></data>
-  <data name="Acerca_Tech3"><value>• OCR Nativo - Reconocimiento óptico gratuito</value></data>
-  <data name="Acerca_Tech4"><value>• GPT4o - Siempre OpenAI GPT-4o Vision (requiere red + Suscripción)</value></data>
-  <data name="Acerca_Tech5"><value>• Google - Siempre Google Cloud Vision (requiere red + Suscripción)</value></data>
-  <data name="Acerca_Tech6"><value>• SkiaSharp - Procesamiento de imágenes</value></data>
-  <data name="Acerca_Tech7"><value>• MVVM Pattern - Arquitectura escalable</value></data>
-  <data name="Acerca_Tech8"><value>• XAML + C# - UI declarativa y lógica robusta</value></data>
-  <data name="Acerca_Copyright"><value>© 2026 QuBitSoft. Todos los derechos reservados.</value></data>
-  <data name="Acerca_HechoCon"><value>Hecho con ❤️ en México 🇲🇽</value></data>
-  <data name="Estadisticas_Header"><value>📈 Estadísticas</value></data>
-  <data name="Estadisticas_Periodo"><value>⏱ PERÍODO</value></data>
-  <data name="Estadisticas_Desde"><value>Desde</value></data>
-  <data name="Estadisticas_Hasta"><value>Hasta</value></data>
-  <data name="Estadisticas_Actualizar"><value>🔄 Actualizar</value></data>
-  <data name="Estadisticas_ActividadPrincipal"><value>🎯 ACTIVIDAD PRINCIPAL</value></data>
-  <data name="Estadisticas_Cajas"><value>💰 Cajas</value></data>
-  <data name="Estadisticas_Movimientos"><value>💸 Movimientos</value></data>
-  <data name="Estadisticas_Vouchers"><value>📄 Vouchers</value></data>
-  <data name="Estadisticas_Notas"><value>📝 Notas</value></data>
-  <data name="Estadisticas_ArqueosHeader"><value>💰 ARQUEOS DE CAJA</value></data>
-  <data name="Estadisticas_ArqueosRegistrados"><value>Arqueos registrados</value></data>
-  <data name="Estadisticas_TotalContado"><value>Total contado</value></data>
-  <data name="Estadisticas_PromedioPorArqueo"><value>Promedio por arqueo</value></data>
-  <data name="Estadisticas_MaximoMinimo"><value>Máximo / Mínimo</value></data>
-  <data name="Estadisticas_MovimientosHeader"><value>💸 MOVIMIENTOS DE EFECTIVO</value></data>
-  <data name="Estadisticas_TotalMovimientos"><value>Total movimientos</value></data>
-  <data name="Estadisticas_Entradas"><value>Entradas</value></data>
-  <data name="Estadisticas_Salidas"><value>Salidas</value></data>
-  <data name="Estadisticas_SaldoNeto"><value>Saldo neto</value></data>
-  <data name="Estadisticas_VouchersHeader"><value>📄 VOUCHERS Y TICKETS</value></data>
-  <data name="Estadisticas_TotalEscaneados"><value>Total escaneados</value></data>
-  <data name="Estadisticas_ImporteTotal"><value>Importe total</value></data>
-  <data name="Estadisticas_Credito"><value>Crédito</value></data>
-  <data name="Estadisticas_Debito"><value>Débito</value></data>
-  <data name="Estadisticas_Efectivo"><value>Efectivo</value></data>
-  <data name="Estadisticas_OtrosTipos"><value>Otros tipos</value></data>
-  <data name="Estadisticas_NotasHeader"><value>📝 NOTAS</value></data>
-  <data name="Estadisticas_TotalNotas"><value>Total notas</value></data>
-  <data name="Estadisticas_SoloTexto"><value>📝 Solo texto</value></data>
-  <data name="Estadisticas_SoloImagen"><value>📷 Solo imagen</value></data>
-  <data name="Estadisticas_Mixtas"><value>📝📷 Mixtas</value></data>
-  <data name="Estadisticas_Favoritas"><value>⭐ Favoritas</value></data>
-  <data name="Estadisticas_GananciaHeader"><value>📊 RESUMEN ESTIMADO</value></data>
-  <data name="Estadisticas_UltimoArqueo"><value>Último total de caja</value></data>
-  <data name="Estadisticas_TotalVouchersLabel"><value>+ Total vouchers</value></data>
-  <data name="Estadisticas_SaldoMovLabel"><value>− Saldo movimientos</value></data>
-  <data name="Estadisticas_GananciaTotal"><value>= Ganancia estimada</value></data>
-  <data name="Estadisticas_GananciaTooltip"><value>Último arqueo + Vouchers − Saldo neto de movimientos</value></data>
-
-  <!-- == Premium ========================================================= -->
-  <data name="Premium_PageTitulo"><value>Plan Premium</value></data>
-  <data name="Premium_Encabezado"><value>✨ Desbloquea todo</value></data>
-  <data name="Premium_PlanActual"><value>Plan actual:</value></data>
-  <data name="Premium_TextoPlanFree"><value>🆓 GRATIS</value></data>
-  <data name="Premium_TextoPlanPremium"><value>💎 PREMIUM</value></data>
-  <data name="Premium_PlanFreeNombre"><value>🆓 GRATIS — Siempre</value></data>
-  <data name="Premium_PlanFree1"><value>✅  Conteos de caja: ilimitados</value></data>
-  <data name="Premium_PlanFree2"><value>✅  Vouchers escaneados: hasta 300</value></data>
-  <data name="Premium_PlanFree3"><value>✅  1 sesión activa a la vez</value></data>
-  <data name="Premium_PlanFree4"><value>✅  Ver reportes en pantalla</value></data>
-  <data name="Premium_PlanFree5"><value>❌  Exportar PDF / Excel</value></data>
-  <data name="Premium_PlanFree6"><value>❌  Historial completo de sesiones</value></data>
-  <data name="Premium_PlanFree7"><value>❌  Respaldo automático</value></data>
-  <data name="Premium_PlanFree8"><value>❌  Soporte por email</value></data>
-  <data name="Premium_PlanPremiumNombre"><value>💎 PREMIUM — Todo incluido</value></data>
-  <data name="Premium_PlanPremium1"><value>✅  Todo lo del plan Gratis</value></data>
-  <data name="Premium_PlanPremium2"><value>✅  Exportar a PDF y Excel</value></data>
-  <data name="Premium_PlanPremium3"><value>✅  Historial completo de sesiones</value></data>
-  <data name="Premium_PlanPremium4"><value>✅  Respaldo automático</value></data>
-  <data name="Premium_PlanPremium5"><value>✅  Soporte por email</value></data>
-  <data name="Premium_BtnAnual"><value>💳  Suscripción Anual — $179.80 vía M.P</value></data>
-  <data name="Premium_BtnMensual"><value>🔄  Suscripción mensual — $89.80/mes vía M.P</value></data>
-  <data name="Premium_PagoSeguro"><value>Pago seguro vía Mercado Pago · Te enviaremos tu clave por email al confirmar el pago</value></data>
-  <data name="Premium_ActivarTitulo"><value>🔑 ¿Ya compraste? Activa tu licencia</value></data>
-  <data name="Premium_ActivarDesc"><value>Realiza el pago por Mercado Pago y envíanos el comprobante a: qubitsoftxxi@gmail.com -- Te responderemos con tu clave en menos de 24 h.</value></data>
-  <data name="Premium_BtnEnviarComprobante"><value>📧  Enviar comprobante por email</value></data>
-  <data name="Premium_ClavePlaceholder"><value>Pega tu clave de licencia aquí</value></data>
-  <data name="Premium_BtnActivar"><value>Activar clave</value></data>
-  <data name="Premium_BtnRestaurar"><value>Restaurar compra anterior</value></data>
-  <data name="Premium_ErrorNavegador"><value>No se pudo abrir el navegador: {0}</value></data>
-  <data name="Premium_ErrorCorreo"><value>No se pudo abrir el cliente de correo: {0}</value></data>
-  <data name="Premium_EmailAsunto"><value>Comprobante de pago SELLIK Premium</value></data>
-  <data name="Premium_EmailCuerpo"><value>Hola, adjunto el comprobante de mi pago para activar el plan Premium. Por favor envíame mi clave de licencia. Gracias.</value></data>
-  <data name="Premium_ClaveVacia"><value>Ingresa tu clave de licencia.</value></data>
-  <data name="License_DebugActivado"><value>Modo DEBUG: Premium activado automáticamente.</value></data>
-  <data name="License_DebugRestaurado"><value>Modo DEBUG: Premium restaurado.</value></data>
-  <data name="License_ClaveVacia"><value>Ingresa una clave de licencia válida.</value></data>
-  <data name="License_NoEncontrada"><value>No se encontró ninguna licencia guardada en este dispositivo.</value></data>
-  <data name="License_Vencida"><value>La licencia ha vencido. Renueva tu suscripción.</value></data>
-  <data name="License_ActivadaMensual"><value>¡Premium mensual activado! Vence el {0} 🎉</value></data>
-  <data name="License_ActivadaAnual"><value>¡Premium anual activado! Vence el {0} 🎉</value></data>
-  <data name="License_Invalida"><value>Clave inválida. Verifica que la copiaste correctamente.</value></data>
-  <data name="License_ErrorValidar"><value>Error al validar la clave.</value></data>
-  <data name="Premium_LimiteSesionTitulo"><value>Límite alcanzado 🆓</value></data>
-  <data name="Premium_LimiteSesionMsg"><value>El plan Gratis permite 1 sesión activa.\n\nActualiza a Premium para crear sesiones ilimitadas.</value></data>
-  <data name="Premium_BtnVerPremium"><value>Ver Premium</value></data>
-  <data name="Premium_FuncionTitulo"><value>Función Premium 💎</value></data>
-  <data name="Premium_FuncionExportar"><value>Exportar a PDF y Excel está disponible en el plan Premium.</value></data>
-  <data name="Mov_ExportarSinDatos"><value>No hay movimientos para exportar con el filtro actual.</value></data>
-  <data name="Mov_ExportarError"><value>No se pudo exportar: {0}</value></data>
-  <data name="Mov_ExportarNoDisponible"><value>No disponible</value></data>
-
-  <!-- == Sesiones ======================================================== -->
-  <data name="Sesiones_Titulo"><value>Sesiones</value></data>
-  <data name="Sesiones_Subtitulo"><value>🗂️ Mis Espacios de Trabajo</value></data>
-  <data name="Sesiones_Desc"><value>Cada sesión tiene su propio historial de caja, movimientos, vouchers y notas.</value></data>
-  <data name="Sesiones_NuevaSesion"><value>➕ Nueva sesión</value></data>
-  <data name="Sesiones_NombrePlaceholder"><value>Nombre de la sesión (ej: Turno mañana)</value></data>
-  <data name="Sesiones_DescPlaceholder"><value>Descripción (opcional)</value></data>
-  <data name="Sesiones_BtnCrear"><value>✓ Crear sesión</value></data>
-  <data name="Sesiones_Vacia"><value>No hay sesiones. ¡Crea tu primera sesión arriba!</value></data>
-  <data name="Sesiones_CerrarSesion"><value>🔓 Cambiar de sesión</value></data>
-  <data name="Sesiones_SesionActiva"><value>Sesión activa</value></data>
-  <data name="Sesiones_ConfirmarEliminar"><value>¿Estás seguro de eliminar esta sesión?
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Nav_Caja" xml:space="preserve">
+    <value>Caja</value>
+  </data>
+  <data name="Nav_Movimientos" xml:space="preserve">
+    <value>Movimientos</value>
+  </data>
+  <data name="Nav_Vouchers" xml:space="preserve">
+    <value>Vouchers</value>
+  </data>
+  <data name="Nav_Notas" xml:space="preserve">
+    <value>Notas</value>
+  </data>
+  <data name="Nav_Historial" xml:space="preserve">
+    <value>🕘 Historial</value>
+  </data>
+  <data name="Nav_Configuracion" xml:space="preserve">
+    <value>⚙️ Config</value>
+  </data>
+  <data name="Nav_Estadisticas" xml:space="preserve">
+    <value>📊 Estadísticas</value>
+  </data>
+  <data name="Btn_Guardar" xml:space="preserve">
+    <value>✓ Guardar</value>
+  </data>
+  <data name="Btn_Cancelar" xml:space="preserve">
+    <value>✗ Cancelar</value>
+  </data>
+  <data name="Btn_Eliminar" xml:space="preserve">
+    <value>Eliminar</value>
+  </data>
+  <data name="Btn_Editar" xml:space="preserve">
+    <value>✏️ Editar</value>
+  </data>
+  <data name="Btn_Compartir" xml:space="preserve">
+    <value>Compartir</value>
+  </data>
+  <data name="Btn_Limpiar" xml:space="preserve">
+    <value>Limpiar</value>
+  </data>
+  <data name="Btn_Aceptar" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Btn_Cerrar" xml:space="preserve">
+    <value>Cerrar</value>
+  </data>
+  <data name="Btn_AbrirAjustes" xml:space="preserve">
+    <value>Abrir ajustes</value>
+  </data>
+  <data name="Lbl_Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Lbl_Exito" xml:space="preserve">
+    <value>Éxito</value>
+  </data>
+  <data name="Lbl_Informacion" xml:space="preserve">
+    <value>Información</value>
+  </data>
+  <data name="Lbl_Confirmar" xml:space="preserve">
+    <value>Confirmar</value>
+  </data>
+  <data name="Lbl_Validacion" xml:space="preserve">
+    <value>Validación</value>
+  </data>
+  <data name="Lbl_ErrorProcesar" xml:space="preserve">
+    <value>Error al procesar: {0}</value>
+  </data>
+  <data name="Lbl_ErrorCargar" xml:space="preserve">
+    <value>No se pudo cargar la configuración. Se aplicarán valores predeterminados.</value>
+  </data>
+  <data name="Lbl_Cargando" xml:space="preserve">
+    <value>Cargando...</value>
+  </data>
+  <data name="Lbl_NoDisponible" xml:space="preserve">
+    <value>No disponible</value>
+  </data>
+  <data name="Lbl_SinDatos" xml:space="preserve">
+    <value>Sin datos</value>
+  </data>
+  <data name="Msg_ConfirmarEliminar" xml:space="preserve">
+    <value>¿Estás seguro de que deseas eliminar este elemento?</value>
+  </data>
+  <data name="Msg_AbrirAjustes" xml:space="preserve">
+    <value>Abrir ajustes</value>
+  </data>
+  <data name="Voucher_Titulo" xml:space="preserve">
+    <value>Escáner de Vouchers</value>
+  </data>
+  <data name="Voucher_Credito" xml:space="preserve">
+    <value>CRÉDITO</value>
+  </data>
+  <data name="Voucher_Debito" xml:space="preserve">
+    <value>DÉBITO</value>
+  </data>
+  <data name="Voucher_Total" xml:space="preserve">
+    <value>TOTAL</value>
+  </data>
+  <data name="Voucher_BtnEscanear" xml:space="preserve">
+    <value>📷 Escanear</value>
+  </data>
+  <data name="Voucher_BtnGaleria" xml:space="preserve">
+    <value>🖼️ Galería</value>
+  </data>
+  <data name="Voucher_Detectado" xml:space="preserve">
+    <value>✅ VOUCHER DETECTADO</value>
+  </data>
+  <data name="Voucher_Comercio" xml:space="preserve">
+    <value>Comercio:</value>
+  </data>
+  <data name="Voucher_Tipo" xml:space="preserve">
+    <value>Tipo:</value>
+  </data>
+  <data name="Voucher_Subtotal" xml:space="preserve">
+    <value>Subtotal:</value>
+  </data>
+  <data name="Voucher_TotalLabel" xml:space="preserve">
+    <value>Total:</value>
+  </data>
+  <data name="Voucher_ListaVacia" xml:space="preserve">
+    <value>No hay vouchers escaneados</value>
+  </data>
+  <data name="Voucher_ListaVaciaDesc" xml:space="preserve">
+    <value>Usa los botones superiores para escanear tu primer voucher</value>
+  </data>
+  <data name="Voucher_BtnOCR" xml:space="preserve">
+    <value>📋 OCR</value>
+  </data>
+  <data name="Voucher_BtnExportar" xml:space="preserve">
+    <value>⬆️ Exportar</value>
+  </data>
+  <data name="Voucher_BtnReporte" xml:space="preserve">
+    <value>📊 Reporte</value>
+  </data>
+  <data name="Voucher_BtnTodos" xml:space="preserve">
+    <value>☑️ Todos</value>
+  </data>
+  <data name="Voucher_BtnNinguno" xml:space="preserve">
+    <value>☐ Ninguno</value>
+  </data>
+  <data name="Voucher_BtnEliminarTodos" xml:space="preserve">
+    <value>🗑️ Eliminar todo</value>
+  </data>
+  <data name="Voucher_ConfirmarEliminarTodosTitulo" xml:space="preserve">
+    <value>Eliminar todos</value>
+  </data>
+  <data name="Voucher_ConfirmarEliminarTodos" xml:space="preserve">
+    <value>¿Eliminar todos los vouchers? Esta acción no se puede deshacer.</value>
+  </data>
+  <data name="Voucher_EliminadosTodos" xml:space="preserve">
+    <value>Todos los vouchers han sido eliminados.</value>
+  </data>
+  <data name="Voucher_ErrorEliminarTodos" xml:space="preserve">
+    <value>No se pudieron eliminar los vouchers.</value>
+  </data>
+  <data name="Voucher_FiltroTodos" xml:space="preserve">
+    <value>📋 Todos</value>
+  </data>
+  <data name="Voucher_FiltroHoy" xml:space="preserve">
+    <value>📅 Hoy</value>
+  </data>
+  <data name="Voucher_FiltroSemana" xml:space="preserve">
+    <value>📆 Semana</value>
+  </data>
+  <data name="Voucher_FiltroMes" xml:space="preserve">
+    <value>🗓️ Mes</value>
+  </data>
+  <data name="Voucher_FiltroAnio" xml:space="preserve">
+    <value>📊 Año</value>
+  </data>
+  <data name="Voucher_FiltroFecha" xml:space="preserve">
+    <value>🔍 Fecha</value>
+  </data>
+  <data name="Voucher_Procesando" xml:space="preserve">
+    <value>Procesando...</value>
+  </data>
+  <data name="Voucher_ProcesandoDesc" xml:space="preserve">
+    <value>Extrayendo información con OCR...</value>
+  </data>
+  <data name="Voucher_PermisoCamara" xml:space="preserve">
+    <value>Permiso cámara</value>
+  </data>
+  <data name="Voucher_PermisoCamaraMsg" xml:space="preserve">
+    <value>La app necesita acceso a la cámara para escanear vouchers.</value>
+  </data>
+  <data name="Voucher_PermisoDenegado" xml:space="preserve">
+    <value>Permiso denegado</value>
+  </data>
+  <data name="Voucher_PermisoDenegadoMsg" xml:space="preserve">
+    <value>Sin acceso a la cámara no es posible escanear. ¿Deseas abrir los ajustes?</value>
+  </data>
+  <data name="Voucher_CamaraNoDisponible" xml:space="preserve">
+    <value>La cámara no está disponible en este dispositivo o emulador.</value>
+  </data>
+  <data name="Voucher_ErrorCamara" xml:space="preserve">
+    <value>No se pudo acceder a la cámara: {0}</value>
+  </data>
+  <data name="Voucher_ErrorSeleccionarImagen" xml:space="preserve">
+    <value>No se pudo seleccionar la imagen: {0}</value>
+  </data>
+  <data name="Voucher_ErrorOCR" xml:space="preserve">
+    <value>No se pudo procesar la imagen:\n{0}\n\nAsegúrate de que la imagen sea nítida y bien iluminada.</value>
+  </data>
+  <data name="Voucher_ErrorAlGuardar" xml:space="preserve">
+    <value>Error al guardar: {0}</value>
+  </data>
+  <data name="Voucher_ErrorReporte" xml:space="preserve">
+    <value>No se pudo generar el reporte: {0}</value>
+  </data>
+  <data name="Voucher_Guardado" xml:space="preserve">
+    <value>✓ Guardado</value>
+  </data>
+  <data name="Voucher_GuardadoMsg" xml:space="preserve">
+    <value>Voucher guardado correctamente.</value>
+  </data>
+  <data name="Voucher_ErrorGuardar" xml:space="preserve">
+    <value>No se pudo guardar el voucher.</value>
+  </data>
+  <data name="Voucher_ConfirmarEliminar" xml:space="preserve">
+    <value>¿Eliminar este voucher?\n\n{0}\n{1}: {2}\n{3}</value>
+  </data>
+  <data name="Voucher_ConfirmarEliminarTitulo" xml:space="preserve">
+    <value>Confirmar eliminación</value>
+  </data>
+  <data name="Voucher_Eliminado" xml:space="preserve">
+    <value>Eliminado</value>
+  </data>
+  <data name="Voucher_EliminadoMsg" xml:space="preserve">
+    <value>Voucher eliminado correctamente.</value>
+  </data>
+  <data name="Voucher_ErrorEliminar" xml:space="preserve">
+    <value>No se pudo eliminar.</value>
+  </data>
+  <data name="Voucher_SinDatos" xml:space="preserve">
+    <value>No hay vouchers para exportar.</value>
+  </data>
+  <data name="Voucher_ExportarTitulo" xml:space="preserve">
+    <value>Exportar {0}</value>
+  </data>
+  <data name="Voucher_ExportarSeleccionados" xml:space="preserve">
+    <value>{0} voucher(s) seleccionado(s)</value>
+  </data>
+  <data name="Voucher_ExportarTodos" xml:space="preserve">
+    <value>todos los vouchers ({0})</value>
+  </data>
+  <data name="Voucher_FormatoExcel" xml:space="preserve">
+    <value>📊 Excel (.xlsx)</value>
+  </data>
+  <data name="Voucher_FormatoPDF" xml:space="preserve">
+    <value>📄 PDF</value>
+  </data>
+  <data name="Voucher_FormatoAmbos" xml:space="preserve">
+    <value>📊 Excel + 📄 PDF</value>
+  </data>
+  <data name="Voucher_ErrorExportar" xml:space="preserve">
+    <value>No se pudo generar el archivo:\n{0}</value>
+  </data>
+  <data name="Voucher_ReporteTitulo" xml:space="preserve">
+    <value>Reporte de Vouchers</value>
+  </data>
+  <data name="Voucher_ReporteAccion" xml:space="preserve">
+    <value>¿Qué deseas hacer?</value>
+  </data>
+  <data name="Voucher_VerReporte" xml:space="preserve">
+    <value>Ver reporte</value>
+  </data>
+  <data name="Voucher_CompartirReporte" xml:space="preserve">
+    <value>Compartir reporte</value>
+  </data>
+  <data name="Voucher_TituloOCR" xml:space="preserve">
+    <value>Texto OCR extraído</value>
+  </data>
+  <data name="Voucher_CompartirTexto" xml:space="preserve">
+    <value>📤 Compartir texto</value>
+  </data>
+  <data name="Voucher_TipoCreditoItem" xml:space="preserve">
+    <value>Crédito</value>
+  </data>
+  <data name="Voucher_TipoDebitoItem" xml:space="preserve">
+    <value>Débito</value>
+  </data>
+  <data name="Voucher_TipoEfectivoItem" xml:space="preserve">
+    <value>Efectivo</value>
+  </data>
+  <data name="Voucher_TipoTransferenciaItem" xml:space="preserve">
+    <value>Transferencia</value>
+  </data>
+  <data name="Voucher_TipoOtroItem" xml:space="preserve">
+    <value>Otro</value>
+  </data>
+  <data name="Voucher_Manuscrito" xml:space="preserve">
+    <value>✍️ Manuscrito</value>
+  </data>
+  <data name="Voucher_ManuscritoLabel" xml:space="preserve">
+    <value>Manuscrito:</value>
+  </data>
+  <data name="Caja_Titulo" xml:space="preserve">
+    <value>Caja Registradora</value>
+  </data>
+  <data name="Caja_Nombre" xml:space="preserve">
+    <value>Nombre:</value>
+  </data>
+  <data name="Caja_Guardar" xml:space="preserve">
+    <value>Guardar</value>
+  </data>
+  <data name="Caja_Limpiar" xml:space="preserve">
+    <value>Limpiar</value>
+  </data>
+  <data name="Caja_Compartir" xml:space="preserve">
+    <value>Compartir</value>
+  </data>
+  <data name="Mov_Titulo" xml:space="preserve">
+    <value>Movimientos</value>
+  </data>
+  <data name="Mov_Registrado" xml:space="preserve">
+    <value>Movimiento registrado correctamente</value>
+  </data>
+  <data name="Mov_Eliminado" xml:space="preserve">
+    <value>Movimiento eliminado</value>
+  </data>
+  <data name="Mov_ErrorEliminar" xml:space="preserve">
+    <value>No se pudo eliminar el movimiento</value>
+  </data>
+  <data name="Mov_MontoInvalido" xml:space="preserve">
+    <value>Ingrese un monto válido mayor a cero</value>
+  </data>
+  <data name="Config_Titulo" xml:space="preserve">
+    <value>⚙️ Configuración</value>
+  </data>
+  <data name="Config_General" xml:space="preserve">
+    <value>🏢 CONFIGURACIÓN GENERAL</value>
+  </data>
+  <data name="Config_NombreNegocio" xml:space="preserve">
+    <value>Nombre del Negocio</value>
+  </data>
+  <data name="Config_Tema" xml:space="preserve">
+    <value>Tema de la Aplicación</value>
+  </data>
+  <data name="Config_TemaClaro" xml:space="preserve">
+    <value>🌞 Claro</value>
+  </data>
+  <data name="Config_TemaOscuro" xml:space="preserve">
+    <value>🌙 Oscuro</value>
+  </data>
+  <data name="Config_TemaAuto" xml:space="preserve">
+    <value>🔄 Automático</value>
+  </data>
+  <data name="Config_AutoGuardado" xml:space="preserve">
+    <value>💾 Activar auto-guardado</value>
+  </data>
+  <data name="Config_BloquearOrientacion" xml:space="preserve">
+    <value>🔒 Bloquear pantalla en modo vertical</value>
+  </data>
+  <data name="Config_ConfirmacionEliminar" xml:space="preserve">
+    <value>⚠️ Mostrar confirmación al eliminar</value>
+  </data>
+  <data name="Config_MostrarTutorial" xml:space="preserve">
+    <value>📖 Mostrar tutorial al iniciar</value>
+  </data>
+  <data name="Config_Idioma" xml:space="preserve">
+    <value>Idioma / Language</value>
+  </data>
+  <data name="Config_IdiomaEspanol" xml:space="preserve">
+    <value>🇲🇽 Español</value>
+  </data>
+  <data name="Config_IdiomaIngles" xml:space="preserve">
+    <value>🇺🇸 English</value>
+  </data>
+  <data name="Config_OCRTitulo" xml:space="preserve">
+    <value>🤖 OCR EN LA NUBE</value>
+  </data>
+  <data name="Config_OCRDesc" xml:space="preserve">
+    <value>Mejora la extracción de datos usando inteligencia artificial.</value>
+  </data>
+  <data name="Config_OCRModo" xml:space="preserve">
+    <value>Motor OCR</value>
+  </data>
+  <data name="Config_OCRModoAuto" xml:space="preserve">
+    <value>🤖 Automático (nube si hay red, nativo si no)</value>
+  </data>
+  <data name="Config_OCRModoNativo" xml:space="preserve">
+    <value>📱 Solo nativo (offline, sin costo)</value>
+  </data>
+  <data name="Config_OCRModoGPT" xml:space="preserve">
+    <value>✨ GPT-4o Vision (mejor precisión)</value>
+  </data>
+  <data name="Config_OCRModoGoogle" xml:space="preserve">
+    <value>🔍 Google Cloud Vision</value>
+  </data>
+  <data name="Config_GuardadoOK" xml:space="preserve">
+    <value>✅ Guardado</value>
+  </data>
+  <data name="Config_GuardadoMsg" xml:space="preserve">
+    <value>Configuración guardada correctamente.</value>
+  </data>
+  <data name="Config_RestaurarPregunta" xml:space="preserve">
+    <value>¿Restaurar configuración predeterminada? Se perderán los cambios.</value>
+  </data>
+  <data name="Config_Restaurada" xml:space="preserve">
+    <value>Configuración restaurada</value>
+  </data>
+  <data name="Config_OCRModoNativoGPT" xml:space="preserve">
+    <value>📱+✨ Nativo + GPT-4o texto (más económico)</value>
+  </data>
+  <data name="Config_OCRModoFusion" xml:space="preserve">
+    <value>⚡ Fusión (nativo + Google + GPT-4o)</value>
+  </data>
+  <data name="Config_OCRDescAuto" xml:space="preserve">
+    <value>Usa IA en la nube si hay internet y API key configurada.\nSi no hay red o no hay key, usa el OCR del dispositivo.</value>
+  </data>
+  <data name="Config_OCRDescNativo" xml:space="preserve">
+    <value>Usa siempre el OCR integrado del teléfono.\nFunciona sin internet y sin costo, pero con menor precisión.</value>
+  </data>
+  <data name="Config_OCRDescGPT" xml:space="preserve">
+    <value>Usa GPT-4o Vision de OpenAI.\nExcelente precisión, extrae datos estructurados directamente.\nRequiere internet y API key de OpenAI.</value>
+  </data>
+  <data name="Config_OCRDescGoogle" xml:space="preserve">
+    <value>Usa Google Cloud Vision.\nMuy alta precisión en texto impreso.\nRequiere internet y API key de Google Cloud.</value>
+  </data>
+  <data name="Config_OCRDescNativoGPT" xml:space="preserve">
+    <value>El OCR del dispositivo extrae el texto (gratis, sin subir imágenes).\nGPT-4o estructura los datos desde el texto (~10× más barato que Vision).\nRequiere internet y API key de OpenAI.</value>
+  </data>
+  <data name="Config_OCRDescFusion" xml:space="preserve">
+    <value>Los tres motores combinados para máxima precisión.\nNativo y Google Vision corren en paralelo; se usa el texto más completo.\nGPT-4o estructura el resultado final.\nRequiere internet, API key de Google Cloud y de OpenAI.</value>
+  </data>
+  <data name="Config_OpenAIKeyHint" xml:space="preserve">
+    <value>Obtén tu key en platform.openai.com/api-keys</value>
+  </data>
+  <data name="Config_GoogleKeyHint" xml:space="preserve">
+    <value>Actívala en console.cloud.google.com → APIs → Vision API</value>
+  </data>
+  <data name="Config_TiempoAutoGuardado" xml:space="preserve">
+    <value>⏱️ Tiempo entre auto-guardados (segundos)</value>
+  </data>
+  <data name="Config_TiempoAutoGuardadoFmt" xml:space="preserve">
+    <value>{0} segundos</value>
+  </data>
+  <data name="Config_NombrePlaceholder" xml:space="preserve">
+    <value>Ingrese el nombre de su negocio</value>
+  </data>
+  <data name="Config_DenominacionesTitulo" xml:space="preserve">
+    <value>💰 DENOMINACIONES</value>
+  </data>
+  <data name="Config_DenomTotal" xml:space="preserve">
+    <value>TOTAL</value>
+  </data>
+  <data name="Config_DenomActivas" xml:space="preserve">
+    <value>ACTIVAS</value>
+  </data>
+  <data name="Config_DenomInactivas" xml:space="preserve">
+    <value>INACTIVAS</value>
+  </data>
+  <data name="Config_DenomPersonalizadas" xml:space="preserve">
+    <value>PERSONALIZADAS</value>
+  </data>
+  <data name="Config_AgregarDenom" xml:space="preserve">
+    <value>➕ Agregar Denominación Personalizada</value>
+  </data>
+  <data name="Config_InfoTitulo" xml:space="preserve">
+    <value>ℹ️ INFORMACIÓN DE LA APP</value>
+  </data>
+  <data name="Config_InfoVersion" xml:space="preserve">
+    <value>Versión:</value>
+  </data>
+  <data name="Config_InfoDesarrollador" xml:space="preserve">
+    <value>Desarrollado por:</value>
+  </data>
+  <data name="Config_BtnExportar" xml:space="preserve">
+    <value>📤 Exportar</value>
+  </data>
+  <data name="Config_BtnRestaurar" xml:space="preserve">
+    <value>🔄 Restaurar</value>
+  </data>
+  <data name="Config_BtnAcercaDe" xml:space="preserve">
+    <value>ℹ️ Acerca de</value>
+  </data>
+  <data name="Config_ElimDenomNoPredeterminada" xml:space="preserve">
+    <value>No se pueden eliminar las denominaciones predeterminadas.\nSolo puede desactivarlas usando el interruptor.</value>
+  </data>
+  <data name="Config_ElimDenomConfirmar" xml:space="preserve">
+    <value>¿Está seguro de eliminar esta denominación personalizada?\n\n{0}\n\n⚠️ Esta acción no se puede deshacer.</value>
+  </data>
+  <data name="Config_ElimDenomTitulo" xml:space="preserve">
+    <value>Confirmar eliminación</value>
+  </data>
+  <data name="Config_ElimDenomOK" xml:space="preserve">
+    <value>Denominación eliminada correctamente</value>
+  </data>
+  <data name="Config_ElimDenomError" xml:space="preserve">
+    <value>No se pudo eliminar la denominación</value>
+  </data>
+  <data name="Config_ErrorCambiarEstado" xml:space="preserve">
+    <value>No se pudo cambiar el estado de la denominación</value>
+  </data>
+  <data name="Config_ExportarTitulo" xml:space="preserve">
+    <value>Exportar configuración</value>
+  </data>
+  <data name="Config_ExportarVerResumen" xml:space="preserve">
+    <value>Ver resumen</value>
+  </data>
+  <data name="Config_ExportarCompleto" xml:space="preserve">
+    <value>Exportar completo</value>
+  </data>
+  <data name="Config_ExportarCompartir" xml:space="preserve">
+    <value>Compartir configuración</value>
+  </data>
+  <data name="Config_ExportarError" xml:space="preserve">
+    <value>No se pudo exportar: {0}</value>
+  </data>
+  <data name="Config_RestaurarTitulo" xml:space="preserve">
+    <value>Restaurar configuración</value>
+  </data>
+  <data name="Config_RestaurarDetalle" xml:space="preserve">
+    <value>¿Está seguro de restaurar toda la configuración a los valores predeterminados?\n\nEsto incluye:\n• Configuración general\n• Estado de denominaciones\n• Tema de la aplicación\n\n⚠️ Las denominaciones personalizadas se mantendrán pero se desactivarán.</value>
+  </data>
+  <data name="Config_RestauradaOK" xml:space="preserve">
+    <value>Configuración restaurada correctamente.\nLa aplicación se ha reiniciado con los valores predeterminados.</value>
+  </data>
+  <data name="Config_RestaurarError" xml:space="preserve">
+    <value>No se pudo restaurar la configuración</value>
+  </data>
+  <data name="Notas_Titulo" xml:space="preserve">
+    <value>Notas</value>
+  </data>
+  <data name="Notas_TituloObligatorio" xml:space="preserve">
+    <value>El título es obligatorio</value>
+  </data>
+  <data name="Notas_ContenidoObligatorio" xml:space="preserve">
+    <value>El contenido es obligatorio para notas de texto</value>
+  </data>
+  <data name="Notas_Eliminada" xml:space="preserve">
+    <value>No se pudo eliminar la nota</value>
+  </data>
+  <data name="Notas_Total" xml:space="preserve">
+    <value>TOTAL</value>
+  </data>
+  <data name="Notas_ConImagen" xml:space="preserve">
+    <value>CON IMAGEN</value>
+  </data>
+  <data name="Notas_Favoritas" xml:space="preserve">
+    <value>FAVORITAS</value>
+  </data>
+  <data name="Notas_BtnTexto" xml:space="preserve">
+    <value>📝 Texto</value>
+  </data>
+  <data name="Notas_BtnFoto" xml:space="preserve">
+    <value>📷 Foto</value>
+  </data>
+  <data name="Notas_BtnMixta" xml:space="preserve">
+    <value>📝📷 Mixta</value>
+  </data>
+  <data name="Notas_BuscarPlaceholder" xml:space="preserve">
+    <value>Buscar...</value>
+  </data>
+  <data name="Notas_FiltroTipo" xml:space="preserve">
+    <value>Tipo...</value>
+  </data>
+  <data name="Notas_FiltroTodos" xml:space="preserve">
+    <value>Todos</value>
+  </data>
+  <data name="Notas_FiltroTexto" xml:space="preserve">
+    <value>Texto</value>
+  </data>
+  <data name="Notas_FiltroImagen" xml:space="preserve">
+    <value>Imagen</value>
+  </data>
+  <data name="Notas_FiltroMixta" xml:space="preserve">
+    <value>Mixta</value>
+  </data>
+  <data name="Notas_FiltroFavoritas" xml:space="preserve">
+    <value>⭐ Favoritas</value>
+  </data>
+  <data name="Notas_EmptyTitle" xml:space="preserve">
+    <value>No hay notas</value>
+  </data>
+  <data name="Notas_EliminadaOk" xml:space="preserve">
+    <value>Nota eliminada correctamente</value>
+  </data>
+  <data name="Notas_ConfirmarEliminar" xml:space="preserve">
+    <value>¿Está seguro de eliminar esta nota?</value>
+  </data>
+  <data name="Notas_SinTitulo" xml:space="preserve">
+    <value>Sin título</value>
+  </data>
+  <data name="Notas_TieneImagen" xml:space="preserve">
+    <value>⚠️ La imagen también será eliminada</value>
+  </data>
+  <data name="Notas_ExportarTitulo" xml:space="preserve">
+    <value>Exportar notas</value>
+  </data>
+  <data name="Notas_ExportarSoloTexto" xml:space="preserve">
+    <value>Exportar solo texto</value>
+  </data>
+  <data name="Notas_ExportarCompleto" xml:space="preserve">
+    <value>Exportar con rutas de imágenes</value>
+  </data>
+  <data name="Notas_BackupCompleto" xml:space="preserve">
+    <value>Backup completo</value>
+  </data>
+  <data name="Notas_AccionReporte" xml:space="preserve">
+    <value>¿Qué hacer con el reporte?</value>
+  </data>
+  <data name="Notas_VerReporte" xml:space="preserve">
+    <value>Ver reporte</value>
+  </data>
+  <data name="Notas_CompartirReporte" xml:space="preserve">
+    <value>Compartir reporte</value>
+  </data>
+  <data name="Notas_TituloReporte" xml:space="preserve">
+    <value>Reporte de Notas</value>
+  </data>
+  <data name="Notas_TituloCompartir" xml:space="preserve">
+    <value>Mis Notas</value>
+  </data>
+  <data name="Notas_FiltroFechaTodas" xml:space="preserve">
+    <value>📋 Todas</value>
+  </data>
+  <data name="Notas_FiltroFechaHoy" xml:space="preserve">
+    <value>📅 Hoy</value>
+  </data>
+  <data name="Notas_FiltroFechaSemana" xml:space="preserve">
+    <value>📆 Semana</value>
+  </data>
+  <data name="Notas_FiltroFechaMes" xml:space="preserve">
+    <value>🗓️ Mes</value>
+  </data>
+  <data name="Notas_FiltroFechaAnio" xml:space="preserve">
+    <value>📊 Año</value>
+  </data>
+  <data name="Notas_IrAFecha" xml:space="preserve">
+    <value>📅 Ir a fecha:</value>
+  </data>
+  <data name="Historial_Titulo" xml:space="preserve">
+    <value>Historial</value>
+  </data>
+  <data name="Export_ReporteVouchers" xml:space="preserve">
+    <value>REPORTE DE VOUCHERS</value>
+  </data>
+  <data name="Export_Generado" xml:space="preserve">
+    <value>Generado:</value>
+  </data>
+  <data name="Export_TotalVouchers" xml:space="preserve">
+    <value>Total de vouchers:</value>
+  </data>
+  <data name="Export_ResumenTipo" xml:space="preserve">
+    <value>Resumen por tipo de pago</value>
+  </data>
+  <data name="Export_Detalle" xml:space="preserve">
+    <value>Detalle de vouchers</value>
+  </data>
+  <data name="Export_ColNumero" xml:space="preserve">
+    <value>#</value>
+  </data>
+  <data name="Export_ColFecha" xml:space="preserve">
+    <value>Fecha</value>
+  </data>
+  <data name="Export_ColComercio" xml:space="preserve">
+    <value>Comercio</value>
+  </data>
+  <data name="Export_ColTipo" xml:space="preserve">
+    <value>Tipo Pago</value>
+  </data>
+  <data name="Export_ColTarjeta" xml:space="preserve">
+    <value>Tarjeta</value>
+  </data>
+  <data name="Export_ColFolio" xml:space="preserve">
+    <value>Folio/Ticket</value>
+  </data>
+  <data name="Export_ColSubtotal" xml:space="preserve">
+    <value>Subtotal</value>
+  </data>
+  <data name="Export_ColIVA" xml:space="preserve">
+    <value>IVA</value>
+  </data>
+  <data name="Export_ColTotal" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="Export_ColAuth" xml:space="preserve">
+    <value>Autorización</value>
+  </data>
+  <data name="Export_ColNotas" xml:space="preserve">
+    <value>Notas</value>
+  </data>
+  <data name="Export_TotalGeneral" xml:space="preserve">
+    <value>TOTAL GENERAL</value>
+  </data>
+  <data name="Caja_PageTitulo" xml:space="preserve">
+    <value>Conteo</value>
+  </data>
+  <data name="Caja_NombrePlaceholder" xml:space="preserve">
+    <value>Nombre del conteo</value>
+  </data>
+  <data name="Config_PageTitulo" xml:space="preserve">
+    <value>Configuración</value>
+  </data>
+  <data name="Estadisticas_Titulo" xml:space="preserve">
+    <value>Estadísticas Detalladas</value>
+  </data>
+  <data name="Mov_PageTitulo" xml:space="preserve">
+    <value>Movimientos de Efectivo</value>
+  </data>
+  <data name="NotaDetalle_Titulo" xml:space="preserve">
+    <value>Detalle de Nota</value>
+  </data>
+  <data name="NotaEditor_Titulo" xml:space="preserve">
+    <value>Editor de Nota</value>
+  </data>
+  <data name="NuevaDen_Titulo" xml:space="preserve">
+    <value>Nueva Denominación</value>
+  </data>
+  <data name="Reporte_Titulo" xml:space="preserve">
+    <value>Reporte Completo</value>
+  </data>
+  <data name="Shell_Titulo" xml:space="preserve">
+    <value>Caja Registradora</value>
+  </data>
+  <data name="Mov_Entradas" xml:space="preserve">
+    <value>ENTRADAS</value>
+  </data>
+  <data name="Mov_Salidas" xml:space="preserve">
+    <value>SALIDAS</value>
+  </data>
+  <data name="Mov_Saldo" xml:space="preserve">
+    <value>SALDO</value>
+  </data>
+  <data name="Mov_LblTipo" xml:space="preserve">
+    <value>Tipo</value>
+  </data>
+  <data name="Mov_LblFecha" xml:space="preserve">
+    <value>Fecha</value>
+  </data>
+  <data name="Mov_LblConcepto" xml:space="preserve">
+    <value>Concepto</value>
+  </data>
+  <data name="Mov_LblMonto" xml:space="preserve">
+    <value>Monto $</value>
+  </data>
+  <data name="Mov_LblDescripcion" xml:space="preserve">
+    <value>Descripción (opcional)</value>
+  </data>
+  <data name="Mov_PlaceholderTipo" xml:space="preserve">
+    <value>Seleccionar tipo...</value>
+  </data>
+  <data name="Mov_PlaceholderConcepto" xml:space="preserve">
+    <value>Seleccionar concepto...</value>
+  </data>
+  <data name="Mov_PlaceholderDescripcion" xml:space="preserve">
+    <value>Descripción adicional...</value>
+  </data>
+  <data name="Mov_TipoEntrada" xml:space="preserve">
+    <value>Entrada</value>
+  </data>
+  <data name="Mov_TipoSalida" xml:space="preserve">
+    <value>Salida</value>
+  </data>
+  <data name="Mov_EmptyTitle" xml:space="preserve">
+    <value>No hay movimientos registrados</value>
+  </data>
+  <data name="Mov_EmptyMsg" xml:space="preserve">
+    <value>Agrega tu primer movimiento usando el formulario superior</value>
+  </data>
+  <data name="Mov_BtnReporte" xml:space="preserve">
+    <value>Reporte</value>
+  </data>
+  <data name="Mov_ValidarTipo" xml:space="preserve">
+    <value>Seleccione el tipo de movimiento</value>
+  </data>
+  <data name="Mov_ValidarConcepto" xml:space="preserve">
+    <value>Seleccione un concepto</value>
+  </data>
+  <data name="Mov_ConfirmarEliminar" xml:space="preserve">
+    <value>¿Está seguro de eliminar este movimiento?</value>
+  </data>
+  <data name="Mov_PeriodoTitulo" xml:space="preserve">
+    <value>Seleccionar período</value>
+  </data>
+  <data name="Mov_PeriodoHoy" xml:space="preserve">
+    <value>📅 Hoy</value>
+  </data>
+  <data name="Mov_PeriodoSemana" xml:space="preserve">
+    <value>📆 Semana</value>
+  </data>
+  <data name="Mov_PeriodoMes" xml:space="preserve">
+    <value>🗓️ Mes</value>
+  </data>
+  <data name="Mov_Periodo30" xml:space="preserve">
+    <value>Últimos 30 días</value>
+  </data>
+  <data name="Mov_PeriodoTodo" xml:space="preserve">
+    <value>📋 Todo</value>
+  </data>
+  <data name="Mov_PeriodoAnio" xml:space="preserve">
+    <value>📊 Año</value>
+  </data>
+  <data name="Mov_FiltroFecha" xml:space="preserve">
+    <value>📅 Fecha:</value>
+  </data>
+  <data name="Mov_AccionReporte" xml:space="preserve">
+    <value>¿Qué desea hacer con el reporte?</value>
+  </data>
+  <data name="Mov_VerReporte" xml:space="preserve">
+    <value>Ver reporte</value>
+  </data>
+  <data name="Mov_CompartirReporte" xml:space="preserve">
+    <value>Compartir reporte</value>
+  </data>
+  <data name="Mov_TituloCompartir" xml:space="preserve">
+    <value>Reporte Completo de Movimientos</value>
+  </data>
+  <data name="Mov_ExitoGuardar" xml:space="preserve">
+    <value>Movimiento registrado correctamente</value>
+  </data>
+  <data name="Mov_ErrorGuardar" xml:space="preserve">
+    <value>No se pudo guardar el movimiento</value>
+  </data>
+  <data name="Concepto_VentasDia" xml:space="preserve">
+    <value>Ventas del día</value>
+  </data>
+  <data name="Concepto_PrestamoRecibido" xml:space="preserve">
+    <value>Préstamo recibido</value>
+  </data>
+  <data name="Concepto_Devolucion" xml:space="preserve">
+    <value>Devolución</value>
+  </data>
+  <data name="Concepto_IngresoExtra" xml:space="preserve">
+    <value>Ingreso extra</value>
+  </data>
+  <data name="Concepto_CapitalInicial" xml:space="preserve">
+    <value>Capital inicial</value>
+  </data>
+  <data name="Concepto_GastosOperativos" xml:space="preserve">
+    <value>Gastos operativos</value>
+  </data>
+  <data name="Concepto_PagoProveedores" xml:space="preserve">
+    <value>Pago a proveedores</value>
+  </data>
+  <data name="Concepto_PrestamoOtorgado" xml:space="preserve">
+    <value>Préstamo otorgado</value>
+  </data>
+  <data name="Concepto_GastosVarios" xml:space="preserve">
+    <value>Gastos varios</value>
+  </data>
+  <data name="Concepto_RetiroPersonal" xml:space="preserve">
+    <value>Retiro personal</value>
+  </data>
+  <data name="Acerca_Titulo" xml:space="preserve">
+    <value>Acerca de</value>
+  </data>
+  <data name="Acerca_Subtitulo" xml:space="preserve">
+    <value>Sistema Integral para Arqueo de Caja Contable</value>
+  </data>
+  <data name="Acerca_SeccionInfo" xml:space="preserve">
+    <value>📱 INFORMACIÓN DE LA APP</value>
+  </data>
+  <data name="Acerca_Version" xml:space="preserve">
+    <value>Versión:</value>
+  </data>
+  <data name="Acerca_DesarrolladoPor" xml:space="preserve">
+    <value>Desarrollado por:</value>
+  </data>
+  <data name="Acerca_FechaBuild" xml:space="preserve">
+    <value>Fecha de build:</value>
+  </data>
+  <data name="Acerca_FechaBuildValor" xml:space="preserve">
+    <value>Mayo 2026</value>
+  </data>
+  <data name="Acerca_SeccionCaracteristicas" xml:space="preserve">
+    <value>✨ CARACTERÍSTICAS PRINCIPALES</value>
+  </data>
+  <data name="Acerca_Feat1" xml:space="preserve">
+    <value>📱 Arqueo y Cuadre de Caja Registradora - Conteo de denominaciones monetarias</value>
+  </data>
+  <data name="Acerca_Feat2" xml:space="preserve">
+    <value>💰 Movimientos - Control de entradas y salidas de efectivo</value>
+  </data>
+  <data name="Acerca_Feat3" xml:space="preserve">
+    <value>📄 Vouchers y Tickets - Escáner OCR para procesar comprobantes</value>
+  </data>
+  <data name="Acerca_Feat4" xml:space="preserve">
+    <value>📝 Notas - Sistema completo con texto e imágenes</value>
+  </data>
+  <data name="Acerca_Feat5" xml:space="preserve">
+    <value>📊 Historial - Resumen y reportes detallados</value>
+  </data>
+  <data name="Acerca_Feat6" xml:space="preserve">
+    <value>⚙️ Configuración - Personalización completa</value>
+  </data>
+  <data name="Acerca_Feat7" xml:space="preserve">
+    <value>🌙 Modo oscuro/claro - Temas personalizables</value>
+  </data>
+  <data name="Acerca_Feat8" xml:space="preserve">
+    <value>🔒 100% Offline - Sin dependencias externas</value>
+  </data>
+  <data name="Acerca_SeccionTecnologias" xml:space="preserve">
+    <value>🔧 TECNOLOGÍAS UTILIZADAS</value>
+  </data>
+  <data name="Acerca_Tech1" xml:space="preserve">
+    <value>• .NET MAUI - Framework multiplataforma</value>
+  </data>
+  <data name="Acerca_Tech2" xml:space="preserve">
+    <value>• SQLite - Base de datos embebida</value>
+  </data>
+  <data name="Acerca_Tech3" xml:space="preserve">
+    <value>• OCR Nativo - Reconocimiento óptico gratuito</value>
+  </data>
+  <data name="Acerca_Tech4" xml:space="preserve">
+    <value>• GPT4o - Siempre OpenAI GPT-4o Vision (requiere red + Suscripción)</value>
+  </data>
+  <data name="Acerca_Tech5" xml:space="preserve">
+    <value>• Google - Siempre Google Cloud Vision (requiere red + Suscripción)</value>
+  </data>
+  <data name="Acerca_Tech6" xml:space="preserve">
+    <value>• SkiaSharp - Procesamiento de imágenes</value>
+  </data>
+  <data name="Acerca_Tech7" xml:space="preserve">
+    <value>• MVVM Pattern - Arquitectura escalable</value>
+  </data>
+  <data name="Acerca_Tech8" xml:space="preserve">
+    <value>• XAML + C# - UI declarativa y lógica robusta</value>
+  </data>
+  <data name="Acerca_Copyright" xml:space="preserve">
+    <value>© 2026 QuBitSoft. Todos los derechos reservados.</value>
+  </data>
+  <data name="Acerca_HechoCon" xml:space="preserve">
+    <value>Hecho con ❤️ en México 🇲🇽</value>
+  </data>
+  <data name="Estadisticas_Header" xml:space="preserve">
+    <value>📈 Estadísticas</value>
+  </data>
+  <data name="Estadisticas_Periodo" xml:space="preserve">
+    <value>⏱ PERÍODO</value>
+  </data>
+  <data name="Estadisticas_Desde" xml:space="preserve">
+    <value>Desde</value>
+  </data>
+  <data name="Estadisticas_Hasta" xml:space="preserve">
+    <value>Hasta</value>
+  </data>
+  <data name="Estadisticas_Actualizar" xml:space="preserve">
+    <value>🔄 Actualizar</value>
+  </data>
+  <data name="Estadisticas_ActividadPrincipal" xml:space="preserve">
+    <value>🎯 ACTIVIDAD PRINCIPAL</value>
+  </data>
+  <data name="Estadisticas_Cajas" xml:space="preserve">
+    <value>💰 Cajas</value>
+  </data>
+  <data name="Estadisticas_Movimientos" xml:space="preserve">
+    <value>💸 Movimientos</value>
+  </data>
+  <data name="Estadisticas_Vouchers" xml:space="preserve">
+    <value>📄 Vouchers</value>
+  </data>
+  <data name="Estadisticas_Notas" xml:space="preserve">
+    <value>📝 Notas</value>
+  </data>
+  <data name="Estadisticas_ArqueosHeader" xml:space="preserve">
+    <value>💰 ARQUEOS DE CAJA</value>
+  </data>
+  <data name="Estadisticas_ArqueosRegistrados" xml:space="preserve">
+    <value>Arqueos registrados</value>
+  </data>
+  <data name="Estadisticas_TotalContado" xml:space="preserve">
+    <value>Total contado</value>
+  </data>
+  <data name="Estadisticas_PromedioPorArqueo" xml:space="preserve">
+    <value>Promedio por arqueo</value>
+  </data>
+  <data name="Estadisticas_MaximoMinimo" xml:space="preserve">
+    <value>Máximo / Mínimo</value>
+  </data>
+  <data name="Estadisticas_MovimientosHeader" xml:space="preserve">
+    <value>💸 MOVIMIENTOS DE EFECTIVO</value>
+  </data>
+  <data name="Estadisticas_TotalMovimientos" xml:space="preserve">
+    <value>Total movimientos</value>
+  </data>
+  <data name="Estadisticas_Entradas" xml:space="preserve">
+    <value>Entradas</value>
+  </data>
+  <data name="Estadisticas_Salidas" xml:space="preserve">
+    <value>Salidas</value>
+  </data>
+  <data name="Estadisticas_SaldoNeto" xml:space="preserve">
+    <value>Saldo neto</value>
+  </data>
+  <data name="Estadisticas_VouchersHeader" xml:space="preserve">
+    <value>📄 VOUCHERS Y TICKETS</value>
+  </data>
+  <data name="Estadisticas_TotalEscaneados" xml:space="preserve">
+    <value>Total escaneados</value>
+  </data>
+  <data name="Estadisticas_ImporteTotal" xml:space="preserve">
+    <value>Importe total</value>
+  </data>
+  <data name="Estadisticas_Credito" xml:space="preserve">
+    <value>Crédito</value>
+  </data>
+  <data name="Estadisticas_Debito" xml:space="preserve">
+    <value>Débito</value>
+  </data>
+  <data name="Estadisticas_Efectivo" xml:space="preserve">
+    <value>Efectivo</value>
+  </data>
+  <data name="Estadisticas_OtrosTipos" xml:space="preserve">
+    <value>Otros tipos</value>
+  </data>
+  <data name="Estadisticas_NotasHeader" xml:space="preserve">
+    <value>📝 NOTAS</value>
+  </data>
+  <data name="Estadisticas_TotalNotas" xml:space="preserve">
+    <value>Total notas</value>
+  </data>
+  <data name="Estadisticas_SoloTexto" xml:space="preserve">
+    <value>📝 Solo texto</value>
+  </data>
+  <data name="Estadisticas_SoloImagen" xml:space="preserve">
+    <value>📷 Solo imagen</value>
+  </data>
+  <data name="Estadisticas_Mixtas" xml:space="preserve">
+    <value>📝📷 Mixtas</value>
+  </data>
+  <data name="Estadisticas_Favoritas" xml:space="preserve">
+    <value>⭐ Favoritas</value>
+  </data>
+  <data name="Estadisticas_GananciaHeader" xml:space="preserve">
+    <value>📊 RESUMEN ESTIMADO</value>
+  </data>
+  <data name="Estadisticas_UltimoArqueo" xml:space="preserve">
+    <value>Último total de caja</value>
+  </data>
+  <data name="Estadisticas_TotalVouchersLabel" xml:space="preserve">
+    <value>+ Total vouchers</value>
+  </data>
+  <data name="Estadisticas_SaldoMovLabel" xml:space="preserve">
+    <value>− Saldo movimientos</value>
+  </data>
+  <data name="Estadisticas_GananciaTotal" xml:space="preserve">
+    <value>= Ganancia estimada</value>
+  </data>
+  <data name="Estadisticas_GananciaTooltip" xml:space="preserve">
+    <value>Último arqueo + Vouchers − Saldo neto de movimientos</value>
+  </data>
+  <data name="Premium_PageTitulo" xml:space="preserve">
+    <value>Plan Premium</value>
+  </data>
+  <data name="Premium_Encabezado" xml:space="preserve">
+    <value>✨ Desbloquea todo</value>
+  </data>
+  <data name="Premium_PlanActual" xml:space="preserve">
+    <value>Plan actual:</value>
+  </data>
+  <data name="Premium_TextoPlanFree" xml:space="preserve">
+    <value>🆓 GRATIS</value>
+  </data>
+  <data name="Premium_TextoPlanPremium" xml:space="preserve">
+    <value>💎 PREMIUM</value>
+  </data>
+  <data name="Premium_PlanFreeNombre" xml:space="preserve">
+    <value>🆓 GRATIS — Siempre</value>
+  </data>
+  <data name="Premium_PlanFree1" xml:space="preserve">
+    <value>✅  Conteos de caja: ilimitados</value>
+  </data>
+  <data name="Premium_PlanFree2" xml:space="preserve">
+    <value>✅  Vouchers escaneados: hasta 300</value>
+  </data>
+  <data name="Premium_PlanFree3" xml:space="preserve">
+    <value>✅  1 sesión activa a la vez</value>
+  </data>
+  <data name="Premium_PlanFree4" xml:space="preserve">
+    <value>✅  Ver reportes en pantalla</value>
+  </data>
+  <data name="Premium_PlanFree5" xml:space="preserve">
+    <value>❌  Exportar PDF / Excel</value>
+  </data>
+  <data name="Premium_PlanFree6" xml:space="preserve">
+    <value>❌  Historial completo de sesiones</value>
+  </data>
+  <data name="Premium_PlanFree7" xml:space="preserve">
+    <value>❌  Respaldo automático</value>
+  </data>
+  <data name="Premium_PlanFree8" xml:space="preserve">
+    <value>❌  Soporte por email</value>
+  </data>
+  <data name="Premium_PlanPremiumNombre" xml:space="preserve">
+    <value>💎 PREMIUM — Todo incluido</value>
+  </data>
+  <data name="Premium_PlanPremium1" xml:space="preserve">
+    <value>✅  Todo lo del plan Gratis</value>
+  </data>
+  <data name="Premium_PlanPremium2" xml:space="preserve">
+    <value>✅  Exportar a PDF y Excel</value>
+  </data>
+  <data name="Premium_PlanPremium3" xml:space="preserve">
+    <value>✅  Historial completo de sesiones</value>
+  </data>
+  <data name="Premium_PlanPremium4" xml:space="preserve">
+    <value>✅  Respaldo automático</value>
+  </data>
+  <data name="Premium_PlanPremium5" xml:space="preserve">
+    <value>✅  Soporte por email</value>
+  </data>
+  <data name="Premium_BtnAnual" xml:space="preserve">
+    <value>💳  Suscripción Anual — $179 vía M.P</value>
+  </data>
+  <data name="Premium_BtnMensual" xml:space="preserve">
+    <value>🔄  Suscripción mensual — $89.80/mes vía M.P</value>
+  </data>
+  <data name="Premium_PagoSeguro" xml:space="preserve">
+    <value>Pago seguro vía Mercado Pago · Te enviaremos tu clave por email al confirmar el pago</value>
+  </data>
+  <data name="Premium_ActivarTitulo" xml:space="preserve">
+    <value>🔑 ¿Ya compraste? Activa tu licencia</value>
+  </data>
+  <data name="Premium_ActivarDesc" xml:space="preserve">
+    <value>Realiza el pago por Mercado Pago y envíanos el comprobante a: qubitsoftxxi@gmail.com -- Te responderemos con tu clave en menos de 24 h.</value>
+  </data>
+  <data name="Premium_BtnEnviarComprobante" xml:space="preserve">
+    <value>📧  Enviar comprobante por email</value>
+  </data>
+  <data name="Premium_ClavePlaceholder" xml:space="preserve">
+    <value>Pega tu clave de licencia aquí</value>
+  </data>
+  <data name="Premium_BtnActivar" xml:space="preserve">
+    <value>Activar clave</value>
+  </data>
+  <data name="Premium_BtnRestaurar" xml:space="preserve">
+    <value>Restaurar compra anterior</value>
+  </data>
+  <data name="Premium_ErrorNavegador" xml:space="preserve">
+    <value>No se pudo abrir el navegador: {0}</value>
+  </data>
+  <data name="Premium_ErrorCorreo" xml:space="preserve">
+    <value>No se pudo abrir el cliente de correo: {0}</value>
+  </data>
+  <data name="Premium_EmailAsunto" xml:space="preserve">
+    <value>Comprobante de pago SELLIK Premium</value>
+  </data>
+  <data name="Premium_EmailCuerpo" xml:space="preserve">
+    <value>Hola, adjunto el comprobante de mi pago para activar el plan Premium. Por favor envíame mi clave de licencia. Gracias.</value>
+  </data>
+  <data name="Premium_ClaveVacia" xml:space="preserve">
+    <value>Ingresa tu clave de licencia.</value>
+  </data>
+  <data name="License_DebugActivado" xml:space="preserve">
+    <value>Modo DEBUG: Premium activado automáticamente.</value>
+  </data>
+  <data name="License_DebugRestaurado" xml:space="preserve">
+    <value>Modo DEBUG: Premium restaurado.</value>
+  </data>
+  <data name="License_ClaveVacia" xml:space="preserve">
+    <value>Ingresa una clave de licencia válida.</value>
+  </data>
+  <data name="License_NoEncontrada" xml:space="preserve">
+    <value>No se encontró ninguna licencia guardada en este dispositivo.</value>
+  </data>
+  <data name="License_Vencida" xml:space="preserve">
+    <value>La licencia ha vencido. Renueva tu suscripción.</value>
+  </data>
+  <data name="License_ActivadaMensual" xml:space="preserve">
+    <value>¡Premium mensual activado! Vence el {0} 🎉</value>
+  </data>
+  <data name="License_ActivadaAnual" xml:space="preserve">
+    <value>¡Premium anual activado! Vence el {0} 🎉</value>
+  </data>
+  <data name="License_Invalida" xml:space="preserve">
+    <value>Clave inválida. Verifica que la copiaste correctamente.</value>
+  </data>
+  <data name="License_ErrorValidar" xml:space="preserve">
+    <value>Error al validar la clave.</value>
+  </data>
+  <data name="Premium_LimiteSesionTitulo" xml:space="preserve">
+    <value>Límite alcanzado 🆓</value>
+  </data>
+  <data name="Premium_LimiteSesionMsg" xml:space="preserve">
+    <value>El plan Gratis permite 1 sesión activa.\n\nActualiza a Premium para crear sesiones ilimitadas.</value>
+  </data>
+  <data name="Premium_BtnVerPremium" xml:space="preserve">
+    <value>Ver Premium</value>
+  </data>
+  <data name="Premium_FuncionTitulo" xml:space="preserve">
+    <value>Función Premium 💎</value>
+  </data>
+  <data name="Premium_FuncionExportar" xml:space="preserve">
+    <value>Exportar a PDF y Excel está disponible en el plan Premium.</value>
+  </data>
+  <data name="Mov_ExportarSinDatos" xml:space="preserve">
+    <value>No hay movimientos para exportar con el filtro actual.</value>
+  </data>
+  <data name="Mov_ExportarError" xml:space="preserve">
+    <value>No se pudo exportar: {0}</value>
+  </data>
+  <data name="Mov_ExportarNoDisponible" xml:space="preserve">
+    <value>No disponible</value>
+  </data>
+  <data name="Sesiones_Titulo" xml:space="preserve">
+    <value>Sesiones</value>
+  </data>
+  <data name="Sesiones_Subtitulo" xml:space="preserve">
+    <value>🗂️ Mis Espacios de Trabajo</value>
+  </data>
+  <data name="Sesiones_Desc" xml:space="preserve">
+    <value>Cada sesión tiene su propio historial de caja, movimientos, vouchers y notas.</value>
+  </data>
+  <data name="Sesiones_NuevaSesion" xml:space="preserve">
+    <value>➕ Nueva sesión</value>
+  </data>
+  <data name="Sesiones_NombrePlaceholder" xml:space="preserve">
+    <value>Nombre de la sesión (ej: Turno mañana)</value>
+  </data>
+  <data name="Sesiones_DescPlaceholder" xml:space="preserve">
+    <value>Descripción (opcional)</value>
+  </data>
+  <data name="Sesiones_BtnCrear" xml:space="preserve">
+    <value>✓ Crear sesión</value>
+  </data>
+  <data name="Sesiones_Vacia" xml:space="preserve">
+    <value>No hay sesiones. ¡Crea tu primera sesión arriba!</value>
+  </data>
+  <data name="Sesiones_CerrarSesion" xml:space="preserve">
+    <value>🔓 Cambiar de sesión</value>
+  </data>
+  <data name="Sesiones_SesionActiva" xml:space="preserve">
+    <value>Sesión activa</value>
+  </data>
+  <data name="Sesiones_ConfirmarEliminar" xml:space="preserve">
+    <value>¿Estás seguro de eliminar esta sesión?
 
 ⚠️ Se eliminarán todos sus datos: arqueos, movimientos, vouchers y notas.
-Esta acción no se puede deshacer.</value></data>
-  <data name="Sesiones_EliminarTitulo"><value>Eliminar sesión</value></data>
+Esta acción no se puede deshacer.</value>
+  </data>
+  <data name="Sesiones_EliminarTitulo" xml:space="preserve">
+    <value>Eliminar sesión</value>
+  </data>
 </root>
