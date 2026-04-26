@@ -24,12 +24,14 @@ namespace CajaApp.Views
             };
 
             // Refrescar denominaciones cuando cambie la configuración desde otro modal
-#pragma warning disable CS0618
-            MessagingCenter.Subscribe<object>(this, "DenominacionesCambiadas", async _ =>
-            {
-                await MainThread.InvokeOnMainThreadAsync(() => _viewModel.RefrescarDenominacionesAsync());
-            });
-#pragma warning restore CS0618
+            if (IPlatformApplication.Current?.Services.GetService<ConfiguracionViewModel>() is { } configVm)
+                configVm.DenominacionesCambiadas += async (_, _) =>
+                    await MainThread.InvokeOnMainThreadAsync(() => _viewModel.RefrescarDenominacionesAsync());
+
+            // Cargar registro cuando el Historial solicite editar una caja
+            if (IPlatformApplication.Current?.Services.GetService<HistorialViewModel>() is { } historialVm)
+                historialVm.EditarCajaSolicitado += async (_, registroId) =>
+                    await MainThread.InvokeOnMainThreadAsync(() => _viewModel.LoadRegistroAsync(registroId));
         }
 
         protected override async void OnAppearing()

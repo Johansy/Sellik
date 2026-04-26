@@ -4,19 +4,23 @@ using CajaApp.Services;
 using CajaApp.Views;
 using Microsoft.Maui.Controls;
 
-public class VoucherScannerViewModel
+namespace CajaApp.ViewModels
 {
+    public class VoucherScannerViewModel
+    {
     private readonly DatabaseService _db;
+    private readonly LicenseService _licenseService;
 
-    public VoucherScannerViewModel(DatabaseService db)
+    public VoucherScannerViewModel(DatabaseService db, LicenseService licenseService)
     {
         _db = db;
+        _licenseService = licenseService;
     }
 
     public async Task StartScannerAsync()
     {
         // Verificar límite de vouchers en plan Free
-        if (!await LicenseService.Instance.PuedeEscanearVoucherAsync(_db))
+        if (!await _licenseService.PuedeEscanearVoucherAsync(_db))
         {
             var page = Application.Current?.Windows.Count > 0
                 ? Application.Current.Windows[0].Page
@@ -24,7 +28,7 @@ public class VoucherScannerViewModel
 
             var irAPremium = await (page?.DisplayAlert(
                 "Límite alcanzado 🆓",
-                $"El plan Gratis permite escanear hasta {LicenseService.Instance.LimiteVouchers} vouchers.\n\nActualiza a Premium para escanear ilimitado.",
+                $"El plan Gratis permite escanear hasta {_licenseService.LimiteVouchers} vouchers.\n\nActualiza a Premium para escanear ilimitado.",
                 "Ver Premium",
                 "Cancelar") ?? Task.FromResult(false));
 
@@ -52,4 +56,5 @@ public class VoucherScannerViewModel
 
         await Shell.Current.GoToAsync(nameof(VoucherScannerPage));
     }
+}
 }

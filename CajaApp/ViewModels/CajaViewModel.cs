@@ -95,6 +95,9 @@ namespace CajaApp.ViewModels
         // Notifica a la vista si el guardado fue exitoso (true) o falló (false)
         public Action<bool>? OnGuardadoResultado { get; set; }
 
+        /// <summary>Se dispara tras guardar un conteo de caja. El argumento es el registro guardado.</summary>
+        public event EventHandler<CajaRegistro>? CajaGuardadaEvent;
+
         public CajaViewModel(DatabaseService databaseService, ConfiguracionService configuracionService)
         {
             _databaseService = databaseService;
@@ -122,15 +125,6 @@ namespace CajaApp.ViewModels
             });
 
             CompartirCommand = new Command(async () => await CompartirAsync());
-
-            // Suscribirse para recibir petición de edición desde Historial
-#pragma warning disable CS0618
-            MessagingCenter.Subscribe<object, int>(this, "EditarCaja", async (sender, registroId) =>
-            {
-                // Cargar después de navegar (el Historial enviará el mensaje luego de navegar)
-                await LoadRegistroAsync(registroId);
-            });
-#pragma warning restore CS0618
 
             _ = CargarDenominacionesDesdeConfigAsync();
         }
@@ -206,35 +200,27 @@ namespace CajaApp.ViewModels
 
         public CajaRegistro CrearRegistro(string nombreNota, DateTime fecha)
         {
-            int GetCantidad(decimal valor, TipoDenominacion tipo) =>
-                Denominaciones.FirstOrDefault(d => d.Valor == valor && d.Tipo == tipo)?.Cantidad ?? 0;
-
-            var registro = new CajaRegistro
+            return new CajaRegistro
             {
                 NombreNota = nombreNota,
                 Fecha = fecha,
                 Total = Total,
                 TotalTexto = TotalTexto,
                 Id = EditingRegistroId,
-                Centavos1   = GetCantidad(0.01m,   TipoDenominacion.Moneda),
-                Centavos5   = GetCantidad(0.05m,   TipoDenominacion.Moneda),
-                Centavos10  = GetCantidad(0.10m,   TipoDenominacion.Moneda),
-                Centavos20  = GetCantidad(0.20m,   TipoDenominacion.Moneda),
-                Centavos50  = GetCantidad(0.50m,   TipoDenominacion.Moneda),
-                Peso1       = GetCantidad(1.00m,   TipoDenominacion.Moneda),
-                Peso2       = GetCantidad(2.00m,   TipoDenominacion.Moneda),
-                Peso5       = GetCantidad(5.00m,   TipoDenominacion.Moneda),
-                Peso10      = GetCantidad(10.00m,  TipoDenominacion.Moneda),
-                Peso20      = GetCantidad(20.00m,  TipoDenominacion.Moneda),
-                Billete20   = GetCantidad(20.00m,  TipoDenominacion.Billete),
-                Billete50   = GetCantidad(50.00m,  TipoDenominacion.Billete),
-                Billete100  = GetCantidad(100.00m, TipoDenominacion.Billete),
-                Billete200  = GetCantidad(200.00m, TipoDenominacion.Billete),
-                Billete500  = GetCantidad(500.00m, TipoDenominacion.Billete),
-                Billete1000 = GetCantidad(1000.00m, TipoDenominacion.Billete)
             };
+        }
 
-            return registro;
+        private IEnumerable<DenominacionValor> CrearDenominacionesValor(IEnumerable<DenominacionConfig> configs)
+        {
+            return configs
+                .Select(c => new DenominacionValor
+                {
+                    DenominacionConfigId = c.Id,
+                    Cantidad = Denominaciones
+                        .FirstOrDefault(d => d.Valor == c.Valor && d.Tipo == c.Tipo)?.Cantidad ?? 0
+                })
+                .Where(dv => dv.Cantidad > 0)
+                .ToList();
         }
 
         public async Task GuardarCajaAsync(string nombreNota)
@@ -242,16 +228,19 @@ namespace CajaApp.ViewModels
             var registro = CrearRegistro(nombreNota, Fecha);
             try
             {
-                var result = await _databaseService.GuardarCajaAsync(registro);
+                await _databaseService.GuardarCajaAsync(registro);
 
                 // sqlite-net-pcl asigna el Id directamente en el objeto tras InsertAsync
-                if (registro.Id == 0 && result > 0)
+                if (EditingRegistroId == 0)
                     EditingRegistroId = registro.Id;
 
+                // Persistir desglose de denominaciones
+                var configs = await _configuracionService.ObtenerDenominacionesActivasAsync();
+                var valores = CrearDenominacionesValor(configs);
+                await _databaseService.GuardarDenominacionesValorAsync(registro.Id, valores);
+
                 // Notificar al Historial que hay nuevo/actualizado
-#pragma warning disable CS0618
-                MessagingCenter.Send(this, "CajaGuardada", registro);
-#pragma warning restore CS0618
+                CajaGuardadaEvent?.Invoke(this, registro);
 
                 OnGuardadoResultado?.Invoke(true);
             }
@@ -275,30 +264,18 @@ namespace CajaApp.ViewModels
                 Total = registro.Total;
                 TotalTexto = registro.TotalTexto;
 
-                void SetCantidad(decimal valor, TipoDenominacion tipo, int cantidad)
+                // Cargar cantidades desde DenominacionValores
+                var valores = await _databaseService.ObtenerDenominacionesValorAsync(id);
+                var configs = await _configuracionService.ObtenerTodasDenominacionesAsync();
+                var configPorId = configs.ToDictionary(c => c.Id);
+
+                foreach (var dv in valores)
                 {
-                    var denom = Denominaciones.FirstOrDefault(d => d.Valor == valor && d.Tipo == tipo);
-                    if (denom != null) denom.Cantidad = cantidad;
+                    if (!configPorId.TryGetValue(dv.DenominacionConfigId, out var config)) continue;
+                    var denom = Denominaciones.FirstOrDefault(d => d.Valor == config.Valor && d.Tipo == config.Tipo);
+                    if (denom != null) denom.Cantidad = dv.Cantidad;
                 }
 
-                SetCantidad(0.01m,   TipoDenominacion.Moneda,   registro.Centavos1);
-                SetCantidad(0.05m,   TipoDenominacion.Moneda,   registro.Centavos5);
-                SetCantidad(0.10m,   TipoDenominacion.Moneda,   registro.Centavos10);
-                SetCantidad(0.20m,   TipoDenominacion.Moneda,   registro.Centavos20);
-                SetCantidad(0.50m,   TipoDenominacion.Moneda,   registro.Centavos50);
-                SetCantidad(1.00m,   TipoDenominacion.Moneda,   registro.Peso1);
-                SetCantidad(2.00m,   TipoDenominacion.Moneda,   registro.Peso2);
-                SetCantidad(5.00m,   TipoDenominacion.Moneda,   registro.Peso5);
-                SetCantidad(10.00m,  TipoDenominacion.Moneda,   registro.Peso10);
-                SetCantidad(20.00m,  TipoDenominacion.Moneda,   registro.Peso20);
-                SetCantidad(20.00m,  TipoDenominacion.Billete,  registro.Billete20);
-                SetCantidad(50.00m,  TipoDenominacion.Billete,  registro.Billete50);
-                SetCantidad(100.00m, TipoDenominacion.Billete,  registro.Billete100);
-                SetCantidad(200.00m, TipoDenominacion.Billete,  registro.Billete200);
-                SetCantidad(500.00m, TipoDenominacion.Billete,  registro.Billete500);
-                SetCantidad(1000.00m, TipoDenominacion.Billete, registro.Billete1000);
-
-                // Rellenar campos vinculados
                 NombreNota = registro.NombreNota ?? string.Empty;
                 Fecha = registro.Fecha;
 

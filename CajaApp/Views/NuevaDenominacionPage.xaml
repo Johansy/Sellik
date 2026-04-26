@@ -20,7 +20,7 @@
             <!-- Formulario -->
             <StackLayout>
                 <!-- Valor -->
-                <Label Text="Valor de la denominación" FontSize="14" FontAttributes="Bold" />
+                <Label Text="Valor de la denominación" FontSize="14" FontAttributes="Bold" TextColor="{DynamicResource TextColor}" />
                 <Entry x:Name="ValorEntry" 
                        Placeholder="Ej: 25.00, 500, 1000"
                        Keyboard="Numeric"
@@ -29,7 +29,7 @@
                        Margin="0,0,0,15" />
 
                 <!-- Símbolo -->
-                <Label Text="Símbolo" FontSize="14" FontAttributes="Bold" />
+                <Label Text="Símbolo" FontSize="14" FontAttributes="Bold" TextColor="{DynamicResource TextColor}" />
                 <Entry x:Name="SimboloEntry" 
                        Placeholder="Ej: $25, $500"
                        BackgroundColor="{DynamicResource SurfaceColor}"
@@ -37,7 +37,7 @@
                        Margin="0,0,0,15" />
 
                 <!-- Tipo -->
-                <Label Text="Tipo" FontSize="14" FontAttributes="Bold" />
+                <Label Text="Tipo" FontSize="14" FontAttributes="Bold" TextColor="{DynamicResource TextColor}" />
                 <Picker x:Name="TipoPicker" 
                         BackgroundColor="{DynamicResource SurfaceColor}"
                         TextColor="{DynamicResource TextColor}"
@@ -49,7 +49,7 @@
                 </Picker>
 
                 <!-- Color -->
-                <Label Text="Color" FontSize="14" FontAttributes="Bold" />
+                <Label Text="Color" FontSize="14" FontAttributes="Bold" TextColor="{DynamicResource TextColor}" />
                 <Picker x:Name="ColorPicker" 
                         BackgroundColor="{DynamicResource SurfaceColor}"
                         TextColor="{DynamicResource TextColor}"

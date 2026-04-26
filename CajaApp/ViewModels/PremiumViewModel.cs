@@ -8,15 +8,16 @@ namespace CajaApp.ViewModels
 {
     public class PremiumViewModel : INotifyPropertyChanged
     {
-        private readonly LicenseService _license = LicenseService.Instance;
+        private readonly LicenseService _license;
 
         private string _claveIngresada = string.Empty;
         private bool   _isBusy;
         private string _mensajeEstado = string.Empty;
         private bool   _mensajeExito;
 
-        public PremiumViewModel()
+        public PremiumViewModel(LicenseService license)
         {
+            _license = license;
             ComprarUnicoCommand      = new Command(async () => await AbrirCheckoutAsync(PayPalConfig.CheckoutUrlUnico));
             ComprarMensualCommand    = new Command(async () => await AbrirCheckoutAsync(PayPalConfig.CheckoutUrlMensual));
             ActivarClaveCommand      = new Command(async () => await ActivarClaveAsync(),      () => !IsBusy);

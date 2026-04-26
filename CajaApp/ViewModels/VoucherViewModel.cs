@@ -28,6 +28,7 @@ namespace CajaApp.ViewModels
         private readonly DatabaseService  _databaseService;
         private readonly OCROrchestrator  _orchestrator;
         private readonly ExportService    _exportService;
+        private readonly LicenseService   _licenseService;
 
         private bool     _isProcessing;
         private decimal  _totalVouchers;
@@ -121,11 +122,12 @@ namespace CajaApp.ViewModels
             }
         }
 
-        public VoucherViewModel(DatabaseService databaseService, ExportService exportService, OCROrchestrator orchestrator)
+        public VoucherViewModel(DatabaseService databaseService, ExportService exportService, OCROrchestrator orchestrator, LicenseService licenseService)
         {
             _databaseService = databaseService;
             _exportService   = exportService;
             _orchestrator    = orchestrator;
+            _licenseService  = licenseService;
             _ = CargarVouchers();
             _ = RefrescarModoOCRAsync();
         }
@@ -259,7 +261,7 @@ namespace CajaApp.ViewModels
 
         public async Task ExportarExcelAsync(IEnumerable<Voucher>? vouchers = null)
         {
-            if (!LicenseService.Instance.PuedeExportar())
+            if (!_licenseService.PuedeExportar())
             {
                 await MostrarAlertaPremiumAsync();
                 return;
@@ -275,7 +277,7 @@ namespace CajaApp.ViewModels
 
         public async Task ExportarPdfAsync(IEnumerable<Voucher>? vouchers = null)
         {
-            if (!LicenseService.Instance.PuedeExportar())
+            if (!_licenseService.PuedeExportar())
             {
                 await MostrarAlertaPremiumAsync();
                 return;

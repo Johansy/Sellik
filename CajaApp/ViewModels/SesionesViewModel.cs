@@ -11,6 +11,8 @@ namespace CajaApp.ViewModels
     public class SesionesViewModel : INotifyPropertyChanged
     {
         private readonly DatabaseService _db;
+        private readonly SesionService _sesionService;
+        private readonly LicenseService _licenseService;
 
         public ObservableCollection<Sesion> Sesiones { get; } = new();
 
@@ -42,9 +44,11 @@ namespace CajaApp.ViewModels
 
         public event Action<Sesion>? SesionSeleccionada;
 
-        public SesionesViewModel(DatabaseService db)
+        public SesionesViewModel(DatabaseService db, SesionService sesionService, LicenseService licenseService)
         {
             _db = db;
+            _sesionService = sesionService;
+            _licenseService = licenseService;
 
             CargarSesionesCommand = new Command(async () => await CargarSesionesAsync());
             CrearSesionCommand = new Command(async () => await CrearSesionAsync());
@@ -77,7 +81,7 @@ namespace CajaApp.ViewModels
                 return;
 
             // Verificar límite de sesiones en plan Free
-            if (!await LicenseService.Instance.PuedeCrearSesionAsync(_db))
+            if (!await _licenseService.PuedeCrearSesionAsync(_db))
             {
                 var page = Application.Current?.Windows.Count > 0
                     ? Application.Current.Windows[0].Page
@@ -127,8 +131,8 @@ namespace CajaApp.ViewModels
         {
             try
             {
-                if (SesionService.Instance.SesionActualId == sesion.Id)
-                    SesionService.Instance.CerrarSesion();
+                if (_sesionService.SesionActualId == sesion.Id)
+                    _sesionService.CerrarSesion();
 
                 await _db.EliminarSesionAsync(sesion);
                 await CargarSesionesAsync();
@@ -146,7 +150,7 @@ namespace CajaApp.ViewModels
 
             sesion.FechaUltimoAcceso = DateTime.Now;
             _ = _db.GuardarSesionAsync(sesion);
-            SesionService.Instance.EstablecerSesion(sesion);
+            _sesionService.EstablecerSesion(sesion);
             SesionSeleccionada?.Invoke(sesion);
         }
 

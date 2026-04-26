@@ -465,9 +465,7 @@ public string DescripcionModoOCR => _modoOCRIndex switch
                 {
                     denominacion.EstaActiva = nuevoEstado;
                     ActualizarContadores();
-#pragma warning disable CS0618
-                    MessagingCenter.Send<object>(this, "DenominacionesCambiadas");
-#pragma warning restore CS0618
+                    DenominacionesCambiadas?.Invoke(this, EventArgs.Empty);
                 }
 
                 return resultado;
@@ -486,9 +484,7 @@ public string DescripcionModoOCR => _modoOCRIndex switch
                 if (resultado)
                 {
                     await CargarDenominaciones();
-#pragma warning disable CS0618
-                    MessagingCenter.Send<object>(this, "DenominacionesCambiadas");
-#pragma warning restore CS0618
+                    DenominacionesCambiadas?.Invoke(this, EventArgs.Empty);
                 }
 
                 return resultado;
@@ -510,9 +506,7 @@ public string DescripcionModoOCR => _modoOCRIndex switch
                 if (resultado)
                 {
                     await CargarDenominaciones();
-#pragma warning disable CS0618
-                    MessagingCenter.Send<object>(this, "DenominacionesCambiadas");
-#pragma warning restore CS0618
+                    DenominacionesCambiadas?.Invoke(this, EventArgs.Empty);
                 }
 
                 return resultado;
@@ -614,6 +608,9 @@ public string DescripcionModoOCR => _modoOCRIndex switch
 
         // Implementación de INotifyPropertyChanged
         public event PropertyChangedEventHandler? PropertyChanged;
+
+        /// <summary>Se dispara cuando se agrega, elimina o cambia el estado de una denominación.</summary>
+        public event EventHandler? DenominacionesCambiadas;
 
         protected virtual void OnPropertyChanged(string propertyName)
         {

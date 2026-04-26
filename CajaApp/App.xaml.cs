@@ -1,16 +1,17 @@
 ﻿using CajaApp.Models;
 using CajaApp.Services;
 using CajaApp.Views;
+using System.Diagnostics;
 
 namespace CajaApp
 {
     public partial class App : Application
     {
-        public App(DatabaseService db)
+        public App(DatabaseService db, LicenseService licenseService)
         {
             _ = db; // Inyectado para asegurar que la DB se inicializa al arrancar
             // Inicializar servicio de licencias (valida clave guardada o activa DEBUG mode)
-            _ = LicenseService.Instance.InicializarAsync();
+            FireAndForget(licenseService.InicializarAsync(), "LicenseService.InicializarAsync");
             // Aplicar UserAppTheme antes de InitializeComponent para que
             // los recursos DynamicResource arranquen con los colores correctos.
             AplicarTemaInicial();
@@ -19,7 +20,7 @@ namespace CajaApp
             AplicarColoresIniciales();
 
             // Sincroniza estado interno del servicio de tema y suscripción al tema del sistema.
-            _ = TemaService.Instance.AplicarTemaAsync();
+            FireAndForget(TemaService.Instance.AplicarTemaAsync(), "TemaService.AplicarTemaAsync");
         }
 
         protected override Window CreateWindow(IActivationState? activationState)
@@ -87,6 +88,18 @@ namespace CajaApp
             catch (Exception ex)
             {
                 System.Diagnostics.Debug.WriteLine($"Error aplicando colores iniciales: {ex.Message}");
+            }
+        }
+
+        private static async void FireAndForget(Task task, string operationName)
+        {
+            try
+            {
+                await task;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"[App] Error en {operationName}: {ex}");
             }
         }
     }

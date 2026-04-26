@@ -135,12 +135,6 @@ namespace CajaApp.ViewModels
             _fechaInicio = DateTime.Today.AddDays(-30);
         }
 
-        private async Task InicializarAsync()
-        {
-            await CargarDatos();
-            await GenerarEstadisticas();
-        }
-
         public async Task CargarDatos()
         {
             IsLoading = true;
@@ -259,34 +253,19 @@ namespace CajaApp.ViewModels
             ActualizarAgrupados();
         }
 
+        /// <summary>Se dispara cuando el usuario selecciona una caja para editar.</summary>
+        public event EventHandler<int>? EditarCajaSolicitado;
+
         // Al seleccionar un elemento del historial
         private async Task OnItemSelected(HistorialItem item)
         {
             if (item == null) return;
 
-            // Si es un conteo (Caja), navegar a la pestaña de conteo y notificar para cargar el registro
             if (item.ObjetoOriginal is CajaRegistro caja)
             {
-                // 1) Navegar a la pestaña/página de conteo
-                // Ajusta la ruta abajo a la que uses en tu Shell para la pestaña de conteo.
-                // Ejemplo: await Shell.Current.GoToAsync("//main/caja"); 
-                await Shell.Current.GoToAsync("//Caja"); // <-- REEMPLAZA con tu ruta real
-
-                // 2) Enviar mensaje para que el CajaViewModel cargue el registro
-                // Importante: enviar después de la navegación para asegurar que el VM esté suscrito.
-#pragma warning disable CS0618
-                MessagingCenter.Send(this, "EditarCaja", caja.Id);
-#pragma warning restore CS0618
+                await Shell.Current.GoToAsync("//Caja");
+                EditarCajaSolicitado?.Invoke(this, caja.Id);
             }
-            else
-            {
-                // manejar otros tipos si se desea (vouchers, notas, movimientos)
-            }
-        }
-
-        private void AplicarFiltros()
-        {
-            ActualizarAgrupados();
         }
 
         private void ActualizarAgrupados()

@@ -30,8 +30,17 @@ namespace CajaApp.Models
         public decimal SubTotal => Valor * Cantidad;
 
         public string ValorTexto => Tipo == TipoDenominacion.Moneda ? $"${Valor:F2}" : $"${Valor:F0}";
-        
+
         public string SubtotalTexto => $"${SubTotal:F2}";
+
+        public Microsoft.Maui.Graphics.Color ColorValue
+        {
+            get
+            {
+                try { return Microsoft.Maui.Graphics.Color.FromArgb(Color); }
+                catch { return Microsoft.Maui.Graphics.Color.FromArgb("#9E9E9E"); }
+            }
+        }
       
         public event PropertyChangedEventHandler? PropertyChanged;
         protected void OnPropertyChanged(string propertyName)

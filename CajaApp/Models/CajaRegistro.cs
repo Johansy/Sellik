@@ -17,23 +17,23 @@ namespace CajaApp.Models
         public decimal Total { get; set; }
         public string TotalTexto { get; set; } = string.Empty;
 
-        // Cantidades de cada denominación
-        public int Centavos1 { get; set; }
-        public int Centavos5 { get; set; }
-        public int Centavos10 { get; set; }
-        public int Centavos20 { get; set; }
-        public int Centavos50 { get; set; }
-        public int Peso1 { get; set; }
-        public int Peso2 { get; set; }
-        public int Peso5 { get; set; }
-        public int Peso10 { get; set; }
-        public int Peso20 { get; set; }
-        public int Billete20 { get; set; }
-        public int Billete50 { get; set; }
-        public int Billete100 { get; set; }
-        public int Billete200 { get; set; }
-        public int Billete500 { get; set; }
-        public int Billete1000 { get; set; }
+        // Cantidades de cada denominación — legado, migradas a DenominacionValores
+        [Ignore] public int Centavos1 { get; set; }
+        [Ignore] public int Centavos5 { get; set; }
+        [Ignore] public int Centavos10 { get; set; }
+        [Ignore] public int Centavos20 { get; set; }
+        [Ignore] public int Centavos50 { get; set; }
+        [Ignore] public int Peso1 { get; set; }
+        [Ignore] public int Peso2 { get; set; }
+        [Ignore] public int Peso5 { get; set; }
+        [Ignore] public int Peso10 { get; set; }
+        [Ignore] public int Peso20 { get; set; }
+        [Ignore] public int Billete20 { get; set; }
+        [Ignore] public int Billete50 { get; set; }
+        [Ignore] public int Billete100 { get; set; }
+        [Ignore] public int Billete200 { get; set; }
+        [Ignore] public int Billete500 { get; set; }
+        [Ignore] public int Billete1000 { get; set; }
 
         public DateTime FechaCreacion { get; set; } = DateTime.Now;
 

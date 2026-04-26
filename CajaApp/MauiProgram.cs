@@ -44,6 +44,7 @@ public static class MauiProgram
             });
 
         // Servicios
+        builder.Services.AddSingleton<SesionService>(SesionService.Instance);
         builder.Services.AddSingleton<DatabaseService>();
         builder.Services.AddSingleton<ConfiguracionService>();
         builder.Services.AddSingleton<OCRService>();           // OCR nativo (Plugin.Maui.OCR)
@@ -59,6 +60,7 @@ public static class MauiProgram
         builder.Services.AddTransient<MovimientosPage>();
         builder.Services.AddTransient<MovimientosViewModel>();
         builder.Services.AddTransient<VoucherScannerPage>();
+        builder.Services.AddTransient<VoucherScannerViewModel>();
         builder.Services.AddTransient<VoucherViewModel>();
         builder.Services.AddTransient<NotasPage>();
         builder.Services.AddTransient<NotasViewModel>();

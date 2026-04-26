@@ -245,7 +245,22 @@ namespace CajaApp.Services
         {
             try
             {
-                var maxOrden = (await ObtenerTodasDenominacionesAsync()).Max(d => d.OrdenVisualizacion);
+                var todas = await ObtenerTodasDenominacionesAsync();
+
+                // Calcular el orden correcto: insertar después de todas las denominaciones
+                // con valor menor, respetando que Monedas van antes que Billetes del mismo valor.
+                int orden = todas
+                    .Where(d => d.Valor < valor || (d.Valor == valor && d.Tipo == TipoDenominacion.Moneda && tipo == TipoDenominacion.Billete))
+                    .Select(d => d.OrdenVisualizacion)
+                    .DefaultIfEmpty(0)
+                    .Max() + 1;
+
+                // Desplazar hacia arriba las denominaciones que tenían ese orden o mayor
+                foreach (var d in todas.Where(d => d.OrdenVisualizacion >= orden))
+                {
+                    d.OrdenVisualizacion++;
+                    await _databaseService.GuardarDenominacionConfigAsync(d);
+                }
 
                 var nuevaDenominacion = new DenominacionConfig
                 {
@@ -253,7 +268,7 @@ namespace CajaApp.Services
                     Simbolo = simbolo,
                     Tipo = tipo,
                     Color = color,
-                    OrdenVisualizacion = maxOrden + 1,
+                    OrdenVisualizacion = orden,
                     EsPersonalizada = true,
                     EstaActiva = true
                 };

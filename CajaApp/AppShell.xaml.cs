@@ -13,13 +13,16 @@ namespace CajaApp
         public ICommand IrAConfiguracionCommand{ get; }
         public ICommand IrAPremiumCommand      { get; }
 
+        private readonly SesionService _sesionService;
+
         // Instancias cacheadas para evitar reinicializaciones y datos duplicados
         private HistorialPage?    _historialPage;
         private EstadisticasPage? _estadisticasPage;
         private ConfiguracionPage? _configuracionPage;
 
-        public AppShell()
+        public AppShell(SesionService sesionService)
         {
+            _sesionService = sesionService;
             this.InitializeComponent();
 
             CerrarSesionCommand     = new Command(CerrarSesion);
@@ -39,7 +42,7 @@ namespace CajaApp
             Routing.RegisterRoute(nameof(PremiumPage), typeof(PremiumPage));
 
             ActualizarNombreSesion();
-            SesionService.Instance.SesionCambiada += (_, _) =>
+            _sesionService.SesionCambiada += (_, _) =>
             {
                 // Al cambiar de sesión, invalidar caché para que la nueva sesión cargue datos frescos
                 _historialPage    = null;
@@ -87,12 +90,12 @@ namespace CajaApp
 
         private void ActualizarNombreSesion()
         {
-            LblNombreSesion.Text = SesionService.Instance.SesionActualNombre;
+            LblNombreSesion.Text = _sesionService.SesionActualNombre;
         }
 
         private void CerrarSesion()
         {
-            SesionService.Instance.CerrarSesion();
+            _sesionService.CerrarSesion();
             var sesionesPage = IPlatformApplication.Current!.Services.GetRequiredService<SesionesPage>();
             Application.Current!.Windows[0].Page = new NavigationPage(sesionesPage);
         }
